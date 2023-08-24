@@ -1,0 +1,282 @@
+
+.top {
+    width: auto;
+    height: 50px;
+    flex-shrink: 0;
+    border-bottom: 0.5px solid #9D9CA9;
+    background-color: #fff;
+  }
+  .head{
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+  }
+  .sub-head{
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    max-width: 100%; /* Optional: Limit maximum width */
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+   margin-left: 10px;
+  }
+
+  .input-icon-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+
+  .search-input {
+    border: none;
+    outline: none;
+    width: 25vw;
+  }
+
+  .search-icon {
+    border: 1px solid;
+    padding: 1px;
+    margin-left: 1px;
+  }
+
+  .button-container {
+    margin-left: 10px; 
+  }
+
+  .end-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .horizontal-line {
+    border-top: 0.5px solid #9D9CA9;
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 5px;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* margin-top: 25px; */
+  }
+  
+  .icon-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    margin: 10px 13px 10px 15px;
+    background-color: white;
+    width: 17%; /* Set width to occupy 25% of the row */
+    height: 15vh;
+    box-sizing: border-box;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .image {
+    margin-left: 20px; /* Add space on the left side of the image */
+    width: 30px; /* Adjust the image size as needed */
+    height: auto;
+  }
+  
+  mat-icon {
+    margin-right: 10px; /* Add space on the right side of the icon */
+  }
+  .title{
+    margin-left: 15px;
+  }
+  .folder-name {
+    margin-top: 10px;
+    margin-left: 35px;
+    font-size: 12px;
+    display: block;
+    text-align: left; 
+    width: 100%; 
+  }
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px; 
+    width: 95%;
+  }
+
+/* stepper */
+
+ .mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+/* table section*/
+.table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  width: 85%;
+  margin: 10px 0;
+}
+
+.table-header {
+  display: flex;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.header-cell {
+  flex: 1;
+  text-align: start;
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.table-cell {
+  flex: 1;
+  text-align: start;
+}
+
+/* Optional styling for action and option buttons */
+.table-cell button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.wide-column {
+  flex: 1; 
+  min-width: 90%; 
+}
+.s-column{
+  margin-left: 10px;
+}
+.checkbox1{
+  margin-left: 10px;
+}
+
+.dropdown{
+  height: 5vh;
+  margin: 0;
+  padding: 0;
+}
+.next-button {
+  padding: 3px 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: auto; 
+  align-self: flex-end; 
+}
+/* div {
+  
+} */
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.two-column-div {
+  display: flex;
+}
+
+.left-column,
+.right-column {
+  flex: 1;
+  padding: 10px;
+}
+
+.left-column {
+  border-right: 1px solid #ccc;
+}
+textarea{
+  margin-top: 0;
+}
+
+.input-row1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  width: 96%;
+}
+
+.input-item {
+  width: 46%;
+}
+
+#selectOptionCol,
+#inputValueCol {
+  width: 100%;
+  padding: 3px;
+}
+#inputValueCol {
+  margin-right: 5px;
+}
+#selectOptionCol{
+  margin-left: 5px;
+  padding: 5px 0px 6px 0px;
+}
+.button{
+  padding: 3px 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 46%;
+}
+.textareaLabel{
+  font-weight: 500;
+  margin-bottom: 0;
+}
+#display-area{
+  width: 37vw;
+  height: 42vh;
+}
+
+.save-button{
+  padding: 3px 8px;
+  margin: 5px 10px 0px 0px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30%;
+ 
+}
+.button-wrapper {
+  text-align: right;
+}

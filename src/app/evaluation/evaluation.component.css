@@ -1,0 +1,192 @@
+.top {
+    width: auto;
+    height: 50px;
+    flex-shrink: 0;
+    border-bottom: 0.5px solid #9D9CA9;
+    background-color: #fff;
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 5px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 10px;
+    background-color: white;
+    width: calc(25% - 20px); 
+    height: 20vh;
+    box-sizing: border-box;
+  }
+  .selected-card {
+    border: 2px solid rgb(165, 161, 161); 
+  }
+  #title{
+    font-size: 15px;
+    font-weight: 500;
+    padding: 2px;
+  }
+  #sub-title{
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  mat-form-field{
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+  
+  .submit-button {
+    margin-left: 16px;
+    margin-bottom: 1px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  .example-container {
+    height: 46vh;
+    overflow: auto;
+    border: solid 1px black;
+  }
+  .benchmark{
+    height: 57vh;
+    border-bottom: solid 1px black;
+  }
+  /* Reduce the width of the dropdowns */
+  .mat-select {
+    width: 150px; /* Adjust the width as needed */
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 10px;
+    width: 25vw;
+    
+  }
+  
+  td, th {
+    width: 10vw;
+    height: 10px;  
+  }
+
+  .card-wrapper {
+    display: flex;
+  }
+  
+  .col1,
+  .col2 {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .custom-card {
+    margin-top: 10px;
+    padding: 10px;
+    height: 34vh;
+  }
+  .horizontal-line {
+    border-top: 2px solid #000000;
+    margin-top: 5px;
+    width:82vw;
+    margin-left: 10px;
+  }
+  .horizontal-line1{
+    margin: 0;
+  }
+  .button-in-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  #model{
+    width:40vw;
+    height: 5vh;
+  }
+
+  #modelB{
+    margin: 10px;
+    width:20vw;
+    height: 6vh;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    width: 19vw;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+.send-button{
+  background-color: #007bff;
+  color: white;
+  border: none;
+  width: 5vw;
+  margin-left: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.input{
+  margin-left: 11px;
+  width:76vw;
+}
+.chatbot{
+  margin: 10px;
+  height: 55vh;
+}
+.chatbot_dropdown{
+  border:0;
+  outline: 0;
+}
+.area{
+  position: relative;
+  height: 37vh;
+  background-color: #f8f7f8;
+  border: solid 1px black;
+  border-radius: 5px;
+  margin: 10px 22px 1px 22px;
+}
+.example-chip{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-left: 20px;
+  margin-bottom: 2px;
+}
+.example-box{
+  height: 20px;
+  border: solid 1px black;
+  background-color: #f8f7f8 !important;
+}
+.chatbot_input{
+  align-content: center;
+  border: solid 1px black;
+  border-radius: 10px;
+  height: 5vh;
+  width: 74vw;
+}
+
+
+  

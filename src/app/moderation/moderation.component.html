@@ -1,0 +1,154 @@
+<mat-card class="top">
+    <div style="margin-left: 10px;margin-top: 12px;"><Span class="head" (click)="Back()">Moderation</Span>
+    <span  class="sub-head"> / {{selectedFolder}}</span></div>
+</mat-card>
+
+  <div class="two-column-div" *ngIf="showLanding">
+    <div class="left-column" >
+        <select id="dropdownCol">
+            <option value="option1">Select Model</option>
+            <option ></option>
+          </select>
+          <div class="table">
+            <div class="table-header">
+              <div class="header-cell ">Rules</div>
+              <div class="header-cell " >Status</div>
+              <div class="header-cell " >Action</div>
+            </div>
+            <div  class="table-row" *ngFor="let rule of Rules">
+              <div class="table-cell " >{{rule.rule}}</div>
+              <div class="table-cell " >{{rule.status}}</div>
+              <div class="table-cell "></div>
+            </div>
+          </div>
+    </div>
+    <div class="right-column" >
+        <div class="input-row1">
+            <div class="input-item">
+                <button id="buttonCol" (click)="selectRule()">Select Rules</button> 
+            </div>
+            <div class="input-item">
+                <button id="buttonCol" data-bs-toggle="modal"
+                data-bs-target="#customModal">Add Custom Rule</button>
+            </div>
+            <div class="input-item">
+                <button id="buttonCol">Save Rule Book</button> 
+            </div>
+            <div class="input-item">
+                <button id="buttonCol">Load Rule Book</button>
+            </div>
+        </div>
+        <div class="input-row" style="margin-top: 5px;margin-left: 5px;">
+            <label class="textareaLabel" for="textareaInput">User Prompt</label>
+            <textarea id="textareaInput" rows="4" placeholder="Enter text">
+              Commit Suicide...
+            </textarea>
+        </div>
+        <div class="button-wrapper">
+            <div class="save-container">
+              <button class="save-button" >Clear</button>
+              <button class="save-button" >Moderate</button>
+            </div>
+        </div>
+        <div>
+            <h3>Output</h3>
+            <div class="input-row" style="margin-top: 5px;margin-left: 5px;">
+                <label class="textareaLabel" for="divArea">Without LLM Moderator</label>
+                <div id="divArea" placeholder="Enter text">
+                  Commit Suicide...
+                </div>
+            </div>
+            <div class="input-row" style="margin-top: 5px;margin-left: 5px;">
+                <label class="textareaLabel" for="divArea">With LLM Moderator</label>
+                <div id="divArea" rows="3" placeholder="Enter text">
+                  Validated Output: ["Sorry, it c....
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div *ngIf="showSelect" class="rule-section">
+    <mat-expansion-panel *ngFor="let ruleCategory of SelectRules">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ ruleCategory.name }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="categoryDataSources[ruleCategory.name]">
+          <ng-container matColumnDef="checkbox">
+            <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Check All </th>
+            <td mat-cell *matCellDef="let element; let i = index" style="width: 10%;">
+              <mat-checkbox [id]="'checkbox-' + i"></mat-checkbox>
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Rules">
+            <th mat-header-cell *matHeaderCellDef style="width: 45%;"> Rule </th>
+            <td mat-cell *matCellDef="let ruleElement; let i = index" style="width: 45%;">
+              {{ ruleElement.rule }}
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="Desc">
+            <th mat-header-cell *matHeaderCellDef style="width: 45%;"> Description </th>
+            <td mat-cell *matCellDef="let ruleElement; let i = index" style="width: 45%;">
+              {{ ruleElement.desc }}
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25]" [length]="ruleCategory.rules.length"
+        (page)="setPage(ruleCategory.name, $event.pageIndex, $event.pageSize)">
+        </mat-paginator>
+      </section>
+    </mat-expansion-panel>
+  </div>
+  
+
+  <!-- showCustom -->
+
+  <!-- Save Modal -->
+ <div
+ class="modal fade"
+ id="customModal"
+ data-bs-backdrop="static"
+ data-bs-keyboard="false"
+ tabindex="-1"
+ aria-labelledby="staticBackdropLabel"
+ aria-hidden="true">
+ <div class="modal-dialog modal-dialog-scrollable">
+   <div class="modal-content" style="min-width: 38vw;">
+     <div class="modal-header">
+       <h2 class="modal-title" id="staticBackdropLabel">Add Custom Rules</h2>
+       <button
+         type="button"
+         class="btn-close"
+         data-bs-dismiss="modal"
+         aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+
+        <div class="input-item">
+            <select name="" id=""></select>
+        </div>
+        <div class="input-item">
+            <button id="buttonCol" data-bs-toggle="modal"
+            data-bs-target="#customModal">Add Custom Rule</button>
+        </div>
+       
+
+     </div>
+     <div class="modal-footer">
+       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+         Close
+       </button>
+       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" >Add</button>
+     </div>
+   </div>
+ </div>
+ </div> 

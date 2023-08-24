@@ -1,0 +1,232 @@
+.top{
+    width: auto;
+    height: 50px;
+    flex-shrink: 0;
+    border-bottom: 0.5px solid #9D9CA9;
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+  .card-container {
+    display: flex;
+    justify-content: center; /* Change this to move cards to the left */
+    align-items: center;
+    min-height: 45vh;
+    margin-left: -150px;
+  }
+  
+  .card {
+    margin: 30px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 18vw;
+  }
+  
+  .card img {
+    display: block;
+    margin: 0 auto;
+    max-width: 60px;
+  }
+  .card span {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 15px;
+
+  }
+  .selected-card {
+    border: 2px solid rgb(165, 161, 161); 
+  }
+
+  /* embedded */
+  .card-container2 {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    min-height: 40vh;
+    margin: 0;
+  }
+  .small-card {
+    width: 37%;
+    height: 78vh;
+    margin: 0px 0px 0px 15px;
+    padding-bottom: 10px;
+  }
+  /* .small-card-content{
+    
+    min-width: 30vw;
+    min-height: 76vh;
+  } */
+  
+  .large-card {
+    width: 60%;
+    height: 78vh;
+    margin: 0px 12px 0px 7px;
+  }
+  .title{
+    margin: 5px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .horizontal-line {
+    border-top: 0.5px solid #070707;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .content{
+    /* height: 75vh;
+    width: 25vw; */
+    margin: 0px 0px 0px 15px;
+  }
+
+  .data-type-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .radio-container {
+    font-weight: 500;
+    margin-left: 10px;
+  }
+
+  .dropdown-container {
+    margin-top: 10px;
+  }
+  
+  .dropdown-container label {
+    display: block;
+    margin-bottom: 5px;
+    width: 97%;
+  }
+  
+  .dropdown-container select {
+    width: 97%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .input-container,
+.textarea-container {
+  margin-top: 10px;
+  
+}
+
+.input-container label,
+.textarea-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-container input,
+.textarea-container textarea {
+  width: 97%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label{
+    font-size: 13px;
+}
+
+.action-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 97%;
+}
+  
+/* table section*/
+.table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .table-header {
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  .header-cell {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .table-cell {
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* Optional styling for action and option buttons */
+  .table-cell button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Your other styles */
+.wide-column {
+    flex: 1; 
+    min-width: 65%; 
+  }
+.f-column{
+    flex: 1;
+    min-width: 10%;
+}
+.s-column{
+    flex: 1;
+    min-width: 25%;
+}
+
+/* chatbot */
+.popup{
+    margin-top: 80px;
+  }
+.popup_content{
+   
+   min-width: 40vw;
+  }
+
+  .pop-container {
+    display: flex;
+  }
+  
+  .pop-content {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .pop-content label {
+    display: block; 
+    margin-bottom: 5px; 
+  }
+  .pop-content select {
+    height: 5vh;
+    width: 100%;
+  }
+  
+  

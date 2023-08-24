@@ -1,0 +1,143 @@
+
+<mat-card class="top">
+    <div style="margin-left: 10px"><h2 class="mt-2">Pipeline</h2></div>
+  </mat-card>
+
+<div *ngIf="home">
+  <span style="margin-left: 20px;">Please select below option:</span>
+  <div class="card-container">
+    <mat-card class="card" [class.selected-card]="selectedCard === 'card1'" (click)="clicked('card1')">
+      <img src="assets\images\embedded.png" alt="embeddedIcon" >
+      <span>New Embedding<br> Generation </span>
+    </mat-card>
+    <mat-card class="card" [class.selected-card]="selectedCard === 'card2'" (click)="clicked('card2')" 
+    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <img src="assets\images\chatbot.png" alt="chatbot">
+      <span>In Context learning<br> Chatbot</span>
+    </mat-card>
+  </div>
+</div>
+
+<div class="card-container2" *ngIf="embedded">
+  <mat-card class="small-card">
+    
+      <span class="title">New Embedded Generation</span>
+      <hr class="horizontal-line" />
+      <div class="content">
+
+        <div class="data-type-container">
+          <span class="data-type-label">Select Data type *</span>
+          <label class="radio-container">
+            <input type="radio" name="data-type" value="raw" > Raw Data</label>
+          <label class="radio-container">
+            <input type="radio" name="data-type" value="labelled" >Labelled Data</label>
+        </div>
+
+        <div class="dropdown-container">
+          <label for="dropdown1">Select Ingested Data</label>
+          <select id="dropdown1">
+            <option >Select</option>
+            <option >Option 1</option>
+            <option >Option 2</option>
+          </select>
+        </div>
+        <div class="dropdown-container">
+          <label for="dropdown2">Select Vector Store</label>
+          <select id="dropdown2">
+            <option >Select</option>
+            <option >Option 1</option>
+            <option >Option 2</option>
+          </select>
+        </div>
+        <div class="dropdown-container">
+          <label for="dropdown3">Embedding Model Selection</label>
+          <select id="dropdown3">
+            <option >Select</option>
+            <option >Option 1</option>
+            <option >Option 2</option>
+          </select>
+        </div>
+
+        <div class="input-container">
+          <label for="inputField">Input Field:</label>
+          <input type="text" id="inputField" placeholder="Type embedding name here...">
+        </div>
+        <div class="textarea-container">
+          <label for="textArea">Text Area:</label>
+          <textarea id="textArea" placeholder="Add Description here..."></textarea>
+        </div>
+        <button class="action-button">Create Embedding</button>
+    </div>
+  </mat-card>
+  
+  <mat-card class="large-card">
+      <span class="title">Embedding list</span>
+      <hr class="horizontal-line" />
+      <div>
+        <div class="table">
+          <div class="table-header">
+            <div class="header-cell f-column" >S.No</div>
+            <div class="header-cell s-column" >Embedding DB</div>
+            <div class="header-cell wide-column">Description</div>
+            
+          </div>
+          <div  class="table-row" *ngFor="let item of EmbeddedData;let i=index">
+            <div class="table-cell f-column" >{{i+1}}</div>
+            <div class="table-cell s-column" >{{item.name}}</div>
+            <div class="table-cell wide-column">{{item.desc}}</div>
+          </div>
+        </div>
+      </div>
+  </mat-card>
+</div>
+
+<div
+      class="modal fade "
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-scrollable popup">
+        <div class="modal-content popup_content" >
+          <div class="modal-header">
+            <h2 class="modal-title" id="staticBackdropLabel">In Context learning Chatbot</h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="pop-container">
+              <div class="pop-content">
+                <label for="dropdown2">Select Store</label>
+                <select id="dropdown2">
+                  <option >Select</option>
+                  <option >Option 1</option>
+                  <option >Option 2</option>
+                </select>
+              </div>
+              <div class="pop-content">
+                <label for="dropdown2">Select Store</label>
+                <select id="dropdown2">
+                  <option >Select</option>
+                  <option >Option 1</option>
+                  <option >Option 2</option>
+                </select>
+              </div>
+            </div>            
+          </div>
+          <div class="modal-footer ok_button">
+            <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button  type="button" class="btn btn-primary btn-sm" routerLink="/list"  data-bs-dismiss="modal">Okay</button>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+      

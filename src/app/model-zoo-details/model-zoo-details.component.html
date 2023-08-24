@@ -1,0 +1,168 @@
+<mat-card class="top">
+    <div style="margin-left: 10px;margin-top: 10px;"><mat-icon class="back_icon" routerLink="/modelZoo">keyboard_backspace</mat-icon><span class="mt-2 title">Model Zoo </span></div>
+</mat-card>
+
+<div class="main-container">
+    <div class="search-bar">
+      <div class="input-icon-container">
+        <input type="search" class="search-input" placeholder="Search by keywords..." />
+        <mat-icon class="search-icon">search</mat-icon>
+      </div>
+    </div>
+    <div class="button-container">
+      <button class="end-button" data-bs-toggle="modal"
+      data-bs-target="#compare">Compare</button>
+    </div>
+</div>
+  <!-- Horizontal Line -->
+    <hr class="horizontal-line" />
+
+
+    <div class="d-flex">
+      <mat-card *ngIf="Model" class="m-2 main-card">
+        <span class="m-2">{{Model.index}} : <b>{{ Model.name}}</b></span>
+
+        <div>
+            <span><b class="m-3">description:</b></span>
+            <div class="desc" style="background-color: rgb(243, 243, 242);">
+                {{Model.description}}
+            </div>
+        </div>
+        <hr class="horizontal-line" />
+        <div>
+            <span><b class="m-3">Model Architecture</b></span>
+            <div class="d-flex flex-row m-3">
+                <div class="mr-3"><b>Objective</b>
+                
+                </div>
+                <div class="mr-3"><b>Parameter</b></div>
+                <div class="mr-3"><b>License</b></div>
+            </div>
+        </div>
+        <hr class="horizontal-line" />
+    
+        <div>
+            <div>
+            <span><b class="m-3">Important Link:</b></span></div>
+            <div class="m-3">
+                <span>Link 1: </span><br>
+                <span>Link 2: </span>
+            </div>
+    
+        </div>
+        <hr class="horizontal-line" />
+        <div>
+            <div>
+                <span><b class="m-3"> Benchmark</b></span></div>
+                <div class="m-3">Note:Values of Benchmark represented in %</div>
+        </div>
+      </mat-card>
+    <!--Second card for compare-->
+      <mat-card *ngIf="selectedModel" class="m-2 compare-card">
+        <span class="m-2">Model {{selectedModel.index}} : <b>{{ selectedModel.name}}</b></span>
+
+    <div>
+        <span><b class="m-3">description:</b></span>
+        <div class="desc" style="background-color: rgb(243, 243, 242);">
+            {{selectedModel.description}}
+        </div>
+    </div>
+    <hr class="horizontal-line" />
+    <div>
+        <span><b class="m-3">Model Architecture</b></span>
+        <div class="d-flex flex-row m-3">
+            <div class="mr-3"><b>Objective</b>
+            
+            </div>
+            <div class="mr-3"><b>Parameter</b></div>
+            <div class="mr-3"><b>License</b></div>
+        </div>
+    </div>
+    <hr class="horizontal-line" />
+
+    <div>
+        <div>
+        <span><b class="m-3">Important Link:</b></span></div>
+        <div class="m-3">
+            <span>Link 1: </span><br>
+            <span>Link 2: </span>
+        </div>
+
+    </div>
+    <hr class="horizontal-line" />
+    <div>
+        <div>
+            <span><b class="m-3"> Benchmark</b></span></div>
+            <div class="m-3">Note:Values of Benchmark represented in %</div>
+    </div>
+      </mat-card>
+    </div>
+
+ <!-- <mat-card *ngIf="Model" class="m-2">
+    <span class="m-2">{{Model.index}} : <b>{{ Model.name}}</b></span>
+
+    <div>
+        <span><b class="m-3">description:</b></span>
+        <div class="desc" style="background-color: rgb(243, 243, 242);">
+            {{Model.description}}
+        </div>
+    </div>
+    <hr class="horizontal-line" />
+    <div>
+        <span><b class="m-3">Model Architecture</b></span>
+        <div class="d-flex flex-row m-3">
+            <div class="mr-3"><b>Objective</b>
+            
+            </div>
+            <div class="mr-3"><b>Parameter</b></div>
+            <div class="mr-3"><b>License</b></div>
+        </div>
+    </div>
+    <hr class="horizontal-line" />
+
+    <div>
+        <div>
+        <span><b class="m-3">Important Link:</b></span></div>
+        <div class="m-3">
+            <span>Link 1: </span><br>
+            <span>Link 2: </span>
+        </div>
+
+    </div>
+    <hr class="horizontal-line" />
+    <div>
+        <div>
+            <span><b class="m-3"> Benchmark</b></span></div>
+            <div class="m-3">Note:Values of Benchmark represented in %</div>
+    </div>
+</mat-card> -->
+
+
+<!--Source Details Modal -->
+<div
+class="modal fade "
+id="compare"
+data-bs-backdrop="static"
+data-bs-keyboard="false"
+tabindex="-1"
+aria-labelledby="staticBackdropLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-sm modal-dialog-scrollable popup2">
+  <div class="modal-content popup2_content" >
+    <div class="modal-header">
+      <h2 class="modal-title" id="staticBackdropLabel">Compare</h2>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div *ngFor="let model of Models;let i=index">
+        <mat-card class="p-2 m-2" (click)="compareModel(model)">
+          <span>Model {{i+1}}: <b>{{model.name}}</b></span></mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

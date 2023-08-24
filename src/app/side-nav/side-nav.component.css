@@ -1,0 +1,74 @@
+.highlighted {
+  background: var(--daybreak-blue-1, #e6f7ff);
+  box-shadow: -3px 0px 0px 0px #1890ff inset;
+  color: #1890ff;
+  border-right: 43px solid blue;
+}
+.highlighted svg {
+  fill: #1890ff;
+}
+.highlighted h3 {
+  color: #1890ff;
+}
+
+h3 {
+  color: #858585;
+  font-size: 16px;
+  /* font-family: Outfit; */
+}
+
+svg {
+  fill: #858585;
+}
+.logout {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0px;
+  color: #222;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+hr {
+  margin-top: 280px;
+}
+
+.divider {
+  color: #858585;
+  font-size: 14px;
+  /* font-family: Outfit; */
+}
+
+
+
+  .arrow-up::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 6px solid black; 
+    vertical-align: middle; 
+  }
+  
+  .arrow-down::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid black; 
+    vertical-align: middle;
+  }
+  
+  .menu-item a {
+    text-decoration: none;
+  }
+
+  
+
+
+

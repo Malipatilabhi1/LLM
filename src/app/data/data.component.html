@@ -1,0 +1,254 @@
+<mat-card class="top">
+  <div style="margin-left: 10px;margin-top: 12px;"><Span class="head" (click)="Back()">Raw Data</Span>
+  <span *ngIf="showDataList" class="sub-head"> / {{selectedFolder}}</span></div>
+</mat-card>
+
+<div class="main-container">
+  <div class="search-bar">
+    <div class="input-icon-container">
+      <input type="search" class="search-input" placeholder="Search by keywords..." />
+      <mat-icon class="search-icon">search</mat-icon>
+    </div>
+  </div>
+  <div class="button-container">
+    <button class="end-button" data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop" *ngIf="showFolders">+ Create New</button>
+    <mat-select [(ngModel)]="selectedOption" *ngIf="!showFolders" >
+      <mat-option class="option-name" value="option1">+ Add Source</mat-option>
+      <mat-option *ngFor="let data of SourceData" [value]="data.name">
+        <img [alt]="data.name" [src]="data.icon" width="15px" height="15px">
+        <span class="option-name">{{ data.name }}</span>
+      </mat-option>
+    </mat-select>
+
+    <button id="openModalButton" class="d-none" data-bs-toggle="modal" data-bs-target="#myModal">Hidden Button</button>
+  </div>
+</div>
+
+<!-- Horizontal Line -->
+<hr class="horizontal-line" />
+
+<Span class="title" *ngIf="showFolders">Folders</Span>
+
+<div class="card-container" *ngIf="showFolders">
+  <mat-card class="icon-card" *ngFor="let folder of Folders" (click)="FolderClicked(folder)">
+    <div class="image-container">
+      <img class="image" src="assets\images\folder.icon.png" />
+      <mat-icon>more_vert</mat-icon>
+    </div>
+    <div class="folder-name">{{folder}}</div>
+  </mat-card>
+</div>
+
+
+
+<section class="example-container mat-elevation-z8" tabindex="0" *ngIf="showDataList">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="File Name">
+      <th mat-header-cell *matHeaderCellDef style="width: 35%;"> File Name </th>
+      <td mat-cell *matCellDef="let element" style="width: 35%;"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Source">
+      <th mat-header-cell *matHeaderCellDef style="width: 15%;"> Source </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{element.source}} </td>
+    </ng-container>
+
+     <!-- Name Column -->
+     <ng-container matColumnDef="File Type">
+      <th mat-header-cell *matHeaderCellDef style="width: 15%;"> File Type </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{element.type}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Date </th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.date}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef style="width: 15%;"> Status </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element"> <mat-icon data-bs-toggle="modal"
+        data-bs-target="#details" >visibility</mat-icon></td>
+    </ng-container>
+
+    <ng-container matColumnDef="more">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element"> 
+        <!-- <button mat-icon-button [matMenuTriggerFor]="moreMenu"> -->
+          <mat-icon [matMenuTriggerFor]="moreMenu">more_vert</mat-icon>
+        <!-- </button> -->
+        <mat-menu #moreMenu="matMenu">
+          <button mat-menu-item >Edit</button>
+          <button mat-menu-item >Delete</button>
+        </mat-menu> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>
+
+
+
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content" style="min-width: 38vw;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="staticBackdropLabel">New Folder</h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-row">
+          <label for="inputLabel">Name</label>
+          <input type="text" id="inputLabel" placeholder="Enter the folder name" [(ngModel)]="folderName">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button  type="button" class="btn btn-primary btn-sm"  (click)="createFolder()"  data-bs-dismiss="modal">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal"
+  id="myModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content" style="min-width: 38vw;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="staticBackdropLabel">Youtube</h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close" ></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-row">
+          <label for="inputLabel">Name</label>
+          <input type="text" id="inputLabel" placeholder="Enter the folder name" [(ngModel)]="folderName">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"  >
+          Close
+        </button>
+        <button  type="button" class="btn btn-primary btn-sm"  (click)="createFolder()"  data-bs-dismiss="modal">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="header">
+  <div class="header-content">
+    <span style="font-weight: 500; font-size: 17px">Select Ingestion Source</span>
+    <button
+      class="process-button"
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+      (click)="processData()"
+      [disabled]="!hasSelectedItems()"
+      [matTooltip]="hasSelectedItems() ? '' : 'Select at least one source'"
+      (mouseenter)="showMessage = !hasSelectedItems()"
+      (mouseleave)="showMessage = false">
+      Proceed to Ingest
+    </button>
+  </div>
+</div> -->
+
+<!-- <div class="card-container">
+  <mat-card class="icon-card" *ngFor="let data of Data">
+    <input type="checkbox" class="checkbox" [(ngModel)]="data.selected" />
+    <img class="image" [src]="data.icon" [alt]="data.name" />
+    <span class="name">{{ data.name }}</span>
+  </mat-card>
+</div> -->
+
+<!-- Modal -->
+<!-- <div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content" style="min-width: 38vw;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="staticBackdropLabel">Ingestion</h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let data of selectedData">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="left-side">
+            <img class="popup_icon" [src]="data.icon" [alt]="data.name" />
+            <span style="font-weight: 500">{{ data.name }}</span><br />
+            <span style="font-size: 11px; margin: 5px">Enter {{ data.name }} URL*</span>
+          </div>
+          <div class="right-side">
+            <button class="upload_btn" (click)="uploadData(data, inputField.value)" [disabled]="!inputField.value">Upload</button>
+          </div>
+        </div>
+          <input
+            matInput
+            placeholder="Enter URL here..."
+            class="custom-input"  #inputField/> <br/><br/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button  type="button" class="btn btn-primary btn-sm" routerLink="/list"  data-bs-dismiss="modal">Ingestion</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div style="font-weight: 500" id="more">
+  <div>
+    <span><u>More</u> </span>
+  </div>
+  <div><mat-icon class="arrow">arrow_forward</mat-icon></div>
+</div> -->

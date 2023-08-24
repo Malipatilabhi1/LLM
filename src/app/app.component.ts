@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dataIngestion';
+  sideBarOpen = true;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
+  constructor(private router: Router) {
+    
+   }
+  shouldDisplaySidenav(): boolean {
+    const currentRoute = this.router.url;
+    return currentRoute !== '/landing';
+  }
 }

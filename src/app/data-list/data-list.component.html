@@ -1,0 +1,255 @@
+<mat-card class="top">
+    <div style="margin-left: 10px;margin-top: 12px;"><span class="head" (click)="Back()">Labelled Data</span>
+      <span *ngIf="!showFolders" class="sub-head"> / {{selectedFolder}}</span></div>
+</mat-card>
+
+<div class="main-container">
+    <div class="search-bar">
+      <div class="input-icon-container">
+        <input type="search" class="search-input" placeholder="Search..." />
+        <mat-icon class="search-icon">search</mat-icon>
+      </div>
+    </div>
+    <div class="button-container" *ngIf="showFolders">
+      <button class="end-button" data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop">+ Create New</button>
+    </div>
+</div>
+  <!-- Horizontal Line -->
+    <hr class="horizontal-line" />
+
+    <Span class="title" *ngIf="showFolders">Folders</Span>
+
+<div class="card-container" *ngIf="showFolders">
+  <mat-card class="icon-card" *ngFor="let folder of Folders" (click)="FolderClicked(folder)">
+    <div class="image-container">
+      <img class="image" src="assets\images\folder.icon.png" />
+      <mat-icon>more_vert</mat-icon>
+    </div>
+    <div class="folder-name">{{folder}}</div>
+  </mat-card>
+</div>
+
+<section class="example-container mat-elevation-z8" tabindex="0" *ngIf="showDataList">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="File Name">
+      <th mat-header-cell *matHeaderCellDef style="width: 40%;"> File Name </th>
+      <td mat-cell *matCellDef="let element" style="width: 40%;"> {{element.name}} </td>
+    </ng-container>
+
+     <!-- Name Column -->
+     <ng-container matColumnDef="File Type">
+      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> File Type </th>
+      <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.type}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Date </th>
+      <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.date}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef style="width: 30%;"> Description </th>
+      <td mat-cell *matCellDef="let element" style="width: 30%;"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element"> <mat-icon data-bs-toggle="modal"
+        data-bs-target="#details" >visibility</mat-icon></td>
+    </ng-container>
+
+    <ng-container matColumnDef="more">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element"> 
+        <!-- <button mat-icon-button [matMenuTriggerFor]="moreMenu"> -->
+          <mat-icon [matMenuTriggerFor]="moreMenu">more_vert</mat-icon>
+        <!-- </button> -->
+        <mat-menu #moreMenu="matMenu">
+          <button mat-menu-item >Edit</button>
+          <button mat-menu-item >Delete</button>
+        </mat-menu> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>
+
+
+<mat-stepper linear #stepper *ngIf="showCreate">
+  <mat-step  [editable]="isEditable">
+    <ng-template matStepLabel>Select Raw Data</ng-template>
+    
+    <div>
+      <div>
+        <select class="dropdown">
+          <option>Select Raw Data</option>
+          <option *ngFor="let name of Folders">{{name}}</option>
+        </select>
+      </div>
+      <div class="table">
+        <div class="table-header">
+          <div class="header-cell s-column" ><input type="checkbox"></div>
+          <div class="header-cell wide-column" style="font-weight: 550;">Raw Data</div>
+        </div>
+        <div  class="table-row" *ngFor="let data of RawData">
+          <div class="table-cell s-column" ><input type="checkbox"></div>
+          <div class="table-cell wide-column">{{data}}</div>
+        </div>
+      </div>
+      <div class="button-container">
+        <button class="next-button" (click)="goToNextStep()">Next</button>
+      </div>
+    </div>
+  </mat-step>
+  
+  <mat-step [editable]="isEditable">
+    <ng-template matStepLabel>Generate Data Set</ng-template>
+    <div class="two-column-div">
+       <!------- left section -------->
+      <div class="left-column" >
+        <div class="input-row1">
+          <div class="input-item">
+            <select id="selectOptionCol" [(ngModel)]="selectedOption" (ngModelChange)="onOptionSelected($event)">
+              <option value="option1">Select Task</option>
+              <option *ngFor="let task of Task">{{task}}</option>
+            </select>
+          </div>
+          <div class="input-item">
+            <input type="number" id="inputValueCol" placeholder="Enter value">
+          </div>
+        </div>
+
+        <div class="input-row" style="margin-top: 5px;margin-left: 5px;" *ngIf="showPrompt">
+          <label class="textareaLabel" for="textareaInput">Prompt</label>
+          <textarea id="textareaInput" rows="3" placeholder="Enter text">
+            Create dataset of question answer pair. Create a dataset for text
+            Summarization
+          </textarea>
+        </div>
+        <div class="input-row" style="margin-top: 5px;margin-left: 5px;">
+          <label class="textareaLabel" for="textareaInput">Seed examples</label>
+          <textarea id="textareaInput" rows="6" placeholder="Enter text">
+            ### Question: What is the capital of India?
+            ### Answer: The capital of india is Delhi.
+
+            ### Question: What is the capital of England?
+            ### Answer: The capital of England is London.  
+          </textarea>
+        </div>
+        <div class="input-row1">
+          <button class="button" style="margin-left: 5px;">Clear</button>
+          <button class="button">Generate Dataset</button>
+        </div>
+      </div>
+      <!------- right section -------->
+      <div class="right-column" >
+        <div class="input-row1">
+          <span>#records: <b>100K</b></span>
+          <span>#Words: <b>1000K</b></span>
+        </div>
+        <textarea id="display-area" rows="6" placeholder="Enter text">
+          ### Question: What is the capital of India?
+          ### Answer: The capital of india is Delhi.
+
+          ### Question: What is the capital of England?
+          ### Answer: The capital of England is London.  
+        </textarea>
+        <div class="button-wrapper">
+          <div class="save-container">
+            <button class="save-button" data-bs-toggle="modal"
+            data-bs-target="#saveModal">Save & Done</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div>
+    </div>
+  </mat-step>
+</mat-stepper>
+ 
+  <!-- Modal -->
+<div
+class="modal fade"
+id="staticBackdrop"
+data-bs-backdrop="static"
+data-bs-keyboard="false"
+tabindex="-1"
+aria-labelledby="staticBackdropLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-scrollable">
+  <div class="modal-content" style="min-width: 38vw;">
+    <div class="modal-header">
+      <h2 class="modal-title" id="staticBackdropLabel">New Folder</h2>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="input-row">
+        <label for="inputLabel">Name</label>
+        <input type="text" id="inputLabel" placeholder="Enter the folder name" [(ngModel)]="folderName">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+        Close
+      </button>
+      <button  type="button" class="btn btn-primary btn-sm"  (click)="createFolder()"  data-bs-dismiss="modal">Create</button>
+    </div>
+  </div>
+</div>
+</div>  
+
+
+ <!-- Save Modal -->
+ <div
+ class="modal fade"
+ id="saveModal"
+ data-bs-backdrop="static"
+ data-bs-keyboard="false"
+ tabindex="-1"
+ aria-labelledby="staticBackdropLabel"
+ aria-hidden="true">
+ <div class="modal-dialog modal-dialog-scrollable">
+   <div class="modal-content" style="min-width: 38vw;">
+     <div class="modal-header">
+       <h2 class="modal-title" id="staticBackdropLabel">Save</h2>
+       <button
+         type="button"
+         class="btn-close"
+         data-bs-dismiss="modal"
+         aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+
+       <div class="input-row">
+         <label for="inputLabel">Labelled Name</label>
+         <input type="text" id="inputLabel" placeholder="Enter name" [(ngModel)]="folderName">
+       </div>
+
+       <div class="input-row">
+        <label for="inputLabel">Description</label>
+        <textarea rows="3" class="popup-textarea"></textarea>
+      </div>
+
+     </div>
+     <div class="modal-footer">
+       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+         Close
+       </button>
+       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="saveData()">Save</button>
+     </div>
+   </div>
+ </div>
+ </div>  
+
+    

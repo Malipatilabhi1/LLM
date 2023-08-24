@@ -1,0 +1,168 @@
+.top{
+    width: auto;
+    height: 50px;
+    flex-shrink: 0;
+    border-bottom: 0.5px solid #9D9CA9;
+    background-color: #fff;
+}
+.head{
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+  }
+  .sub-head{
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .two-column-div {
+    display: flex;
+  }
+  
+  .left-column,
+  .right-column {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .left-column {
+    border-right: 1px solid #ccc;
+  }
+
+  .input-row1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    width: 96%;
+  }
+  
+  .input-item {
+    width: 24%;
+  }
+  
+  
+  #buttonCol {
+    width: 100%;
+    padding: 3px 4px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  #dropdownCol{
+    width: 25vw;
+    height: 5vh;
+  }
+
+  /* table section*/
+.table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    width: 85%;
+    margin: 10px 0;
+  }
+  
+  .table-header {
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  .header-cell {
+    flex: 1;
+    text-align: start;
+    font-weight: 550;
+    width: 33.33%;
+  }
+  
+  .table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .table-cell {
+    flex: 1;
+    text-align: start;
+    width: 33.33%;
+  }
+
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px; 
+    width: 95%;
+  }
+  .textareaLabel{
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  .button-wrapper {
+    text-align: right;
+    margin-right: 15px;
+  }
+  .save-button{
+    padding: 3px 8px;
+    margin: 2px 5px 0px 0px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30%;
+  }
+  #divArea{
+    background-color: #dbdbdb;
+    min-height: 14vh;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    overflow-y: auto;
+  }
+  .rule-section{
+    margin: 10px 15px 0px 15px;
+  }
+  mat-expansion-panel{
+    margin: 5px;
+  }
+
+   /* Rules table section*/
+/* .table1 {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  .table-header1 {
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  .header-cell1 {
+    flex: 1;
+    text-align: start;
+    font-weight: 550;
+    
+  }
+  
+  .table-row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .table-cell1 {
+    flex: 1;
+    text-align: start;
+    
+  } */
