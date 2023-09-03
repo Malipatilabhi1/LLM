@@ -30,6 +30,18 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { ModalContentComponent } from './modal-content/modal-content.component';
 import { ModerationComponent } from './moderation/moderation.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
+import { TaskBasedComponent } from './task-based/task-based.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSliderModule} from '@angular/material/slider';
+import { SourceComponent } from './source/source.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FileUploadModule } from 'ng2-file-upload';
+import { HomeComponent } from './home/home.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ChatbattleComponent } from './chatbattle/chatbattle.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +56,12 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FineTuningComponent,
     ModalContentComponent,
     ModerationComponent,
+    TaskBasedComponent,
+    SourceComponent,
+    HomeComponent,
+    ChatbattleComponent,
+    ChatbotComponent,
+    
    
   ],
   imports: [
@@ -65,6 +83,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatChipsModule,
     MatStepperModule,
     MatCheckboxModule,
+    HttpClientModule,
+    MatTabsModule,
+    MatSliderModule,
+    MatDialogModule,
+    FileUploadModule,
+    MatProgressBarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

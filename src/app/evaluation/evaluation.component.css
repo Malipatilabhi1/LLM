@@ -8,22 +8,33 @@
   .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 5px;
+    justify-content: space-between;
+    margin: 0px 10px 10px 10px;
   }
+  
   .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
     text-align: center;
-    position: relative;
-    margin: 10px;
     background-color: white;
-    width: calc(25% - 20px); 
-    height: 20vh;
+    margin: 0;
     box-sizing: border-box;
+    max-width: calc(25% - 20px);
+    height: 19vh;
+    padding: 10px;
+    position: relative;
   }
+  
+  .checkbox-container {
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+  }
+  
+  /* .checkbox {
+    
+  } */
+  
+  
   .selected-card {
     border: 2px solid rgb(165, 161, 161); 
   }
@@ -35,6 +46,14 @@
   #sub-title{
     font-size: 12px;
     font-weight: 400;
+  }
+  .sub-title{
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    margin-top: 2px;
+    padding: 0;
   }
 
   mat-form-field{
@@ -86,40 +105,54 @@
     height: 10px;  
   }
 
-  .card-wrapper {
+  /* chatBattle */
+  /* .card-wrapper {
     display: flex;
   }
-  
   .col1,
   .col2 {
     flex: 1;
     margin: 10px;
   }
-  
   .custom-card {
     margin-top: 10px;
     padding: 10px;
     height: 34vh;
+    position: relative; 
   }
-  .horizontal-line {
+  .card-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #007bff;
+    color: #fff;
+    padding: 1px;
+    font-size: 10px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  .model_content{
+    font-size: 14px;
+    margin-top: 12px;
+  } */
+  /* .horizontal-line {
     border-top: 2px solid #000000;
     margin-top: 5px;
     width:82vw;
     margin-left: 10px;
   }
-  .horizontal-line1{
-    margin: 0;
-  }
+  
+
   .button-in-row {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-  }
+  } */
 
-  #model{
+  /* #model{
     width:40vw;
     height: 5vh;
-  }
+  } */
 
   #modelB{
     margin: 10px;
@@ -127,7 +160,7 @@
     height: 6vh;
   }
   
-  .button {
+  /* .button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -136,8 +169,8 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-.send-button{
+  } */
+/* .send-button{
   background-color: #007bff;
   color: white;
   border: none;
@@ -151,14 +184,19 @@
 .input{
   margin-left: 11px;
   width:76vw;
-}
-.chatbot{
+} */
+
+/* chatbot */
+/* .chatbot{
   margin: 10px;
   height: 55vh;
 }
 .chatbot_dropdown{
   border:0;
   outline: 0;
+}
+.horizontal-line1{
+  margin: 0;
 }
 .area{
   position: relative;
@@ -186,7 +224,41 @@
   border-radius: 10px;
   height: 5vh;
   width: 74vw;
+} */
+
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
 }
 
+.selected-option {
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
 
-  
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #f2f2f2;
+}
+/* .loading-indicator{
+  margin: 10vh 0px 0px 15vw;
+} */
+.loading-indicator1{
+  margin: 0px 0px 0px 10px;
+}

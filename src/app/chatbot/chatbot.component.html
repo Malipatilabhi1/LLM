@@ -1,0 +1,34 @@
+<mat-card class="top">
+    <div style="margin-left: 10px"><h2 class="mt-2">Chatbot</h2></div>
+</mat-card>
+
+
+<mat-card class="chatbot">
+    <div class="m-3">
+    <span>Model :  </span>
+    <select id="chatbot_dropdown">
+        <option value="volvo">GPT-3.5-8B</option>
+        <option value="saab">GTP-3.5-7B</option>  
+    </select>
+     </div>
+     <hr class="horizontal-line1" />
+     <div class="area">
+        <mat-chip-set
+            class="example-chip"
+            cdkDropList 
+            cdkDropListOrientation="horizontal">
+            <mat-chip
+                class="example-box"
+                cdkDrag
+                *ngFor="let sample of Messages">
+                {{sample}}
+            </mat-chip>
+            </mat-chip-set>
+     </div>
+     <div style="margin-left:23px">
+        <mat-icon style="padding-top: 6px;font-size: 20px;">add_circle_outline</mat-icon>
+        <input class="m-1 chatbot_input" placeholder="Enter Message here...">
+        <mat-icon style="padding-top: 8px;font-size: 20px;">send</mat-icon>
+     </div>
+     
+</mat-card>

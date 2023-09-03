@@ -3,20 +3,45 @@
     <div style="margin-left: 10px"><h2 class="mt-2">Pipeline</h2></div>
   </mat-card>
 
-<div *ngIf="home">
-  <span style="margin-left: 20px;">Please select below option:</span>
-  <div class="card-container">
-    <mat-card class="card" [class.selected-card]="selectedCard === 'card1'" (click)="clicked('card1')">
-      <img src="assets\images\embedded.png" alt="embeddedIcon" >
-      <span>New Embedding<br> Generation </span>
-    </mat-card>
-    <mat-card class="card" [class.selected-card]="selectedCard === 'card2'" (click)="clicked('card2')" 
-    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      <img src="assets\images\chatbot.png" alt="chatbot">
-      <span>In Context learning<br> Chatbot</span>
-    </mat-card>
+  <div *ngIf="home">
+    <span style="margin-left: 20px;">Please select below option:</span>
+    <div class="card-container">
+      <div class="card-row">
+        <mat-card class="card" [class.selected-card]="selectedCard === 'card1'" (click)="clicked('card1')">
+            <img src="assets\images\FloWiseAI1.png" alt="chatbot" height="40px" width="100px">
+            <span>LLM Apps Flow Designer</span>     
+        </mat-card>
+
+        
+      </div>
+      <div class="card-row">
+        <mat-card class="card" [class.selected-card]="selectedCard === 'card2'" (click)="clicked('card2')">
+          <img src="assets\images\embedded.png" alt="embeddedIcon">
+          <span>New Embedding<br>Generation</span>
+        </mat-card>
+        <mat-card class="card" [class.selected-card]="selectedCard === 'card3'" (click)="clicked('card3')"
+        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <img src="assets\images\chatbot.png" alt="embeddedIcon">
+          <span>In Context learning<br>Chatbot</span>
+        </mat-card>
+        <!-- <mat-card class="card" [class.selected-card]="selectedCard === 'card4'" (click)="clicked('card4')">
+          <img src="assets\images\h2o.png" alt="chatbot">
+          <span></span>
+        </mat-card> -->
+      </div>
+    </div>
   </div>
-</div>
+  
+
+  <div *ngIf="flow">
+    <div class="embedded-web-page">
+      <iframe class="custom-iframe" src="http://13.234.148.242:3333/">     
+          <h2> Server Unavailable.</h2>
+      </iframe>
+    </div>
+  </div>
+
+  
 
 <div class="card-container2" *ngIf="embedded">
   <mat-card class="small-card">

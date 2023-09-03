@@ -8,37 +8,68 @@ import { NavigationEnd, Router,Event } from '@angular/router';
 })
 export class SideNavComponent {
 
-  constructor(private router: Router) {
-    this.currentRoute = "";
-   }
-   currentRoute: string;
-   dataIngestion:boolean=false;
-   Finetuning:boolean=false;
-   isArrowUp: boolean = false;
+  dataIngestionSubpagesVisible = false;
+finetuneSubpagesVisible = false;
+evaluationSubpagesVisible = false;
 
-  toggleArrow() {
-    this.isArrowUp = !this.isArrowUp;
+toggleDataIngestionSubpages() {
+  this.dataIngestionSubpagesVisible = !this.dataIngestionSubpagesVisible;
+  // Reset the activeRoute when closing the dropdown
+  if (!this.dataIngestionSubpagesVisible) {
+    this.activeRoute = '';
   }
+}
 
-   selectedOption:string='';
-   selectOption(option:string){
-      this.selectedOption =option;
+toggleFinetuneSubpages() {
+  this.finetuneSubpagesVisible = !this.finetuneSubpagesVisible;
+  // Reset the activeRoute when closing the dropdown
+  if (!this.finetuneSubpagesVisible) {
+    this.activeRoute = '';
   }
+}
 
-  getEndPoint() {
-    this.router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationEnd) {
-        this.currentRoute = event.url;
-        console.log(this.currentRoute);
-        if ( this.currentRoute === "/") {
-          this.dataIngestion=true;
-          this.Finetuning=false;
-        }
-        else if(this.currentRoute === "/finetune"){
-          this.dataIngestion=false;
-          this.Finetuning=true;
-        }
-      }
-    });
+toggleEvaluationSubpages() {
+  this.evaluationSubpagesVisible = !this.evaluationSubpagesVisible;
+  // Reset the activeRoute when closing the dropdown
+  if (!this.evaluationSubpagesVisible) {
+    this.activeRoute = '';
   }
+}
+
+activeRoute: string = '';
+
+constructor(private router: Router) {
+  this.router.events.subscribe((event) => {
+    if (event instanceof NavigationEnd) {
+      this.setActiveRoute(event.urlAfterRedirects);
+    }
+  });
+}
+
+setActiveRoute(url: string) {
+  if (url.startsWith('/dataIngestion')) {
+    this.activeRoute = url; // Set the activeRoute to the full URL of the selected subpage
+  } else if (url.startsWith('/modelZoo')) {
+    this.activeRoute = url;
+  } else if (url.startsWith('/finetune')) {
+    this.activeRoute = url;
+  } else if (url.startsWith('/evaluation')) {
+    this.activeRoute = url;
+  } else if (url.startsWith('/moderation')) {
+    this.activeRoute = url;
+  } else if (url.startsWith('/pipeline')) {
+    this.activeRoute = url;
+  } else if (url.startsWith('/deployment')) {
+    this.activeRoute = url;
+  } else {
+    this.activeRoute = '';
+  }
+  console.log(this.activeRoute);
+}
+
+
+
+
+
+  
 }

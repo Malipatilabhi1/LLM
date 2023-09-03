@@ -1,204 +1,85 @@
-<div
-  class="card border-0 me-0 rounded-0 mx-auto text-center mx-auto"
-  style="background-color: white"
->
-  <!-- *ngIf="summary"  -->
-  <!-- <div  routerLink="/summary"   class="d-flex flex-row px-1 mt-3 " 
-    style="display: flex;align-items: center;cursor: pointer; background: #E6F7FF;box-shadow: -3px 0px 0px 0px #1890FF inset; color:#1890FF;border-right: 43px solid blue;">
-     <div>
-      <svg style=" fill: #1890FF;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g id="icon/Dashboard">
-        <path id="Vector" d="M18.4471 7.3665C17.9869 6.25756 17.3198 5.25006 16.4828 4.39984C15.6478 3.54756 14.6582 2.86835 13.5691 2.39984C12.4376 1.91234 11.2386 1.6665 10.0007 1.6665C8.76274 1.6665 7.56371 1.91234 6.4322 2.39984C5.34306 2.86835 4.35355 3.54756 3.51851 4.39984C2.68145 5.25006 2.01437 6.25756 1.55422 7.3665C1.07543 8.51859 0.833984 9.73942 0.833984 10.9998C0.833984 13.7644 2.02688 16.3686 4.10575 18.1478L4.14053 18.1769C4.25921 18.2769 4.40858 18.3332 4.56203 18.3332H15.4413C15.5948 18.3332 15.7441 18.2769 15.8628 18.1769L15.8976 18.1478C17.9744 16.3686 19.1673 13.7644 19.1673 10.9998C19.1673 9.73942 18.9238 8.51859 18.4471 7.3665ZM15.1037 16.7498H4.8976C4.10697 16.024 3.47506 15.137 3.0429 14.1464C2.61073 13.1558 2.38796 12.0838 2.38904 10.9998C2.38904 8.929 3.1809 6.98317 4.61933 5.52067C6.05776 4.05609 7.96884 3.24984 10.0007 3.24984C12.0345 3.24984 13.9456 4.05609 15.382 5.52067C16.8204 6.98525 17.6123 8.93109 17.6123 10.9998C17.6123 13.1998 16.7017 15.2811 15.1037 16.7498ZM12.2821 8.11442C12.2513 8.0834 12.2098 8.066 12.1665 8.066C12.1232 8.066 12.0816 8.0834 12.0509 8.11442L10.3219 9.87484C9.93927 9.77067 9.51572 9.87067 9.21494 10.1769C9.1084 10.2852 9.02388 10.4138 8.96621 10.5553C8.90855 10.6969 8.87886 10.8487 8.87886 11.0019C8.87886 11.1552 8.90855 11.3069 8.96621 11.4485C9.02388 11.5901 9.1084 11.7187 9.21494 11.8269C9.32127 11.9354 9.44757 12.0214 9.5866 12.0802C9.72564 12.1389 9.87468 12.1691 10.0252 12.1691C10.1757 12.1691 10.3248 12.1389 10.4638 12.0802C10.6028 12.0214 10.7291 11.9354 10.8355 11.8269C10.978 11.6823 11.0805 11.5019 11.1325 11.304C11.1846 11.1061 11.1845 10.8977 11.1322 10.6998L12.8611 8.93942C12.9246 8.87484 12.9246 8.76859 12.8611 8.704L12.2821 8.11442V8.11442ZM9.5505 5.99984H10.4508C10.5408 5.99984 10.6145 5.92484 10.6145 5.83317V4.1665C10.6145 4.07484 10.5408 3.99984 10.4508 3.99984H9.5505C9.46047 3.99984 9.38681 4.07484 9.38681 4.1665V5.83317C9.38681 5.92484 9.46047 5.99984 9.5505 5.99984ZM14.8704 10.5415V11.4582C14.8704 11.5498 14.9441 11.6248 15.0341 11.6248H16.671C16.7611 11.6248 16.8347 11.5498 16.8347 11.4582V10.5415C16.8347 10.4498 16.7611 10.3748 16.671 10.3748H15.0341C14.9441 10.3748 14.8704 10.4498 14.8704 10.5415ZM15.1303 6.43317L14.494 5.78525C14.4632 5.75424 14.4216 5.73684 14.3783 5.73684C14.3351 5.73684 14.2935 5.75424 14.2627 5.78525L13.1046 6.96442C13.0742 6.99574 13.0571 7.03805 13.0571 7.08213C13.0571 7.12621 13.0742 7.16851 13.1046 7.19984L13.741 7.84775C13.8044 7.91234 13.9088 7.91234 13.9722 7.84775L15.1303 6.66859C15.1937 6.604 15.1937 6.49775 15.1303 6.43317ZM5.74674 5.78525C5.71598 5.75424 5.67443 5.73684 5.63114 5.73684C5.58784 5.73684 5.5463 5.75424 5.51553 5.78525L4.87919 6.43317C4.84872 6.46449 4.83163 6.5068 4.83163 6.55088C4.83163 6.59496 4.84872 6.63726 4.87919 6.66859L6.0373 7.84775C6.10073 7.91234 6.20508 7.91234 6.26851 7.84775L6.90486 7.19984C6.96829 7.13525 6.96829 7.029 6.90486 6.96442L5.74674 5.78525ZM4.88532 10.3748H3.24842C3.15839 10.3748 3.08473 10.4498 3.08473 10.5415V11.4582C3.08473 11.5498 3.15839 11.6248 3.24842 11.6248H4.88532C4.97535 11.6248 5.04901 11.5498 5.04901 11.4582V10.5415C5.04901 10.4498 4.97535 10.3748 4.88532 10.3748Z" />
-        </g>
-        </svg>
-     </div>
-     <div style="align-items: center;">
-      <h3 class="px-1 my-2" style="color: #1890FF;" >Dashboard</h3>
-     </div>
-    </div> -->
-  <!-- *ngIf="!summary"  -->
-  <div
-    routerLink="/summary"
-    class="d-flex flex-row px-1 mt-3"
-    style="display: flex; align-items: center; cursor: pointer">
-    <div></div>
-    <div style="align-items: center">
-      <h3 class="px-1 my-2">Home</h3>
-    </div>
+<mat-nav-list class="sidebar-list">
+  <!-- Home -->
+  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '', 'inactive-option': activeRoute !== '' }" routerLink="/">
+    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+    Home
+  </a>
+
+  <!-- Data Ingestion Dropdown -->
+  <a mat-list-item (click)="toggleDataIngestionSubpages()" [ngClass]="{ 'active-option': dataIngestionSubpagesVisible }">
+    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+    Data Ingestion
+    <mat-icon>{{ dataIngestionSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+  </a>
+  <div *ngIf="dataIngestionSubpagesVisible" class="sub-head">
+    <a mat-list-item routerLink="/dataIngestion/rawdata" [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/rawdata' }">
+      Raw Data
+    </a>
+    <a mat-list-item routerLink="/dataIngestion/labelled-data" [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/labelled-data' }">
+      Labelled Data
+    </a>
   </div>
 
-  <!-- *ngIf="algorithm"   -->
-  <div routerLink="/ingestion" *ngIf=""  class="d-flex flex-row px-1 mt-2" 
-    style="display: flex;align-items: center;cursor: pointer; background: #E6F7FF;box-shadow: -3px 0px 0px 0px #1890FF inset; color:#1890FF;border-right: 43px solid blue;">
-      <div>
-        
-      </div>
-      <div style="align-items: center;">
-       <h3 class="px-1 my-2" style="color: #1890FF;" >Data Ingestion</h3>
-      </div>
-     </div>
-  <!-- *ngIf="!algorithm" -->
-  
-  <!-- <div
-    routerLink="/ingestion"
-    class="d-flex flex-row px-1 mt-2"
-    style="display: flex; align-items: center; cursor: pointer"
-  >
-    <div></div>
-    <div style="align-items: center">
-      <h3 class="px-1 my-2">Data Ingestion</h3>
-    </div>
-  </div> -->
+  <!-- Model Zoo -->
+  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/modelZoo', 'inactive-option': activeRoute !== '/modelZoo' }" routerLink="/modelZoo">
+    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+    Model Zoo
+  </a>
 
-  <!-- <div routerLink="/analysis"   class="d-flex flex-row px-1 mt-2" 
-     style="display: flex;align-items: center;cursor: pointer; background: #E6F7FF;box-shadow: -3px 0px 0px 0px #1890FF inset; color:#1890FF;border-right: 43px solid blue;">
-      <div>
-        <svg style=" fill: #1890FF;" width="20" height="20" viewBox="0 0 20 20" fill="1890FF" xmlns="http://www.w3.org/2000/svg">
-          <g id="icon/PieChart">
-          <path id="Vector" d="M17.1995 10.123H9.87698V2.80056C9.87698 2.71056 9.80335 2.63693 9.71335 2.63693H9.18155C8.10711 2.63517 7.04292 2.84588 6.05022 3.25693C5.05751 3.66798 4.15588 4.27126 3.3972 5.03207C2.65004 5.77692 2.05471 6.65984 1.64431 7.63175C1.21724 8.63979 0.998099 9.72368 1.00001 10.8185C0.998253 11.8929 1.20896 12.9571 1.62001 13.9498C2.03107 14.9425 2.63435 15.8441 3.39516 16.6028C4.14581 17.3535 5.02124 17.9446 5.99484 18.3557C7.00288 18.7828 8.08677 19.0019 9.18155 19C10.256 19.0017 11.3202 18.791 12.3129 18.38C13.3056 17.9689 14.2072 17.3657 14.9659 16.6048C15.7166 15.8542 16.3077 14.9788 16.7188 14.0052C17.1459 12.9971 17.365 11.9132 17.3631 10.8185V10.2867C17.3631 10.1967 17.2895 10.123 17.1995 10.123ZM13.9616 15.6415C13.3283 16.2699 12.5771 16.7672 11.7513 17.1048C10.9254 17.4425 10.041 17.6138 9.14882 17.6091C7.34684 17.6009 5.65326 16.8953 4.37899 15.621C3.09653 14.3386 2.39087 12.6327 2.39087 10.8185C2.39087 9.0042 3.09653 7.29835 4.37899 6.0159C5.49577 4.89912 6.93367 4.21801 8.48612 4.06256V11.5139H15.9375C15.78 13.0745 15.0927 14.5206 13.9616 15.6415ZM18.9994 8.98579L18.9462 8.409C18.7724 6.5252 17.9358 4.74776 16.5899 3.40599C15.2431 2.06176 13.4693 1.22984 11.5746 1.0538L10.9958 1.00062C10.8997 0.99244 10.8179 1.06607 10.8179 1.16221V9.01852C10.8179 9.10852 10.8915 9.18215 10.9815 9.18215L18.8358 9.1617C18.9319 9.1617 19.0076 9.07988 18.9994 8.98579ZM12.2046 7.79538V2.54693C13.4931 2.81661 14.6755 3.45471 15.6081 4.38368C16.5429 5.31638 17.1831 6.5027 17.449 7.78106L12.2046 7.79538Z" />
-          </g>
-          </svg>
-      </div>
-      <div style="align-items: center;">
-       <h3 class="px-1 my-2" style="color: #1890FF;">Cluster Analysis</h3>
-      </div>
-     </div> -->
-
-
-     <div class="menu-item">
-      <div class="dropdown-heading d-flex flex-row px-1 mt-2 align-items-center cursor-pointer" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#dataIngestionSubMenu" aria-expanded="false" aria-controls="dataIngestionSubMenu" (click)="toggleArrow()">
-        <div>
-          <h3 class="px-1 my-2">Data Ingestion</h3>
-        </div>
-        <div class="dropdown-arrow">
-          <span [ngClass]="{'arrow-up': isArrowUp, 'arrow-down': !isArrowUp}"></span>
-        </div>
-      </div>
-      <div id="dataIngestionSubMenu" class="collapse">
-        <div class="dropdown-item" routerLink="/ingestion">Raw Data</div>
-        <div class="dropdown-item" routerLink="/list">Labelled Data</div>
-      </div>
-    </div>
-
-  <div routerLink="/modelZoo" class="d-flex flex-row px-1 mt-2" style="display: flex; align-items: center; cursor: pointer">
-    <div style="align-items: center">
-      <h3 class="px-1 my-2">Model Zoo</h3>
-    </div>
+  <!-- Fine-tuning Dropdown -->
+  <a mat-list-item (click)="toggleFinetuneSubpages()" [ngClass]="{ 'active-option': finetuneSubpagesVisible }">
+    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+    Fine-tuning
+    <mat-icon>{{ finetuneSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+  </a>
+  <div *ngIf="finetuneSubpagesVisible" class="sub-head">
+    <a mat-list-item routerLink="/finetune/domain-adaptation" [ngClass]="{ 'active-option': activeRoute === '/finetune/domain-adaptation' }">
+      Domain Adaptation
+    </a>
+    <a mat-list-item routerLink="/finetune/taskBased" [ngClass]="{ 'active-option': activeRoute === '/finetune/taskBased' }">
+      Task Based
+    </a>
   </div>
 
-  <div routerLink="/finetune" class="d-flex flex-row px-1 mt-2" style="display: flex; align-items: center; cursor: pointer" >
-    <div style="align-items: center">
-      <h3 class="px-1 my-2">Fine-tuning</h3>
-    </div>
+  <!-- Evaluation Dropdown -->
+  <a mat-list-item (click)="toggleEvaluationSubpages()" [ngClass]="{ 'active-option': evaluationSubpagesVisible }">
+    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+    Evaluation
+    <mat-icon>{{ evaluationSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+  </a>
+  <div *ngIf="evaluationSubpagesVisible" class="sub-head">
+    <a mat-list-item routerLink="/evaluation/benchmark" [ngClass]="{ 'active-option': activeRoute === '/evaluation/benchmark' }">
+      Benchmark
+    </a>
+    <a mat-list-item routerLink="/evaluation/chat-battle" [ngClass]="{ 'active-option': activeRoute === '/evaluation/chat-battle' }">
+      Chat Battle
+    </a>
+    <a mat-list-item routerLink="/evaluation/chatbot" [ngClass]="{ 'active-option': activeRoute === '/evaluation/chatbot' }">
+      Chatbot
+    </a>
   </div>
 
-  <div
-    routerLink="/evaluation"
-    class="d-flex flex-row px-1 mt-2"
-    style="display: flex; align-items: center; cursor: pointer"
-  >
-    <div></div>
-    <div style="align-items: center">
-      <h3 class="px-1 my-2">Evaluation</h3>
-    </div>
-  </div>
+  <!-- Moderation -->
+  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/moderation', 'inactive-option': activeRoute !== '/moderation' }" routerLink="/moderation">
+    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+    Moderation
+  </a>
 
-  <div
-    routerLink="/moderation"
-    class="d-flex flex-row px-1 mt-2"
-    style="display: flex; align-items: center; cursor: pointer"
-  >
-    <div></div>
-    <div style="align-items: center">
-      <h3 class="px-1 my-2">Moderation</h3>
-    </div>
-  </div>
+  <!-- Pipeline -->
+  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/pipeline', 'inactive-option': activeRoute !== '/pipeline' }" routerLink="/pipeline">
+    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+    Pipeline
+  </a>
 
-  <div
-    routerLink="/pipeline"
-    class="d-flex flex-row px-1 mt-2"
-    style="display: flex; align-items: center; cursor: pointer"
-  >
-    <div></div>
-    <div style="align-items: center">
-      <h3 class="px-1 my-2">Pipeline</h3>
-    </div>
-  </div>
+  <!-- Deployment -->
+  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/deployment', 'inactive-option': activeRoute !== '/deployment' }" routerLink="/deployment">
+    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+    Deployment
+  </a>
 
-  <!-- <div routerLink="/segment"   class="d-flex flex-row px-1 mt-2"
-     style="display: flex;align-items: center;cursor: pointer; background: #E6F7FF;box-shadow: -3px 0px 0px 0px #1890FF inset; color:#1890FF;border-right: 43px solid blue;">
-      <div>
-        <svg style=" fill: #1890FF;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g id="target-audience 1" clip-path="url(#clip0_68_21224)">
-          <path id="Vector" d="M17.6172 14.7852C17.9408 14.7852 18.2031 14.5228 18.2031 14.1992V11.2695C18.2031 9.89668 17.412 8.70531 16.2619 8.12676C16.4997 7.80316 16.6406 7.40414 16.6406 6.97266C16.6406 5.8957 15.7645 5.01953 14.6875 5.01953C13.6105 5.01953 12.7344 5.8957 12.7344 6.97266C12.7344 7.40367 12.875 7.8023 13.1123 8.1257C12.9575 8.20348 12.8082 8.29297 12.6654 8.39383C12.3793 8.06121 12.0321 7.7827 11.6414 7.57551C11.9574 7.20133 12.1484 6.71836 12.1484 6.19141C12.1484 5.00676 11.1846 4.04297 10 4.04297C8.81535 4.04297 7.85156 5.00676 7.85156 6.19141C7.85156 6.71836 8.04258 7.20133 8.35859 7.57551C7.96797 7.78266 7.62074 8.06113 7.33461 8.39371C7.19184 8.29297 7.04234 8.20375 6.88742 8.12598C7.12492 7.80254 7.26559 7.40379 7.26559 6.97266C7.26559 5.8957 6.38941 5.01953 5.31246 5.01953C4.23551 5.01953 3.35934 5.8957 3.35934 6.97266C3.35934 7.40414 3.50023 7.8032 3.73809 8.12676C2.58797 8.70531 1.79688 9.89668 1.79688 11.2695V14.1992C1.79688 14.5228 2.05922 14.7852 2.38281 14.7852H6.48438V15.3711C6.48438 15.6947 6.74672 15.957 7.07031 15.957H12.9297C13.2533 15.957 13.5156 15.6947 13.5156 15.3711V14.7852H17.6172ZM13.9062 6.97266C13.9062 6.54187 14.2567 6.19141 14.6875 6.19141C15.1183 6.19141 15.4688 6.54187 15.4688 6.97266C15.4688 7.40344 15.1183 7.75391 14.6875 7.75391C14.2567 7.75391 13.9062 7.40344 13.9062 6.97266ZM14.6875 8.92578C15.9798 8.92578 17.0312 9.97719 17.0312 11.2695V13.6133H13.5156V10.6836C13.5156 10.2311 13.4296 9.79832 13.2732 9.40066C13.6783 9.09281 14.17 8.92578 14.6875 8.92578ZM9.02344 6.19141C9.02344 5.65293 9.46152 5.21484 10 5.21484C10.5385 5.21484 10.9766 5.65293 10.9766 6.19141C10.9766 6.72988 10.5385 7.16797 10 7.16797C9.46152 7.16797 9.02344 6.72988 9.02344 6.19141ZM4.53125 6.97266C4.53125 6.54187 4.88172 6.19141 5.3125 6.19141C5.74328 6.19141 6.09375 6.54187 6.09375 6.97266C6.09375 7.40344 5.74328 7.75391 5.3125 7.75391C4.88172 7.75391 4.53125 7.40344 4.53125 6.97266ZM2.96875 13.6133V11.2695C2.96875 9.97719 4.02016 8.92578 5.3125 8.92578C5.82859 8.92578 6.32125 9.09324 6.72664 9.40098C6.57031 9.79855 6.48438 10.2312 6.48438 10.6836V13.6133H2.96875ZM12.3438 14.7852H7.65625V10.6836C7.65625 9.39125 8.70766 8.33984 10 8.33984C11.2923 8.33984 12.3438 9.39125 12.3438 10.6836V14.7852Z" />
-          <path id="Vector_2" d="M19.4141 14.4922C19.0905 14.4922 18.8281 14.7545 18.8281 15.0781V18.0469H15.8594C15.5358 18.0469 15.2734 18.3092 15.2734 18.6328C15.2734 18.9564 15.5358 19.2188 15.8594 19.2188H19.4141C19.7377 19.2188 20 18.9564 20 18.6328V15.0781C20 14.7545 19.7377 14.4922 19.4141 14.4922Z" />
-          <path id="Vector_3" d="M4.14062 18.0469H1.17188V15.0781C1.17188 14.7545 0.909531 14.4922 0.585938 14.4922C0.262344 14.4922 0 14.7545 0 15.0781V18.6328C0 18.9564 0.262344 19.2188 0.585938 19.2188H4.14062C4.46422 19.2188 4.72656 18.9564 4.72656 18.6328C4.72656 18.3092 4.46422 18.0469 4.14062 18.0469Z" />
-          <path id="Vector_4" d="M0.585938 5.50781C0.909531 5.50781 1.17188 5.24547 1.17188 4.92188V1.95312H4.14062C4.46422 1.95312 4.72656 1.69078 4.72656 1.36719C4.72656 1.04359 4.46422 0.78125 4.14062 0.78125H0.585938C0.262344 0.78125 0 1.04359 0 1.36719V4.92188C0 5.24547 0.262344 5.50781 0.585938 5.50781Z" />
-          <path id="Vector_5" d="M19.4141 0.78125H15.8203C15.4967 0.78125 15.2344 1.04359 15.2344 1.36719C15.2344 1.69078 15.4967 1.95312 15.8203 1.95312H18.8281V4.92188C18.8281 5.24547 19.0905 5.50781 19.4141 5.50781C19.7377 5.50781 20 5.24547 20 4.92188V1.36719C20 1.04359 19.7377 0.78125 19.4141 0.78125Z" />
-          </g>
-          <defs>
-          <clipPath id="clip0_68_21224">
-          <rect width="20" height="20" fill="white"/>
-          </clipPath>
-          </defs>
-        </svg>
-      </div>
-      <div style="align-items: center;">
-       <h3 class="px-1 my-2" style="color: #1890FF;" >Segment Characteristics</h3>
-      </div>
-     </div> -->
-     <!-- Moderation -->
-  <div
-    routerLink="/segment"
-    class="d-flex flex-row px-1 mt-2"
-    style="display: flex; align-items: center; cursor: pointer"
-  >
-    <div></div>
-    <div style="align-items: center">
-      <h3 class="px-1 my-2">Deployment</h3>
-    </div>
-  </div>
-
-  <!-- <div routerLink="/product"   class="d-flex flex-row px-1 mt-2" style="display: flex;align-items: center;cursor: pointer;">
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M17.25 7.5H21.75C22.1646 7.5 22.5 7.16418 22.5 6.75V2.25C22.5 1.83582 22.1646 1.5 21.75 1.5H17.25C16.8354 1.5 16.5 1.83582 16.5 2.25V3.75H14.25C14.0874 3.75 13.9299 3.80273 13.8003 3.90015L10.5709 6.32181L8.58545 5.3291C8.37451 5.22363 8.12549 5.22363 7.91455 5.3291L1.91455 8.3291C1.6604 8.45618 1.5 8.71582 1.5 9V15C1.5 15.2842 1.6604 15.5438 1.91455 15.6709L7.91455 18.6709C8.02002 18.7236 8.13501 18.75 8.25 18.75C8.36499 18.75 8.47998 18.7236 8.58545 18.6709L10.5709 17.6782L13.8003 20.0999C13.9299 20.1973 14.0874 20.25 14.25 20.25H16.5V21.75C16.5 22.1642 16.8354 22.5 17.25 22.5H21.75C22.1646 22.5 22.5 22.1642 22.5 21.75V17.25C22.5 16.8358 22.1646 16.5 21.75 16.5H17.25C16.8354 16.5 16.5 16.8358 16.5 17.25V18.75H14.4998L12.0708 16.9282L14.5854 15.6709C14.8396 15.5438 15 15.2842 15 15V12.75H16.5V14.25C16.5 14.6642 16.8354 15 17.25 15H21.75C22.1646 15 22.5 14.6642 22.5 14.25V9.75C22.5 9.33582 22.1646 9 21.75 9H17.25C16.8354 9 16.5 9.33582 16.5 9.75V11.25H15V9C15 8.71582 14.8396 8.45618 14.5854 8.3291L12.0708 7.07176L14.4998 5.25H16.5V6.75C16.5 7.16418 16.8354 7.5 17.25 7.5ZM18 3H21V6H18V3ZM18 18H21V21H18V18ZM18 10.5H21V13.5H18V10.5ZM3 10.2136L7.5 12.4636V16.7864L3 14.5364V10.2136ZM9 16.7864V12.4636L13.5 10.2136V14.5364L9 16.7864ZM8.25 11.1614L3.92688 9L8.25 6.83862L12.5731 9L8.25 11.1614Z" fill=""/>
-          <path d="M19.5 5.25C19.9142 5.25 20.25 4.91421 20.25 4.5C20.25 4.08579 19.9142 3.75 19.5 3.75C19.0858 3.75 18.75 4.08579 18.75 4.5C18.75 4.91421 19.0858 5.25 19.5 5.25Z" fill=""/>
-          <path d="M19.5 20.25C19.9142 20.25 20.25 19.9142 20.25 19.5C20.25 19.0858 19.9142 18.75 19.5 18.75C19.0858 18.75 18.75 19.0858 18.75 19.5C18.75 19.9142 19.0858 20.25 19.5 20.25Z" fill=""/>
-          <path d="M19.5 12.75C19.9142 12.75 20.25 12.4142 20.25 12C20.25 11.5858 19.9142 11.25 19.5 11.25C19.0858 11.25 18.75 11.5858 18.75 12C18.75 12.4142 19.0858 12.75 19.5 12.75Z" fill=""/>
-        </svg>    
-      </div>
-      <div style="align-items: center;">
-       <h3 class="px-1 my-2" >Product Characteristics</h3>
-      </div>
-     </div> -->
-  <div class="logout" style="border-top: 1px solid #858585; width: 16%">
-    <div class="d-flex flex-row text-dark" style="padding-top: 30px">
-      <div class="d-flex flex-row mx-1">
-        <svg
-          class="mt-1"
-          width="16"
-          height="16"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g id="icon/Logout" clip-path="url(#clip0_68_21249)">
-            <path
-              id="Vector"
-              d="M17.9475 14.9118H16.3783C16.2711 14.9118 16.1707 14.9587 16.1037 15.0413C15.9475 15.231 15.7801 15.414 15.6037 15.5881C14.8825 16.3101 14.0282 16.8854 13.0881 17.2823C12.1141 17.6937 11.0673 17.9048 10.01 17.9029C8.94079 17.9029 7.90507 17.693 6.93186 17.2823C5.99174 16.8854 5.13745 16.3101 4.41623 15.5881C3.69372 14.8686 3.11761 14.0158 2.71981 13.077C2.30686 12.1038 2.09927 11.0703 2.09927 10.0011C2.09927 8.93188 2.30909 7.8984 2.71981 6.92519C3.11713 5.98546 3.68856 5.13947 4.41623 4.41403C5.14391 3.68858 5.98989 3.11715 6.93186 2.71983C7.90507 2.30912 8.94079 2.09929 10.01 2.09929C11.0792 2.09929 12.1149 2.30688 13.0881 2.71983C14.0301 3.11715 14.8761 3.68858 15.6037 4.41403C15.7801 4.59037 15.9453 4.7734 16.1037 4.9609C16.1707 5.04349 16.2734 5.09037 16.3783 5.09037H17.9475C18.0881 5.09037 18.1752 4.93412 18.097 4.81581C16.385 2.1551 13.3895 0.393937 9.98543 0.402866C4.63722 0.416259 0.349269 4.75778 0.40284 10.0993C0.456412 15.356 4.73766 19.5993 10.01 19.5993C13.4051 19.5993 16.3872 17.8404 18.097 15.1863C18.1729 15.068 18.0881 14.9118 17.9475 14.9118ZM19.9319 9.86046L16.7645 7.36046C16.6461 7.26671 16.4743 7.35153 16.4743 7.50108V9.19751H9.46534C9.36713 9.19751 9.28677 9.27787 9.28677 9.37608V10.6261C9.28677 10.7243 9.36713 10.8047 9.46534 10.8047H16.4743V12.5011C16.4743 12.6506 16.6484 12.7355 16.7645 12.6417L19.9319 10.1417C19.9532 10.125 19.9705 10.1037 19.9823 10.0793C19.9942 10.0549 20.0004 10.0282 20.0004 10.0011C20.0004 9.97398 19.9942 9.94723 19.9823 9.92287C19.9705 9.8985 19.9532 9.87716 19.9319 9.86046Z"
-              fill="black"
-              fill-opacity="0.85"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_68_21249">
-              <rect width="20" height="20" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
-        <h4 class="ms-1">Log Out</h4>
-      </div>
-    </div>
-  </div>
-</div>
+  <!-- Logout (Fixed at Bottom) -->
+  <a mat-list-item class="logout-item">
+    <img src="assets/images/logout.png" alt="Home" width="12" height="11" />
+    Logout
+  </a>
+</mat-nav-list>

@@ -1,4 +1,59 @@
-.top{
+.top {
+  width: auto;
+  height: 50px;
+  flex-shrink: 0;
+  border-bottom: 0.5px solid #9D9CA9;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.head {
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sub-head {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  flex-grow: 1; /* Take up remaining space */
+  justify-content: flex-end; /* Align button to the right */
+}
+
+.action-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+/* .top{
     width: auto;
     height: 50px;
     flex-shrink: 0;
@@ -13,7 +68,7 @@
   .sub-head{
     font-size: 16px;
     font-weight: 500;
-  }
+  } */
 
   .two-column-div {
     display: flex;
@@ -57,7 +112,7 @@
   }
 
   /* table section*/
-.table {
+/* .table {
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;
@@ -90,7 +145,66 @@
     flex: 1;
     text-align: start;
     width: 33.33%;
+  } */
+  .table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    width: 85%;
+    margin: 10px 0;
   }
+  
+  .table-header {
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  .header-cell {
+    text-align: start;
+    font-weight: 550;
+  }
+  
+  .header-cell:nth-child(1), .table-cell:nth-child(1) {
+    flex: 2; /* Adjust the width for the first column */
+  }
+  
+  .header-cell:nth-child(2), .table-cell:nth-child(2) {
+    flex: 0.7; /* Adjust the width for the second column */
+  }
+  
+  .header-cell:nth-child(3), .table-cell:nth-child(3) {
+    flex: 0.4; /* Adjust the width for the third column */
+  }
+  
+  .table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .table-cell {
+    text-align: start;
+  }
+  .delete-cell {
+    flex: 0.5; /* Adjust the width for the delete cell */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .delete-icon {
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+    padding: 0px 5px 5px 0px;
+    background: none; 
+  }
+  
+  
+  
 
   .input-row {
     display: flex;
@@ -118,7 +232,7 @@
   }
   #divArea{
     background-color: #dbdbdb;
-    min-height: 14vh;
+    min-height: 16vh;
     border: none;
     border-radius: 4px;
     padding: 5px;
@@ -130,6 +244,104 @@
   mat-expansion-panel{
     margin: 5px;
   }
+  .inputCol{
+    margin-left: 2px;
+  }
+  .input-item2{
+    margin: 20px;
+    flex: 1;
+  }
+  .input-item2 label{
+    margin-left: 5px;
+  }
+  /* .input-row2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    width: 80%;
+  }
+  .input-item1 {
+    width: 48%;
+  }
+  #selectCol,#inputCol{
+    height: 5vh;
+    width: 17vw;
+    margin-left: 8px;
+  }
+  #inputCol{
+    margin-left: 40px;
+  } */
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.input-row2 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.input-item1 {
+    margin-right: 20px;
+    flex: 1;
+}
+
+.label {
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+#selectCol, input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.description,
+.prompt {
+    margin-top: 10px;
+}
+
+.description label,
+.prompt label {
+    display: block;
+    font-weight: 500;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+  }
+  
+  .file-label {
+    padding: 45px 75px;
+    border: 2px dashed #ccc;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  
+  .file-input {
+    display: none; /* Hide the default input appearance */
+  }
+  
 
    /* Rules table section*/
 /* .table1 {

@@ -1,0 +1,54 @@
+<label mat-dialog-title > {{ dialogData.name }}</label>
+<div mat-dialog-content>
+  <div class="input-container" *ngIf="!showLocal">
+    <label for="urlInput" class="label">Enter URL</label>
+    <input id="urlInput" type="text" [(ngModel)]="InputFile" placeholder="Enter URL here.." class="url-input">
+  </div>
+
+  <div *ngIf="!showLocal">
+    <div *ngFor="let input of additionalInputs; let i = index" class="input-container">
+      <label class="label">Enter Url {{ i + 2 }}</label>
+      <input type="text" class="additional-input" [(ngModel)]="additionalInputs[i]">
+    </div>
+  </div>
+  
+  <div class="button-container" *ngIf="!showLocal">
+    <span mat-button color="primary" (click)="addInputField()" class="addNewButton">+ Add URL</span>
+  </div>
+  <!-- <div class="input-container">
+    <label for="fileInput" class="file-label">
+      <i class="fas fa-cloud-upload-alt"></i>
+      Click here to choose file
+    </label>
+    <input
+      type="file"
+      id="fileInput"
+      (change)="onFileSelected($event)"
+      class="file-input"
+      webkitdirectory>
+  </div> -->
+  <div class="input-container" *ngIf="!showWeb">
+    <label for="fileInput" class="file-label">
+      <i class="fas fa-cloud-upload-alt"></i>
+      Click here to choose file
+    </label>
+    <input
+      type="file"
+      id="fileInput"
+      (change)="onFileSelected($event)"
+      class="file-input"
+      webkitdirectory>
+  </div>
+  <div *ngIf="selectedFiles.length > 0" class="selected-files">
+    <p> Selected Files</p>
+    <ul>
+      <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
+    </ul>
+  </div>
+  
+</div>
+    <div mat-dialog-actions class="button-container">
+      <button class="buttons" mat-button mat-dialog-close>Cancel</button>
+      <button class="buttons" mat-button (click)="saveSource()" *ngIf="!showWeb">Ingest</button>  
+      <button class="buttons" mat-button (click)="saveSource1()" *ngIf="showWeb">Ingest</button> 
+    </div>

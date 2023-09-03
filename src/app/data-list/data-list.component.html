@@ -1,6 +1,7 @@
 <mat-card class="top">
-    <div style="margin-left: 10px;margin-top: 12px;"><span class="head" (click)="Back()">Labelled Data</span>
-      <span *ngIf="!showFolders" class="sub-head"> / {{selectedFolder}}</span></div>
+    <div style="margin-left: 10px;margin-top: 5px;"><span class="head" (click)="Back()">
+      <mat-icon class="back_button">navigate_before</mat-icon>Data Ingestion <span class="sub-head">/ Labelled Data</span></span>
+      <span *ngIf="!showFolders" class="sub-head"> / {{selectedFolder1}}</span></div>
 </mat-card>
 
 <div class="main-container">
@@ -12,7 +13,7 @@
     </div>
     <div class="button-container" *ngIf="showFolders">
       <button class="end-button" data-bs-toggle="modal"
-      data-bs-target="#staticBackdrop">+ Create New</button>
+      data-bs-target="#staticBackdrop">+ New Folder</button>
     </div>
 </div>
   <!-- Horizontal Line -->
@@ -34,26 +35,26 @@
   <table mat-table [dataSource]="dataSource">
     <!-- Position Column -->
     <ng-container matColumnDef="File Name">
-      <th mat-header-cell *matHeaderCellDef style="width: 40%;"> File Name </th>
-      <td mat-cell *matCellDef="let element" style="width: 40%;"> {{element.name}} </td>
+      <th mat-header-cell *matHeaderCellDef style="width: 30%;"> File Name </th>
+      <td mat-cell *matCellDef="let element" style="width: 30%;"> {{element.filename}} </td>
     </ng-container>
 
      <!-- Name Column -->
      <ng-container matColumnDef="File Type">
-      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> File Type </th>
-      <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.type}} </td>
+      <th mat-header-cell *matHeaderCellDef > File Type </th>
+      <td mat-cell *matCellDef="let element" > {{element.type}} </td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="Date">
-      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Date </th>
-      <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.date}} </td>
+      <th mat-header-cell *matHeaderCellDef > Date </th>
+      <td mat-cell *matCellDef="let element" > {{element.date}} </td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="Description">
-      <th mat-header-cell *matHeaderCellDef style="width: 30%;"> Description </th>
-      <td mat-cell *matCellDef="let element" style="width: 30%;"> {{element.status}} </td>
+      <th mat-header-cell *matHeaderCellDef > Description </th>
+      <td mat-cell *matCellDef="let element" > {{element.desc}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
@@ -87,21 +88,28 @@
     
     <div>
       <div>
-        <select class="dropdown">
-          <option>Select Raw Data</option>
+        <select class="dropdown" [(ngModel)]="selectedFolder" (ngModelChange)="updateFilteredData()">
+          <option value="val1">Select Raw Data</option>
           <option *ngFor="let name of Folders">{{name}}</option>
         </select>
       </div>
+      
       <div class="table">
         <div class="table-header">
-          <div class="header-cell s-column" ><input type="checkbox"></div>
+          <div class="header-cell s-column">
+            <input type="checkbox" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()">
+          </div>
           <div class="header-cell wide-column" style="font-weight: 550;">Raw Data</div>
         </div>
-        <div  class="table-row" *ngFor="let data of RawData">
-          <div class="table-cell s-column" ><input type="checkbox"></div>
-          <div class="table-cell wide-column">{{data}}</div>
+        <div class="table-row" *ngFor="let data of RawData">
+          <div class="table-cell s-column">
+            <input type="checkbox" [(ngModel)]="data.selected">
+          </div>
+          <div class="table-cell wide-column">{{ data.name }}</div>
         </div>
       </div>
+      
+
       <div class="button-container">
         <button class="next-button" (click)="goToNextStep()">Next</button>
       </div>
@@ -120,53 +128,42 @@
               <option *ngFor="let task of Task">{{task}}</option>
             </select>
           </div>
-          <div class="input-item">
+          <!-- <div class="input-item">
             <input type="number" id="inputValueCol" placeholder="Enter value">
-          </div>
+          </div> -->
         </div>
 
         <div class="input-row" style="margin-top: 5px;margin-left: 5px;" *ngIf="showPrompt">
           <label class="textareaLabel" for="textareaInput">Prompt</label>
-          <textarea id="textareaInput" rows="3" placeholder="Enter text">
-            Create dataset of question answer pair. Create a dataset for text
-            Summarization
-          </textarea>
+          
+          <div id="textareaInput" class="custom-textarea" contenteditable="true">
+            <b>Define your task</b><br>Ex: "Translate the following English sentences into French"
+          </div>
         </div>
-        <div class="input-row" style="margin-top: 5px;margin-left: 5px;">
+        <div class="input-row" style="margin-top: 5px; margin-left: 5px;">
           <label class="textareaLabel" for="textareaInput">Seed examples</label>
-          <textarea id="textareaInput" rows="6" placeholder="Enter text">
-            ### Question: What is the capital of India?
-            ### Answer: The capital of india is Delhi.
-
-            ### Question: What is the capital of England?
-            ### Answer: The capital of England is London.  
-          </textarea>
+          <textarea id="textareaInput" [rows]="rows" placeholder="">{{seedsExample}}</textarea>
         </div>
+        
         <div class="input-row1">
           <button class="button" style="margin-left: 5px;">Clear</button>
-          <button class="button">Generate Dataset</button>
+          <button class="button" (click)="LoadQuestion()">Generate Dataset</button>
         </div>
       </div>
       <!------- right section -------->
       <div class="right-column" >
-        <div class="input-row1">
+        <!-- <div class="input-row1">
           <span>#records: <b>100K</b></span>
           <span>#Words: <b>1000K</b></span>
-        </div>
-        <textarea id="display-area" rows="6" placeholder="Enter text">
-          ### Question: What is the capital of India?
-          ### Answer: The capital of india is Delhi.
-
-          ### Question: What is the capital of England?
-          ### Answer: The capital of England is London.  
-        </textarea>
+        </div> -->
+        <div id="display-area" rows="14" placeholder="Enter text"><pre>{{generatedQuestions}}</pre></div>
         <div class="button-wrapper">
+          <button class="download-button" (click)="downloadFiles()">Download</button>
+         
           <div class="save-container">
-            <button class="save-button" data-bs-toggle="modal"
-            data-bs-target="#saveModal">Save & Done</button>
+            <button class="save-button" data-bs-toggle="modal" data-bs-target="#saveModal">Save & Done</button>
           </div>
-        </div>
-        
+        </div>    
       </div>
     </div>
     <div>
@@ -233,12 +230,12 @@ aria-hidden="true">
 
        <div class="input-row">
          <label for="inputLabel">Labelled Name</label>
-         <input type="text" id="inputLabel" placeholder="Enter name" [(ngModel)]="folderName">
+         <input type="text" id="inputLabel" placeholder="Enter name" [(ngModel)]="labelledFile">
        </div>
 
        <div class="input-row">
         <label for="inputLabel">Description</label>
-        <textarea rows="3" class="popup-textarea"></textarea>
+        <textarea rows="3" class="popup-textarea" [(ngModel)]="labelledDesc"></textarea>
       </div>
 
      </div>
@@ -252,4 +249,27 @@ aria-hidden="true">
  </div>
  </div>  
 
-    
+
+
+
+ <div class="modal fade right-modal" id="details" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content sourceModal">
+      <div class="modal-header">
+        <h5 class="modal-title">Content</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="scrollable-content">
+          <pre>{{questions}}</pre>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="saveData()">Save</button> -->
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,38 +6,45 @@
     background-color: #fff;
     margin-bottom: 15px;
 }
-  .card-container {
-    display: flex;
-    justify-content: center; /* Change this to move cards to the left */
-    align-items: center;
-    min-height: 45vh;
-    margin-left: -150px;
-  }
   
-  .card {
-    margin: 30px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 18vw;
-  }
-  
-  .card img {
-    display: block;
-    margin: 0 auto;
-    max-width: 60px;
-  }
-  .card span {
-    font-size: 16px;
-    font-weight: 500;
-    margin: 15px;
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 45vh;
+}
 
-  }
-  .selected-card {
-    border: 2px solid rgb(165, 161, 161); 
-  }
+.card-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.card {
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 18vw;
+}
+
+.card img {
+  display: block;
+  margin: 0 auto;
+  max-width: 60px;
+}
+
+.card span {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 15px;
+}
+
+.selected-card {
+  border: 2px solid rgb(165, 161, 161);
+}
 
   /* embedded */
   .card-container2 {
@@ -229,4 +236,7 @@ label{
     width: 100%;
   }
   
-  
+  .custom-iframe {
+    width: 84vw;
+    height: 81vh;
+  }

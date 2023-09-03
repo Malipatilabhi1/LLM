@@ -17,10 +17,11 @@ export class ModelZooDetailsComponent {
   selectedModel: any; 
   compareMode: boolean = false;
   ngOnInit(){
-    debugger;
+    
     this.Model=this.commonService.model;
     this.Models=this.commonService.models;
   }
+  // ModelDetails:any=['Model Name','GSMBK','MATH',]
 
   compareModel(model: any) {
     this.selectedModel = model;

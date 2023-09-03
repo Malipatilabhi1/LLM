@@ -1,0 +1,49 @@
+<mat-card class="top">
+    <div style="margin-left: 10px"><h2 class="mt-2">ChatBattle</h2></div>
+</mat-card>
+
+<div>
+    <div class="card-wrapper">
+        <div class="col1">
+            <select id="model">
+                <option>Select Model</option>
+                <option >gpt2</option>
+                <option >Deci/DeciCoder-1b</option>     
+            </select>
+          <mat-card class="custom-card">
+            <span class="card-tag">Model 1</span>
+            <div *ngIf="loading" class="loading-indicator">
+              <i class="fas fa-spinner fa-spin"></i> Loading...
+            </div>
+            <span class="model_content">{{ModelsData.model_A_response}}</span>
+          </mat-card>
+          <div class="button-in-row">
+            <button class="button"> Model 1 is Better  <i class="fas fa-hand-point-left"></i></button>
+            <button class="button"><i class="fas fa-hand-point-right"></i> Model 2 is Better</button>
+          </div>
+        </div>
+        <div class="col2">
+            <select id="model">
+                <option>Select Model</option>
+                <option >Deci/DeciCoder-1b</option>
+                <option >gpt2</option>  
+            </select>
+          <mat-card class="custom-card">
+            <span class="card-tag">Model 2</span>
+            <div *ngIf="loading" class="loading-indicator">
+              <i class="fas fa-spinner fa-spin"></i> Loading...
+            </div>
+            <span class="model_content">{{ModelsData.model_B_response}}</span>
+          </mat-card>
+          <div class="button-in-row">
+            <button class="button"><i class="fas fa-handshake"></i> Tie</button>
+            <button class="button"><i class="far fa-thumbs-down"></i> Both are bad</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <input matInput class="input" placeholder="Enter text and press enter.." [(ngModel)]="inputText">
+        <button class="send-button" (click)="sendData()">Send</button>
+      </div>
+    <hr class="horizontal-line" />
+</div>

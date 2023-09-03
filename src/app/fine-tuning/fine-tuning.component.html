@@ -1,9 +1,161 @@
 <mat-card class="top">
-    <div style="margin-left: 10px"><h2 class="mt-2">Fine-tuning</h2></div>
+    <div style="margin-left: 10px;margin-top: 12px;"><Span class="head" (click)="Back()">Domain Adaptation</Span>
+    <span *ngIf="showTraining1 || showTraining2" class="sub-head"> / Training</span></div>
   </mat-card>
-<div class="embedded-web-page">
-    <iframe class="custom-iframe" src="http://localhost:10101/">     
-        <h2> Server Unavailable.</h2>
-    </iframe>
-  </div>
   
+
+<!-- <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" *ngIf="showTabs">
+  <mat-tab label="Raw Data">
+    <div class="main-container">
+        <select  id="modelB">
+          <option>Select Raw Data</option>
+          <option >Raw Data 1</option>
+          <option >Raw Data 2</option>  
+        </select>
+        <div class="search-bar">
+          <div class="input-icon-container">
+            <input type="search" class="search-input" placeholder="Search by keywords..." />
+            <mat-icon class="search-icon">search</mat-icon>
+          </div>
+        </div>
+    </div>
+
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="checkbox">
+            <th mat-header-cell *matHeaderCellDef style="width: 10%;text-align: center;"><mat-checkbox></mat-checkbox>  </th>
+            <td mat-cell *matCellDef="let element; let i = index" style="width: 10%;text-align: center;">
+              <mat-checkbox [id]="'checkbox-' + i"></mat-checkbox>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Source">
+            <th mat-header-cell *matHeaderCellDef style="width: 45%;"> Source </th>
+            <td mat-cell *matCellDef="let ruleElement; let i = index" style="width: 45%;">
+              {{ ruleElement.Source }}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </section>
+      <div class="button-wrapper">
+        <div class="save-container">
+          <button class="save-button" (click)="trainRawData()">Proceed</button>
+        </div>
+      </div>
+  </mat-tab>
+</mat-tab-group> -->
+
+ <!------------- Raw Data Training Screen --------------->
+<div *ngIf="showTraining1">
+  <div class="input-container">
+    <div class="section">
+      
+    </div>
+    <!-- <div class="section">
+      <label for="inputField">Based Model</label>
+      <input type="text" id="inputField" placeholder="Add based model here..">
+    </div> -->
+  </div>  
+    
+    <div class="two-column-div">
+        <div class="left-column">
+          <select id="modelB" [(ngModel)]="selectedOption" (change)="onOptionSelected()">
+            <option>Select Raw Data</option>
+            <option *ngFor="let name of Folders">{{name}}</option>
+          </select>
+          <div class="input-row" style="margin-top: 5px; margin-left: 5px;">
+            <label class="textareaLabel" for="textareaInput">Training Data</label>
+            <textarea  id="textareaInput" rows="19" disabled="true">{{content}}</textarea>
+          </div>
+        </div>
+      
+      
+        <div class="right-column" >
+          <div class="section">
+            <label for="inputField">Base Model </label>
+            <input type="text" id="inputField" placeholder="Add based model here..">
+          </div>
+            <label class="right-heading">Hyper parameter</label>
+            <div class="input-row2">
+                <!-- First Column -->
+                <div class="input-item1">
+                    <div>
+                    <div class="example-label-container">
+                        <label id="example-name-label" class="example-name-label">Block Size</label>
+                        <label class="example-value-label">{{slider.value}}</label>
+                      </div>
+                      <mat-slider
+                          class="example-margin"
+                          [disabled]="disabled"
+                          [max]="max1"
+                          [min]="min"
+                          [step]="step1"
+                          [discrete]="thumbLabel"
+                          [showTickMarks]="showTicks">
+                        <input matSliderThumb [(ngModel)]="rValue" #slider>
+                      </mat-slider>
+                    </div>
+
+                    <label class="label">Evaluation Strategy</label>
+                    <select id="selectCol" [(ngModel)]="strategy">
+                        <option value="option1">Select</option>
+                        <option value="value1">epoch</option>
+                    </select>
+
+                    <div>
+                    <div class="example-label-container">
+                        <label id="example-name-label" class="example-name-label">Epochs</label>
+                        <label class="example-value-label">{{slider1.value}}</label>
+                      </div>
+                      <mat-slider
+                          class="example-margin"
+                          [disabled]="disabled"
+                          [max]="max"
+                          [min]="min"
+                          [step]="step"
+                          [discrete]="thumbLabel"
+                          [showTickMarks]="showTicks">
+                        <input matSliderThumb [(ngModel)]="rValue1" #slider1>
+                      </mat-slider>
+                    </div>
+
+                      <label class="label">Model Name</label>
+                    <input type="text" id="inputCol" placeholder="Type here...">
+                </div> 
+                <!-- Second Column -->
+                <div class="input-item1">
+                    <div>
+                    <div class="example-label-container">
+                        <label id="example-name-label" class="example-name-label">Batch Size</label>
+                        <label class="example-value-label">{{slider2.value}}</label>
+                      </div>
+                      <mat-slider
+                          class="example-margin"
+                          [disabled]="disabled"
+                          [max]="max"
+                          [min]="min"
+                          [step]="step"
+                          [discrete]="thumbLabel"
+                          [showTickMarks]="showTicks">
+                        <input matSliderThumb [(ngModel)]="rValue2" #slider2>
+                      </mat-slider>
+                    </div>
+
+                    <label class="label">Weight Decay</label>
+                    <input type="number" id="inputCol" [(ngModel)]="weight_decay" placeholder="Enter weight decay here..">
+
+                    
+                    <label class="label" style=" margin-top: 10px;">Learning rate</label>
+                    <input type="text" id="inputCol" [(ngModel)]="LearningRate" placeholder="Type here...">
+                </div>
+            </div>
+            <div class="button-div">
+                  <button class="save-button1" >Train</button>
+            </div>
+        </div>
+      </div>
+</div>
+
+
+<!------------- Labelled Data Training Screen --------------->

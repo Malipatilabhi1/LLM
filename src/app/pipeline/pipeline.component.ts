@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class PipelineComponent {
   embedded:boolean=false;
   chatbot:boolean=false;
+  flow:boolean=false;
+  h2o:boolean=false;
   home:boolean=true;
   selectedCard: string | null = '';
 
@@ -22,13 +24,25 @@ export class PipelineComponent {
   clicked(value:any){
     this.selectedCard=value;
     if(value=='card1'){
-      this.embedded=true;
+      this.flow=true;
+      this.embedded=false;
       this.chatbot=false;
       this.home=false;
     }else if(value=='card2'){
+      this.embedded=true;
+      this.chatbot=false;
+      this.home=false;
+      this.flow=false;
+    }if(value=='card3'){
+      this.embedded=true;
+      this.chatbot=false;
+      this.home=false;
+      this.flow=false;
+    }else if(value=='card4'){
       this.embedded=false;
       this.chatbot=true;
       this.home=false;
+      this.flow=false;
     }
   }
 }

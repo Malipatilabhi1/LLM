@@ -212,11 +212,15 @@
   display: flex;
 }
 
-.left-column,
+.left-column{
+  flex: 1.2;
+  padding: 10px;
+}
 .right-column {
   flex: 1;
   padding: 10px;
 }
+
 
 .left-column {
   border-right: 1px solid #ccc;
@@ -228,7 +232,7 @@ textarea{
 .input-row1 {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   width: 96%;
 }
 
@@ -262,21 +266,70 @@ textarea{
   margin-bottom: 0;
 }
 #display-area{
+  border: solid 1px black;
   width: 37vw;
-  height: 42vh;
+  height: 46vh;
+  overflow-y: auto;
 }
 
-.save-button{
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.download-button, .save-button {
   padding: 3px 8px;
-  margin: 5px 10px 0px 0px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 30%;
- 
+  width: 120px; /* Adjust the width as needed */
 }
-.button-wrapper {
-  text-align: right;
+.download-button{
+  background-color:#28a745 !important;
+}
+
+.custom-textarea {
+  border: 1px solid #ccc;
+  padding: 5px; 
+  color: black; 
+  outline: none; 
+  resize: none; 
+  width: 100%;
+  min-height: 60px; 
+  overflow-y: auto; 
+}
+
+
+.right-modal .modal-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh; /* Full screen height */
+  width: 35vw;
+  margin: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.right-modal .modal-content {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.right-modal.show .modal-dialog {
+  transform: translateX(0);
+}
+
+.scrollable-content {
+  max-height: calc(100vh - 170px); /* Adjust as needed, considering header, footer, and padding/margin */
+  overflow-y: auto;
+}
+.back_button{
+  padding-top: 5px;
 }

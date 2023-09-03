@@ -32,11 +32,15 @@
         <div>
             <span><b class="m-3">Model Architecture</b></span>
             <div class="d-flex flex-row m-3">
-                <div class="mr-3"><b>Objective</b>
-                
+                <div class="mr-3"><b>Objective</b><br>
+                <span>Input</span><br>
+                <span>Output</span>
                 </div>
-                <div class="mr-3"><b>Parameter</b></div>
-                <div class="mr-3"><b>License</b></div>
+                <div class="mr-3"><b>Parameter</b><br>
+                <span>{{Model.input}}</span><br>
+                <span>{{Model.output}}</span></div>
+                <div class="mr-3"><b>License</b></div><br>
+                <span style="margin-top: 10px;">{{Model.license}}</span>
             </div>
         </div>
         <hr class="horizontal-line" />
@@ -45,56 +49,123 @@
             <div>
             <span><b class="m-3">Important Link:</b></span></div>
             <div class="m-3">
-                <span>Link 1: </span><br>
-                <span>Link 2: </span>
+                <span *ngIf="Model.githubBlogs!=null">Link 1: {{Model.githubBlogs}} </span><br>
+                <span *ngIf="Model.researchPaper!=null">Link 2: {{Model.researchPaper}}</span>
             </div>
     
         </div>
         <hr class="horizontal-line" />
         <div>
-            <div>
-                <span><b class="m-3"> Benchmark</b></span></div>
-                <div class="m-3">Note:Values of Benchmark represented in %</div>
+            <div><span><b class="m-3"> Benchmark</b></span></div>
+            <div class="m-3">Note:Values of Benchmark represented in %</div>
+
+            <table class="table">
+              <tr>
+                <th>Model Name</th>
+                <th>GSM8K</th>
+                <th>MATH</th>
+                <th>MMLU</th>
+                <th>BBH</th>
+                <th>Human Eval</th>
+                <th>C-Eval</th>
+                <th>Theorem</th>
+                <th>SumEdits</th>
+                <th>AGI Eval</th>
+                <th>CSR</th>
+                <th>A-OKVQA</th>
+                <th>Reading</th>
+              </tr>
+              <tr>
+                <td>{{Model.name}}</td>
+                <td>{{Model.gsm8k}}</td>
+                <td>{{Model.math}}</td>
+                <td>{{Model.mmlu}}</td>
+                <td>{{Model.bbh}}</td>
+                <td>{{Model.humanEval}}</td>
+                <td>{{Model.cEval}}</td>
+                <td>{{Model.theoremQa}}</td>
+                <td>{{Model.sumEdits}}</td>
+                <td>{{Model.agiEval}}</td>
+                <td>{{Model.commonsenseReasoning}}</td>
+                <td>{{Model.aOKVQA}}</td>
+                <td>{{Model.readingComprehension}}</td>
+              </tr>
+            </table>
         </div>
       </mat-card>
     <!--Second card for compare-->
       <mat-card *ngIf="selectedModel" class="m-2 compare-card">
         <span class="m-2">Model {{selectedModel.index}} : <b>{{ selectedModel.name}}</b></span>
-
-    <div>
-        <span><b class="m-3">description:</b></span>
-        <div class="desc" style="background-color: rgb(243, 243, 242);">
-            {{selectedModel.description}}
-        </div>
-    </div>
-    <hr class="horizontal-line" />
-    <div>
+      <div>
+          <span><b class="m-3">description:</b></span>
+          <div class="desc" style="background-color: rgb(243, 243, 242);">
+              {{selectedModel.description}}
+          </div>
+      </div>
+      <hr class="horizontal-line" />
+      <div>
         <span><b class="m-3">Model Architecture</b></span>
         <div class="d-flex flex-row m-3">
-            <div class="mr-3"><b>Objective</b>
-            
+            <div class="mr-3"><b>Objective</b><br>
+            <span>Input</span><br>
+            <span>Output</span>
             </div>
-            <div class="mr-3"><b>Parameter</b></div>
-            <div class="mr-3"><b>License</b></div>
+            <div class="mr-3"><b>Parameter</b><br>
+            <span>{{selectedModel.input}}</span><br>
+            <span>{{selectedModel.output}}</span></div>
+            <div class="mr-3"><b>License</b></div><br>
+            <span style="margin-top: 10px;">{{selectedModel.license}}</span>
         </div>
     </div>
-    <hr class="horizontal-line" />
+      <hr class="horizontal-line" />
 
-    <div>
+      <div>
         <div>
         <span><b class="m-3">Important Link:</b></span></div>
         <div class="m-3">
-            <span>Link 1: </span><br>
-            <span>Link 2: </span>
+            <span *ngIf="selectedModel.githubBlogs!=null">Link 1: {{selectedModel.githubBlogs}} </span><br>
+            <span *ngIf="selectedModel.researchPaper!=null">Link 2: {{selectedModel.researchPaper}}</span>
         </div>
 
     </div>
     <hr class="horizontal-line" />
     <div>
-        <div>
-            <span><b class="m-3"> Benchmark</b></span></div>
-            <div class="m-3">Note:Values of Benchmark represented in %</div>
-    </div>
+      <div><span><b class="m-3"> Benchmark</b></span></div>
+      <div class="m-3">Note:Values of Benchmark represented in %</div>
+
+      <table class="table">
+        <tr>
+          <th>Model Name</th>
+          <th>GSM8K</th>
+          <th>MATH</th>
+          <th>MMLU</th>
+          <th>BBH</th>
+          <th>Human Eval</th>
+          <th>C-Eval</th>
+          <th>Theorem</th>
+          <th>SumEdits</th>
+          <th>AGI Eval</th>
+          <th>CSR</th>
+          <th>A-OKVQA</th>
+          <th>Reading</th>
+        </tr>
+        <tr>
+          <td>{{selectedModel.name}}</td>
+          <td>{{selectedModel.gsm8k}}</td>
+          <td>{{selectedModel.math}}</td>
+          <td>{{selectedModel.mmlu}}</td>
+          <td>{{selectedModel.bbh}}</td>
+          <td>{{selectedModel.humanEval}}</td>
+          <td>{{selectedModel.cEval}}</td>
+          <td>{{selectedModel.theoremQa}}</td>
+          <td>{{selectedModel.sumEdits}}</td>
+          <td>{{selectedModel.agiEval}}</td>
+          <td>{{selectedModel.commonsenseReasoning}}</td>
+          <td>{{selectedModel.aOKVQA}}</td>
+          <td>{{selectedModel.readingComprehension}}</td>
+        </tr>
+      </table>
+  </div>
       </mat-card>
     </div>
 
@@ -160,7 +231,8 @@ aria-hidden="true">
     <div class="modal-body">
       <div *ngFor="let model of Models;let i=index">
         <mat-card class="p-2 m-2" (click)="compareModel(model)">
-          <span>Model {{i+1}}: <b>{{model.name}}</b></span></mat-card>
+          <span>Model {{i+1}}: <b>{{model.name}}</b></span>
+        </mat-card>
       </div>
     </div>
   </div>

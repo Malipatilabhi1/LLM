@@ -1,12 +1,224 @@
-/* embedded-web-page.component.css */
-.custom-iframe {
-    width: 82.5vw;
-    height: 81vh;
-  }
-  .top{
+
+.top{
     width: auto;
     height: 50px;
     flex-shrink: 0;
     border-bottom: 0.5px solid #9D9CA9;
     background-color: #fff;
 }
+.head{
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+.sub-head{
+  font-size: 16px;
+  font-weight: 500;
+}
+mat-tab-group{
+    margin-left: 10px;
+}
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    max-width: 100%; /* Optional: Limit maximum width */
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+   margin-left: 10px;
+  }
+  
+  .input-icon-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+  
+  .search-input {
+    border: none;
+    outline: none;
+    width: 25vw;
+  }
+  
+  .search-icon {
+    border: 1px solid;
+    padding: 1px;
+    margin-left: 1px;
+  }
+  
+
+
+
+
+  /* .input-container {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px 0px 10px;
+  }
+  
+  .input-container .section {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+  .input-container label {
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  
+  .input-container input,
+  .input-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  } */
+  .section{
+    width: 20vw;
+    margin-bottom: 5px;
+  }
+  .section label{
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+
+  .button-wrapper {
+    text-align: right;
+    margin-right: 15px;
+  }
+  .save-button{
+    padding: 4px 10px 4px 10px;
+    margin: 10px 5px 0px 0px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+
+  .two-column-div {
+    display: flex;
+  }
+  
+  .left-column,
+  .right-column {
+    padding: 10px;
+  }
+  
+  .left-column {
+    flex: 1.2; 
+    /* border-right: 1px solid #ccc; */
+    background-color: #ecebeb;
+    margin: 5px 0px 5px 5px;
+    
+  }
+  
+  .right-column {
+    flex: 2; 
+  }
+  
+  /* .left-column {
+    border-right: 1px solid #ccc;
+  } */
+
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px; 
+    width: 95%;
+  }
+  .textareaLabel{
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  .sub-label{
+    font-size: 11px;
+  }
+  .button-wrapper {
+    text-align: right;
+    margin-right: 15px;
+  }
+  .button-div{
+    align-items: center;
+    margin-right: 20px;
+  }
+  .save-button1{
+    /* padding: 3px 8px; */
+    margin: 10px 5px 0px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 99%;
+  }
+
+  .input-row2 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.input-item1 {
+    margin-right: 20px;
+    flex: 1;
+}
+
+.label {
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+#selectCol, input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.right-heading{
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-bottom: 6px;
+}
+
+.example-label-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 10px 0;
+    max-width: 284px;
+  }
+  .example-result-card .example-value-label {
+    font-weight: 600;
+  }
+
+  .example-margin {
+    margin: 0px 8px 8px 8px;
+  }
+  
+  .mat-mdc-slider {
+    max-width: 300px;
+    width: 90%;
+    
+  }
+  .example-name-label{
+    font-weight: 500;
+  }
+  #modelB{
+    margin: 5px;
+    width:15vw;
+    height: 6vh;
+  }
+  

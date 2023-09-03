@@ -14,4 +14,7 @@ export class CommonService {
   modelData(model:any){
     this.model=model;
   }
+  uploadedFile(){
+    
+  }
 }

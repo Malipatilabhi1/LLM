@@ -1,0 +1,72 @@
+.button-container {
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 10px; 
+  }
+  
+  .buttons {
+    margin-left: 10px; 
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  
+}
+
+.url-input,
+.additional-input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.file-label {
+  display: flex;
+  align-items: center;
+  padding: 45px 75px;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  background-color: #ebebeb;
+}
+
+.file-input {
+  display: none;
+}
+
+.fa-cloud-upload-alt {
+  margin-right: 5px;
+}
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.addNewButton{
+  cursor: pointer;
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+}
+
