@@ -1,9 +1,9 @@
 <mat-nav-list class="sidebar-list">
   <!-- Home -->
-  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '', 'inactive-option': activeRoute !== '' }" routerLink="/">
+  <!-- <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '', 'inactive-option': activeRoute !== '' }" routerLink="/">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Home
-  </a>
+  </a> -->
 
   <!-- Data Ingestion Dropdown -->
   <a mat-list-item (click)="toggleDataIngestionSubpages()" [ngClass]="{ 'active-option': dataIngestionSubpagesVisible }">
@@ -68,7 +68,7 @@
   <!-- Pipeline -->
   <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/pipeline', 'inactive-option': activeRoute !== '/pipeline' }" routerLink="/pipeline">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
-    Pipeline
+    Solution Composer
   </a>
 
   <!-- Deployment -->

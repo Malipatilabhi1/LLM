@@ -1,10 +1,12 @@
-FROM node:18.14-alpine AS build
+FROM node:18 AS build
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install -g npm@10.0.0
+
+RUN npm install --legacy-peer-deps
 
 COPY . .
 
