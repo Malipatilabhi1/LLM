@@ -21,7 +21,7 @@ export class DataListComponent {
   showDataList:boolean=false;
   showCreate:boolean=false;
   showPrompt:boolean=false;
-  selectedFolder:any='';
+  selectedFolder:any='show';
   selectedFolder1:any='';
   filteredRawData: string[] = [];
   displayedColumns: string[] = ['File Name', 'File Type', 'Date','Description','Actions'];
@@ -29,6 +29,7 @@ export class DataListComponent {
   Folders:any=[];
   RawData:any=[];
   selectAllChecked:boolean=false;
+  loading:boolean=false;
 
   Task:any=['Q&A','Summarizing','Custom']
   isEditable = true;
@@ -116,10 +117,7 @@ Ex:
 
 
 updateFilteredData() {
-  if (this.selectedFolder === 'Select Raw Data') {
-    this.RawData = [];
-    this.selectAllChecked = false; // Uncheck "Select All"
-  } else {
+  if (this.selectedFolder.toLowerCase().startsWith('jk')) {
     const storedData = localStorage.getItem('dataSource');
     if (storedData) {
       const data = JSON.parse(storedData);
@@ -130,7 +128,10 @@ updateFilteredData() {
       console.log(this.RawData);
     } else {
       this.RawData = [];
-    }
+    }    
+  } else {
+    this.RawData = [];
+    this.selectAllChecked = false; 
   }
 }
 
@@ -184,11 +185,12 @@ seedExamples(value:any){
 
   ngOnInit(){
     this.getFolders();
+    this.getRawdataFolders();
   }
 
   dummy:any;
   getFolders(){
-    this.http.get('http://13.234.148.242:3000/folders').subscribe(
+    this.http.get('http://13.234.148.242:3000/folders-labelled').subscribe(
       response => {     
          this.dummy=response;
         this.Folders=this.dummy.folders; 
@@ -209,7 +211,7 @@ seedExamples(value:any){
   }
 
   createFolder() {
-    this.http.post(`http://13.234.148.242:3000/create-folder/${this.folderName}`,{}).subscribe({
+    this.http.post(`http://13.234.148.242:3000/create-folder-labelled/${this.folderName}`,{}).subscribe({
       next:response => { 
        
       },
@@ -234,6 +236,20 @@ seedExamples(value:any){
         console.error( error);
       });
   }
+
+  rawdataFolders:any=[];
+  dummy1:any=[];
+  getRawdataFolders(){
+    this.http.get('http://13.234.148.242:3000/folders').subscribe(
+      response => {
+         this.dummy1=response;
+        this.rawdataFolders=this.dummy1.folders; 
+      },
+      error => {
+        console.error( error);
+      });
+  }
+
   downloadFiles() {
     const fileUrl = 'assets/files/JK_data_Q&A.csv';
 
@@ -254,10 +270,11 @@ seedExamples(value:any){
 
   generatedQuestions:any='';
   LoadQuestion(){
-
+    this.loading=true;
     setTimeout(() => {
       this.generatedQuestions=this.questions; 
-    }, 500);
+      this.loading=false;
+    }, 1000);
   }
 
 

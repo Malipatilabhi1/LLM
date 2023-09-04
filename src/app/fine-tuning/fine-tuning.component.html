@@ -60,13 +60,41 @@
     
     <div class="two-column-div">
         <div class="left-column">
-          <select id="modelB" [(ngModel)]="selectedOption" (change)="onOptionSelected()">
+          <!-- <select id="modelB" [(ngModel)]="selectedOption" (change)="onOptionSelected()">
             <option>Select Raw Data</option>
             <option *ngFor="let name of Folders">{{name}}</option>
           </select>
           <div class="input-row" style="margin-top: 5px; margin-left: 5px;">
             <label class="textareaLabel" for="textareaInput">Training Data</label>
             <textarea  id="textareaInput" rows="19" disabled="true">{{content}}</textarea>
+          </div> -->
+          <div>
+            <div>
+              <select class="dropdown" [(ngModel)]="selectedFolder" (ngModelChange)="updateFilteredData()">
+                <option value="val1">Select Raw Data</option>
+                <option *ngFor="let name of Folders">{{name}}</option>
+              </select>
+            </div>
+            
+            <div class="table">
+              <div class="table-header">
+                <div class="header-cell s-column">
+                  <input type="checkbox" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()">
+                </div>
+                <div class="header-cell wide-column" style="font-weight: 550;">Raw Data</div>
+              </div>
+              <div class="table-row" *ngFor="let data of RawData">
+                <div class="table-cell s-column">
+                  <input type="checkbox" [(ngModel)]="data.selected">
+                </div>
+                <div class="table-cell wide-column">{{ data.name }}</div>
+              </div>
+            </div>
+            
+      
+            <div class="button-container">
+              <!-- <button class="next-button" (click)="goToNextStep()">Next</button> -->
+            </div>
           </div>
         </div>
       
@@ -74,7 +102,11 @@
         <div class="right-column" >
           <div class="section">
             <label for="inputField">Base Model </label>
-            <input type="text" id="inputField" placeholder="Add based model here..">
+            <!-- <input type="text" id="inputField" placeholder="Add based model here.."> -->
+            <select id="inputField">
+              <option>Select Model</option>
+              <option *ngFor="let model of Models; let i = index;">{{model.name}}</option>
+            </select>
           </div>
             <label class="right-heading">Hyper parameter</label>
             <div class="input-row2">
@@ -120,7 +152,7 @@
                       </mat-slider>
                     </div>
 
-                      <label class="label">Model Name</label>
+                      <label class="label">Output Model Name</label>
                     <input type="text" id="inputCol" placeholder="Type here...">
                 </div> 
                 <!-- Second Column -->

@@ -220,7 +220,10 @@
   flex: 1;
   padding: 10px;
 }
-
+.loading-indicator1{
+  margin-top: 40px;
+  margin-left: 40px;
+}
 
 .left-column {
   border-right: 1px solid #ccc;

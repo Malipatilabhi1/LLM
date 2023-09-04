@@ -117,8 +117,8 @@ mat-tab-group{
   
   .left-column {
     flex: 1.2; 
-    /* border-right: 1px solid #ccc; */
-    background-color: #ecebeb;
+    border-right: 1px solid #ccc;
+    /* background-color: #ecebeb; */
     margin: 5px 0px 5px 5px;
     
   }
@@ -174,7 +174,10 @@ mat-tab-group{
     margin-right: 20px;
     flex: 1;
 }
-
+#inputField{
+  height: 5vh;
+  margin-bottom: 5px;
+}
 .label {
     margin-bottom: 2px;
     font-weight: 500;
@@ -222,3 +225,60 @@ mat-tab-group{
     height: 6vh;
   }
   
+
+  .dropdown{
+    height: 5vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* table section*/
+.table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.table-header {
+  display: flex;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.header-cell {
+  flex: 1;
+  text-align: start;
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.table-cell {
+  flex: 1;
+  text-align: start;
+}
+
+/* Optional styling for action and option buttons */
+.table-cell button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.wide-column {
+  flex: 1; 
+  min-width: 90%; 
+}
+.s-column{
+  margin-left: 5px;
+  margin-right: 15px;
+}

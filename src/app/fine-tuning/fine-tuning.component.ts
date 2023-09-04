@@ -29,7 +29,10 @@ export class FineTuningComponent {
   LearningRate:any='2e-5';
   weight_decay:any= 0.01;
   strategy:any='value1';
+  Models:any='';
   selectedOption: string = '';
+
+  selectedFolder:any='';
   // showTabs:boolean=true;
   showTraining1:boolean=true;
   showTraining2:boolean=false;
@@ -72,6 +75,7 @@ export class FineTuningComponent {
   // }
   ngOnInit(){
     this.getFolders();
+    this.getModels();
   }
   Folders:any=[];
   dummy:any=[];
@@ -105,6 +109,45 @@ content:any='';
         console.error('Error reading the file:', error);
       }
     );
+  }
+
+  getModels(){
+    this.http.get('http://13.234.148.242:3000/modelZoo/').subscribe({
+      next:response => { 
+        this.Models=response;
+       console.log(response);
+      },
+      error:error => {
+        console.error( error);
+   } });
+
+  }
+  RawData:any=[];
+  selectAllChecked:boolean=false;
+
+  updateFilteredData() {
+    if (this.selectedFolder.toLowerCase().startsWith('jk')) {
+      const storedData = localStorage.getItem('dataSource');
+      if (storedData) {
+        const data = JSON.parse(storedData);
+        this.RawData = data.map((item: any) => ({
+          name: item.name,
+          selected: false, 
+        }));
+        console.log(this.RawData);
+      } else {
+        this.RawData = [];
+      }    
+    } else {
+      this.RawData = [];
+      this.selectAllChecked = false; 
+    }
+  }
+
+  toggleSelectAll() {
+    this.RawData.forEach((item: any) => {
+      item.selected = this.selectAllChecked;
+    });
   }
   
   

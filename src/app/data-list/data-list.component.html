@@ -89,8 +89,8 @@
     <div>
       <div>
         <select class="dropdown" [(ngModel)]="selectedFolder" (ngModelChange)="updateFilteredData()">
-          <option value="val1">Select Raw Data</option>
-          <option *ngFor="let name of Folders">{{name}}</option>
+          <option value="show">Select Raw Data</option>
+          <option *ngFor="let name of rawdataFolders">{{name}}</option>
         </select>
       </div>
       
@@ -156,7 +156,11 @@
           <span>#records: <b>100K</b></span>
           <span>#Words: <b>1000K</b></span>
         </div> -->
-        <div id="display-area" rows="14" placeholder="Enter text"><pre>{{generatedQuestions}}</pre></div>
+        <div id="display-area" rows="14" placeholder="Enter text">
+          <div *ngIf="loading" class="loading-indicator1">
+            <i class="fas fa-spinner fa-spin"></i> Loading... 
+          </div>
+          <pre>{{generatedQuestions}}</pre></div>
         <div class="button-wrapper">
           <button class="download-button" (click)="downloadFiles()">Download</button>
          

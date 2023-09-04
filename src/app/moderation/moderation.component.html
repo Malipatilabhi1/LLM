@@ -16,7 +16,7 @@
     <div class="left-column">
       <select id="dropdownCol" [(ngModel)]="selectedModel" (ngModelChange)="updateFilteredData()">
         <option value="option1">Select Model</option>
-        <option value="option2">Model 1</option>
+        <option *ngFor="let model of Models">{{model.name}}</option>
       </select>
       <div class="table">
         <div class="table-header">
@@ -60,7 +60,7 @@
         <div class="button-wrapper">
             <div class="save-container">
               <button class="save-button" >Clear</button>
-              <button class="save-button" (click)="Moderate()">Moderate</button>
+              <button class="save-button" id="myButton"  (click)="Moderate()" [disabled]="isButtonDisabled">Moderate</button>
             </div>
         </div>
         <div>

@@ -8,7 +8,8 @@
             <select id="model">
                 <option>Select Model</option>
                 <option >gpt2</option>
-                <option >Deci/DeciCoder-1b</option>     
+                <option >Deci/DeciCoder-1b</option> 
+                <option *ngFor="let model of modelsList">{{model.name}}</option>    
             </select>
           <mat-card class="custom-card">
             <span class="card-tag">Model 1</span>
@@ -27,6 +28,7 @@
                 <option>Select Model</option>
                 <option >Deci/DeciCoder-1b</option>
                 <option >gpt2</option>  
+                <option *ngFor="let model of modelsList">{{model.name}}</option>    
             </select>
           <mat-card class="custom-card">
             <span class="card-tag">Model 2</span>

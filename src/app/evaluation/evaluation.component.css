@@ -5,6 +5,7 @@
     border-bottom: 0.5px solid #9D9CA9;
     background-color: #fff;
   }
+  
   .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -19,34 +20,37 @@
     margin: 0;
     box-sizing: border-box;
     max-width: calc(25% - 20px);
-    height: 19vh;
+    height: 14vh;
     padding: 10px;
+    display: flex; /* Added */
+    flex-direction: column; /* Added */
+    justify-content: center; /* Added */
+    align-items: center; /* Added */
     position: relative;
   }
   
   .checkbox-container {
     position: absolute;
     top: 10px;
-    right: 10px; 
+    right: 10px;
   }
-  
-  /* .checkbox {
-    
-  } */
-  
   
   .selected-card {
-    border: 2px solid rgb(165, 161, 161); 
+    border: 2px solid rgb(165, 161, 161);
   }
-  #title{
+  
+  #title {
     font-size: 15px;
     font-weight: 500;
     padding: 2px;
   }
-  #sub-title{
-    font-size: 12px;
+  
+  #sub-title {
+    font-size: 10px;
     font-weight: 400;
   }
+  
+  
   .sub-title{
     font-size: 13px;
     font-weight: 500;
@@ -77,12 +81,12 @@
     background-color: #0056b3;
   }
   .example-container {
-    height: 46vh;
+    height: 53vh;
     overflow: auto;
     border: solid 1px black;
   }
   .benchmark{
-    height: 57vh;
+    height: 62vh;
     border-bottom: solid 1px black;
   }
   /* Reduce the width of the dropdowns */

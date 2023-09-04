@@ -40,7 +40,8 @@ export class ModerationComponent {
     
   }
   ngOnInit(){
-    this.loadSelectRules(); 
+    this.loadSelectRules();
+    this.getModels(); 
   }
   eventEmitter = new EventEmitter<string>();
 
@@ -86,6 +87,10 @@ initializeCategoryDataSources() {
       this.setPage(categoryName, 0, 5);
     }
   }
+}
+
+get isButtonDisabled() {
+  return this.selectedItems.length === 0;
 }
 
 setPage(categoryName: string, pageIndex: number, pageSize: number) {
@@ -189,6 +194,18 @@ applyRule(){
         console.error('Error sending data:', error);
       }
     );
+  }
+  Models:any=[];
+  getModels(){
+    this.http.get('http://13.234.148.242:3000/modelZoo/').subscribe({
+      next:response => { 
+        this.Models=response;
+       console.log(response);
+      },
+      error:error => {
+        console.error( error);
+   } });
+
   }
 
   saveRuleBook(){

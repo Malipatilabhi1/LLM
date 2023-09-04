@@ -12,8 +12,10 @@ export class ChatbattleComponent {
   inputText: string = ''; 
   ModelsData:any=[];
 
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient){}
 
+  ngOnInit(){
+    this.getModels();
   }
 
   sendData() {
@@ -31,5 +33,17 @@ export class ChatbattleComponent {
         this.loading = false;
       }
     );
+  }
+modelsList:any=[];
+  getModels(){
+    this.http.get('http://13.234.148.242:3000/modelZoo/').subscribe({
+      next:response => { 
+        this.modelsList=response;
+       console.log(response);
+      },
+      error:error => {
+        console.error( error);
+   } });
+
   }
 }

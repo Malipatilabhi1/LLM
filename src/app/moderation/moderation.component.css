@@ -230,6 +230,18 @@
     cursor: pointer;
     width: 30%;
   }
+
+  button#myButton {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  button#myButton:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+  
   #divArea{
     background-color: #dbdbdb;
     min-height: 16vh;

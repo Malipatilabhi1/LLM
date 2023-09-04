@@ -30,8 +30,9 @@
         <div style="display: flex; align-items: center;">
             <select  id="modelB" [(ngModel)]="selectedModel">
                 <option value="val1">Select Model</option>
-                <option >GPT-3.5-8B</option>
-                <option >GTP-3.5-7B</option>  
+                
+                <option *ngFor="let model of modelsList">{{model.name}}</option>
+                <option>EleutherAI/gpt-neo-1.3B</option>
             </select>
 
             <!-- <select  id="modelB" [(ngModel)]="selectedBenchmark">
