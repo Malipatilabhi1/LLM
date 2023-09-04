@@ -172,8 +172,8 @@ dummy:any=[];
   Progress:number=0;
 
   saveSource1() {
-    localStorage.clear(); 
-
+    localStorage.clear();
+  
     let progress = 1;
     let status = 'In-progress';
     const name = this.InputFile;
@@ -184,23 +184,23 @@ dummy:any=[];
       'https://jktech.com/Success-Stories',
       'https://jktech.com/contact-us'
     ];
-
-    if(this.InputFile=='https://jktech.com/'){
-      const newData = { name:'https://jktech.com/Company', source: '', type: '', date: '', status, progress, content: '' };
-      const newData2 = { name:'https://jktech.com/Industry', source: '', type: '', date: '', status, progress, content: '' };
-      const newData3 = { name:'https://jktech.com/Services', source: '', type: '', date: '', status, progress, content: '' };
-      const newData4 = { name:'https://jktech.com/Success-Stories', source: '', type: '', date: '', status, progress, content: '' };
-      const newData5 = { name:'https://jktech.com/contact-us', source: '', type: '', date: '', status, progress, content: '' };
-      this.dataSource=[newData,newData2,newData3,newData4,newData5];
-    }else {
+  
+    if (this.InputFile == 'https://jktech.com/') {
+      const newData = { name: 'https://jktech.com/Company', source: '', type: '', date: '', status, progress, content: '' };
+      const newData2 = { name: 'https://jktech.com/Industry', source: '', type: '', date: '', status, progress, content: '' };
+      const newData3 = { name: 'https://jktech.com/Services', source: '', type: '', date: '', status, progress, content: '' };
+      const newData4 = { name: 'https://jktech.com/Success-Stories', source: '', type: '', date: '', status, progress, content: '' };
+      const newData5 = { name: 'https://jktech.com/contact-us', source: '', type: '', date: '', status, progress, content: '' };
+      this.dataSource = [newData, newData2, newData3, newData4, newData5];
+    } else {
       const newData = { name, source: '', type: '', date: '', status, progress, content: '' };
       this.dataSource = [newData];
     }
     this.showProgress = true;
-    
+  
     const delayBetweenItems = 1000;
-   
-    items.forEach((item: string, index: number) => {
+  
+    const processItem = (index:any) => {
       const progressInterval = setInterval(() => {
         if (this.dataSource[index].progress < 100) {
           this.dataSource[index].progress += 1;
@@ -208,11 +208,16 @@ dummy:any=[];
           this.dataSource[index].status = 'Completed';
           clearInterval(progressInterval);
   
+          // Store the completed item's data in localStorage or dataSource
+          // Here, I'm storing it in localStorage
+          localStorage.setItem(`dataSource_${index}`, JSON.stringify(this.dataSource[index]));
+          this.dataSource[index]=this.dataSource[index];
+  
           // Check if all items are completed to stop the overall progress
-          if (this.dataSource.every((data: { status: string }) => data.status === 'Completed')) {
+          if (this.dataSource.every((data:any) => data.status === 'Completed')) {
             this.showProgress = false;
   
-            // Once all items are completed, update dataSource with rawData
+            // Once all items are completed, you can update dataSource with rawData
             this.dataSource = this.rawData.map((item:any) => ({
               name: item.name,
               source: item.source,
@@ -222,16 +227,20 @@ dummy:any=[];
               progress: 100,
               content: item.content,
             }));
+  
+            // You can also store this updated dataSource in localStorage if needed
             localStorage.setItem('dataSource', JSON.stringify(this.dataSource));
+          } else {
+            // Proceed to the next item
+            processItem(index + 1);
           }
         }
-      }, 100);
-  
-      setTimeout(() => {
-        this.showProgress = true;
-      }, index * delayBetweenItems);
-    });
+      }, 30);
+    };
+    processItem(0); // Start processing the first item
   }
+  
+  
  
   onFileSelected(event: any) {
     if (event.target.files && event.target.files.length > 0) {
