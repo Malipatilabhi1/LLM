@@ -185,7 +185,7 @@ dummy:any=[];
       'https://jktech.com/contact-us'
     ];
   
-    if (this.InputFile == 'https://jktech.com/') {
+    if (this.InputFile.toLowerCase().startsWith('https://jk')) {
       const newData = { name: 'https://jktech.com/Company', source: '', type: '', date: '', status, progress, content: '' };
       const newData2 = { name: 'https://jktech.com/Industry', source: '', type: '', date: '', status, progress, content: '' };
       const newData3 = { name: 'https://jktech.com/Services', source: '', type: '', date: '', status, progress, content: '' };
