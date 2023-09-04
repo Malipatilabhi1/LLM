@@ -105,6 +105,7 @@
     border: 1px solid black;
     margin-right: 10px;
     margin-left: 10px;
+    width: 90%;
   }
   td,th{
     text-align: center;

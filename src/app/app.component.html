@@ -1,19 +1,45 @@
-<div class="d-flex flex-column" style="background-color: #f6f7fb">
+<!-- <div class="d-flex flex-column" style="background-color: #f6f7fb; height: 100vh; overflow: hidden">
+  <div class="sticky-top" style="width: 100% !important">
+    <app-header></app-header>
+  </div>
+  <div class="d-flex" style="flex: 1; height: calc(100vh - 64px); overflow: hidden">
+    <mat-drawer-container style="flex: 1; height: 100%">
+      <mat-drawer mode="side" [opened]="isSidenavOpen" style="width: 17vw">
+        
+        <app-side-nav [sidenavVisible]="isSidenavOpen"></app-side-nav>
+      </mat-drawer>
+      <mat-drawer-content style="height: 100%; overflow-y: auto">
+        <div class="scroller" #scroller1 style="width: 100% !important">
+          <div id="content" #content>
+            <router-outlet class="scroll"></router-outlet>
+          </div>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div> -->
+
+<div class="d-flex flex-column" style="background-color: #f6f7fb; height: 100vh; overflow: hidden">
   <div class="sticky-top" style="width: 100% !important">
     <app-header></app-header>
   </div>
   <div class="d-flex">
     <mat-drawer-container>
-      <mat-drawer mode="side" [opened]="sideBarOpen" style="width: 20vw">
-        <app-side-nav></app-side-nav>
+      <mat-drawer mode="side" [opened]="isSidenavOpen" style="width: 20vw">
+        <app-side-nav [sidenavVisible]="isSidenavOpen"></app-side-nav>
       </mat-drawer>
     </mat-drawer-container>
     <div class="scroller" #scroller1 style="width: 100% !important">
-      <div id="content" #content>
-        <router-outlet class="scroll">
-          <!-- <app-chatbot></app-chatbot> -->
-        </router-outlet>
+      <div id="content" #content style="height: 100%; overflow: auto;">
+        <div class="scrollable-content">
+          <router-outlet class="scroll">
+            <!-- <app-chatbot></app-chatbot> -->
+            <!-- Your component's content goes here -->
+          </router-outlet>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+

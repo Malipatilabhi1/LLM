@@ -1,24 +1,22 @@
-<div class="card text-light  d-flex p-2 flex-row rounded-0" style="background-color: #0F0E2D;">
-    <img src="../../assets/images/jkt.logo.png" class=" jkt" >
-   
-    <div class="form-group has-search ms-auto me-3">
-      <span class="fa fa-search form-control-feedback" >
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:0.63em;margin-bottom: 0.25em!important;" width="17" height="17" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-        </svg> -->
-      </span>
-      <input type="text"  class="form-control text-light inputClass border  mx-auto rounded-pill" style="max-width: 98%;background: rgba(255, 255, 255, 0.1);"   placeholder="Search..." type = "search" >
-    </div>
-    <span class="my-auto  d-flex ">
-  
-        <div matBadge="4"  matBadgeOverlap="true" matBadgeColor="warn" class="demo-section me-3"><mat-icon style="color: white;">notifications</mat-icon></div>
-  
-      <mat-icon class="me-3" style="color: white;" (click)="clear()">help</mat-icon>
+<div class="card text-light d-flex p-2 flex-row rounded-0" style="background-color: #0F0E2D;">
+  <!-- Add a menu icon that toggles the sidenav -->
+  <span class="material-icons menu-icon" (click)="toggleSidenavInHeader()">menu</span>
+  <img src="../../assets/images/jkt.logo.png" class="jkt">
+
+  <div class="form-group has-search ms-auto me-3">
+    <span class="fa fa-search form-control-feedback">
+      <!-- Your search input code here -->
     </span>
-      <img src="../../assets/images/girl.jpg" class="m-1 rounded-pill pt-1" style="border-radius: 50%;" height="25px" width="20px" alt="" (click)="clear()">
-      <span class="my-auto">
-  
-        <!-- <small class="mt-0 ms-1" style="font-size: 1.1vw;">Julia Suzuki</small> -->
-      </span>
-  
   </div>
+
+  <span class="my-auto d-flex">
+
+    <div matBadge="4" matBadgeOverlap="true" matBadgeColor="warn" class="demo-section me-3">
+      <mat-icon style="color: white;">notifications</mat-icon>
+    </div>
+
+    <mat-icon class="me-3" style="color: white;" (click)="clear()">help</mat-icon>
+  </span>
+
+  <img src="../../assets/images/girl.jpg" class="m-1 rounded-pill pt-1" style="border-radius: 50%;" height="25px" width="20px" alt="" (click)="clear()">
+</div>

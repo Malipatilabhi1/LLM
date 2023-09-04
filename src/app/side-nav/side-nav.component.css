@@ -32,3 +32,6 @@ mat-icon {
   background-color: #fff;
   border-top: 1px solid black; 
 }
+.sidebar-list{
+  margin-top: 20px;
+}

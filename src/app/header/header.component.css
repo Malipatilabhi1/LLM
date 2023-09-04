@@ -21,4 +21,9 @@
 .jkt {
     width: 170px;
     height: 40px;
+    margin-left: 10px;
   }
+  .menu-icon {
+    margin-top: 5px;
+    cursor: pointer; /* Add this line to set the cursor to a pointing hand */
+}

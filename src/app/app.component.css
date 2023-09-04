@@ -31,3 +31,36 @@ p {
     background: rgb(72, 119, 167);
   }
   
+
+  /* CSS for positioning the "Toggle Sidenav" button */
+.toggle-button {
+  position: absolute;
+  top: 10px; /* Adjust the top value to your desired position */
+  right: 10px; /* Adjust the right value to your desired position */
+}
+
+/* CSS for adjusting button position in fullscreen mode */
+.mat-drawer-closed .toggle-button {
+  top: 10px; /* Adjust the top value for the top left corner in fullscreen */
+  left: 10px; /* Adjust the left value for the top left corner in fullscreen */
+}
+
+/* CSS for the sidenav and content areas */
+.sidenav {
+  height: 100%;
+  overflow-y: auto;
+  position: fixed;
+}
+
+.content {
+  height: 100%;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* CSS for positioning the button within the sidenav container */
+.button-container {
+  position: absolute;
+  top: 10px; /* Adjust the top value as needed */
+  left: 10px; /* Adjust the left value as needed */
+}

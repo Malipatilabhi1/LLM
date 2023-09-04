@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router,Event } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { NavigationEnd, Router,Event } from '@angular/router';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent {
-
+  @Input() sidenavVisible: boolean = true;
   dataIngestionSubpagesVisible = false;
 finetuneSubpagesVisible = false;
 evaluationSubpagesVisible = false;
