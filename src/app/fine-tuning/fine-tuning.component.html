@@ -76,20 +76,26 @@
               </select>
             </div>
             
-            <div class="table">
-              <div class="table-header">
-                <div class="header-cell s-column">
-                  <input type="checkbox" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()">
+            <div class="table-container">
+              <div class="table">
+                <div class="table-header">
+                  <div class="header-cell s-column">
+                    <input type="checkbox" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()">
+                  </div>
+                  <div class="header-cell wide-column" style="font-weight: 550;">Raw Data</div>
                 </div>
-                <div class="header-cell wide-column" style="font-weight: 550;">Raw Data</div>
-              </div>
-              <div class="table-row" *ngFor="let data of RawData">
-                <div class="table-cell s-column">
-                  <input type="checkbox" [(ngModel)]="data.selected">
+                <div class="table-content">
+                  <div class="table-row" *ngFor="let data of RawData">
+                    <div class="table-cell s-column">
+                      <input type="checkbox" [(ngModel)]="data.selected">
+                    </div>
+                    <div class="table-cell wide-column">{{ data.name }}</div>
+                  </div>
                 </div>
-                <div class="table-cell wide-column">{{ data.name }}</div>
               </div>
             </div>
+            
+            
             
       
             <div class="button-container">
