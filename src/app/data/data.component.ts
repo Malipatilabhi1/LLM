@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SourceComponent } from '../source/source.component';
 import { HttpClient } from '@angular/common/http';
+import { CommonService } from '../common.service';
 
 declare var $: any;
 
@@ -22,8 +23,8 @@ export class DataComponent {
   showDataList:boolean=false;
   selectedFolder:any='';
   selectedOption: string = 'option1'; 
-  constructor(private dialog: MatDialog,private http:HttpClient) {
-    // this.dataSource= localStorage.getItem('dataSource');
+  constructor(private dialog: MatDialog,private http:HttpClient,private service:CommonService) {
+    
   }
 
   localFile:any='';
@@ -35,9 +36,17 @@ export class DataComponent {
     } else {
       this.dataSource = [];
     }
+
+    this.service.showFolders$.subscribe((showFolders) => {
+      this.showFolders = showFolders;
+    });
+
+    this.service.showDataList$.subscribe((showDataList) => {
+      this.showDataList = showDataList;
+    });
     
   }
-
+  
   Folders:any=[];
 
   Data:any=[
@@ -116,33 +125,7 @@ dummy:any=[];
       data: data
     });
   }
-  // saveSource() {
-  //   this.dialog.closeAll(); 
-  // }
 
- 
-
-  // processData() {
-  //    this.selectedData = this.Data.filter(data => data.selected);
-  // }
-    
-  // hasSelectedItems(): boolean {
-  //   return this.Data.some(data => data.selected);
-  // }
-
-  // formattedDate(){
-  // const currentDate = new Date();
-  // const day = currentDate.getDate();
-  // const month = currentDate.getMonth() + 1; 
-  // const year = currentDate.getFullYear();
-  //  return `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
-  // }
-  // uploadedData: UploadedData[] = []; 
-  // uploadData(data: Data, input: string) { 
-  //  const date=this.formattedDate();
-  //   const uploadedItem:UploadedData={...data, inputUrl: input,Date:date}
-  //   this.commonService.uploadedData.push(uploadedItem);
-  // }
   content:any='';
   viewData(name:any){
     const selectedItem = this.dataSource.find((item:any) => item.name === name);
@@ -171,31 +154,195 @@ dummy:any=[];
   showProgress:boolean=false;
   Progress:number=0;
 
+  urlList:any='';
+
+  // saveSource(){
+  //   let url=this.InputFile;
+  //   this.http.post('http://13.234.148.242:5050/get_pages',{url}).subscribe({
+  //     next:response => { 
+  //      this.urlList=response;
+  //      console.log(this.urlList.pages);
+  //      this.assignToTable(this.urlList.pages);
+  //      this.getRawdata(this.urlList.pages);
+  //     },
+  //     error:error => {
+  //       console.error( error);
+  //  } });
+  // }
+
+  // dummyC:any=[];
+  // rowDataContent:any=[];
+
+  // getRawdata(pages:any){
+  //   this.http.post('http://13.234.148.242:5050/load_from_urls',{pages}).subscribe({
+  //     next:response => { 
+  //       this.dummyC=response;
+  //       this.rowDataContent=this.dummyC.content;
+  //      console.log(this.rowDataContent);
+  //     },
+  //     error:error => {
+  //       console.error( error);
+  //  } });
+  // }
+  
+  saveSource() {
+    let url = this.InputFile;
+    this.http.post('http://13.234.148.242:5050/get_pages', { url }).subscribe({
+      next: (response) => {
+        this.urlList = response;
+        console.log(this.urlList.pages);
+        this.assignToTable(this.urlList.pages);
+        this.getRawdata(this.urlList.pages);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+  
+  dummyC: any = [];
+  rowDataContent: any = [];
+  
+  getRawdata(pages: any) {
+    this.http.post('http://13.234.148.242:5050/load_from_urls', { pages }).subscribe({
+      next: (response) => {
+        this.dummyC = response;
+        this.rowDataContent = this.dummyC.content;
+        console.log(this.rowDataContent);
+  
+        // Once you receive the second API response, update the dataSource and complete the progress
+        this.updateDataSourceAndCompleteProgress();
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+  
+  updateDataSourceAndCompleteProgress() {
+    this.showProgress = false; // Hide the progress bar
+    this.dataSource = this.rowDataContent.map((item: any) => ({
+      name: item.Source,
+      source: 'Web',
+      type: 'html',
+      date: new Date().toLocaleString(),
+      status: 'Completed',
+      progress: 100,
+      content: item.page_content,
+    }));
+  
+    // You can also store this updated dataSource in localStorage if needed
+    localStorage.setItem('dataSource', JSON.stringify(this.dataSource));
+  }
+  
+  assignToTable(urls: any) {
+    this.dataSource = urls.map((url: any) => ({
+      name: url,
+      source: '',
+      type: '',
+      date: '',
+      status: 'In-progress',
+      progress: 'indeterminate', // Set progress to 'indeterminate'
+      content: '',
+    }));
+  
+    this.showProgress = true;
+  }
+  
+  
+  
+  
+  
+
+
+
+
+// assignToTable(urls:any){
+//   let progress = 1;
+//   let status = 'In-progress';
+
+//   this.dataSource = urls.map((url:any) => ({
+//     name: url,
+//     source: '',
+//     type: '',
+//     date: '',
+//     status: status,
+//     progress: progress,
+//     content: ''
+//   }));
+
+//   this.showProgress = true;
+//   const processItem = (index:any) => {
+//     const progressInterval = setInterval(() => {
+//       if (this.dataSource[index].progress < 100) {
+//         this.dataSource[index].progress += 1;
+//       } else {
+//         this.dataSource[index].status = 'Completed';
+//         clearInterval(progressInterval);
+
+//         localStorage.setItem(`dataSource_${index}`, JSON.stringify(this.dataSource[index]));
+//         this.dataSource[index]=this.dataSource[index];
+
+//         // Check if all items are completed to stop the overall progress
+//         if (this.dataSource.every((data:any) => data.status === 'Completed')) {
+//           this.showProgress = false;
+
+//           // Once all items are completed, you can update dataSource with rawData
+//           this.dataSource = this.rowDataContent.map((item:any) => ({
+//             name: item.Source,
+//             source: 'Web',
+//             type: 'html',
+//             date: new Date().toLocaleString(),
+//             status: 'Completed',
+//             progress: 100,
+//             content: item.page_content
+//             ,
+//           }));
+
+//           // You can also store this updated dataSource in localStorage if needed
+//           localStorage.setItem('dataSource', JSON.stringify(this.dataSource));
+//         } else {
+//           // Proceed to the next item
+//           processItem(index + 1);
+//         }
+//       }
+//     }, 30);
+//   };
+//   processItem(0); // Start processing the first item
+// }
+
+
+
+
+
+
+
   saveSource1() {
     localStorage.clear();
   
     let progress = 1;
     let status = 'In-progress';
     const name = this.InputFile;
-    const items = [
-      'https://jktech.com/Company',
-      'https://jktech.com//Industry',
-      'https://jktech.com/Services',
-      'https://jktech.com/Success-Stories',
-      'https://jktech.com/contact-us'
-    ];
+    // const items = [
+    //   'https://jktech.com/Company',
+    //   'https://jktech.com//Industry',
+    //   'https://jktech.com/Services',
+    //   'https://jktech.com/Success-Stories',
+    //   'https://jktech.com/contact-us'
+    // ];
   
-    if (this.InputFile.toLowerCase().startsWith('https://jk')) {
-      const newData = { name: 'https://jktech.com/Company', source: '', type: '', date: '', status, progress, content: '' };
-      const newData2 = { name: 'https://jktech.com/Industry', source: '', type: '', date: '', status, progress, content: '' };
-      const newData3 = { name: 'https://jktech.com/Services', source: '', type: '', date: '', status, progress, content: '' };
-      const newData4 = { name: 'https://jktech.com/Success-Stories', source: '', type: '', date: '', status, progress, content: '' };
-      const newData5 = { name: 'https://jktech.com/contact-us', source: '', type: '', date: '', status, progress, content: '' };
-      this.dataSource = [newData, newData2, newData3, newData4, newData5];
-    } else {
-      const newData = { name, source: '', type: '', date: '', status, progress, content: '' };
-      this.dataSource = [newData];
-    }
+    // if (this.InputFile.toLowerCase().startsWith('https://jk')) {
+    //   const newData = { name: 'https://jktech.com/Company', source: '', type: '', date: '', status, progress, content: '' };
+    //   const newData2 = { name: 'https://jktech.com/Industry', source: '', type: '', date: '', status, progress, content: '' };
+    //   const newData3 = { name: 'https://jktech.com/Services', source: '', type: '', date: '', status, progress, content: '' };
+    //   const newData4 = { name: 'https://jktech.com/Success-Stories', source: '', type: '', date: '', status, progress, content: '' };
+    //   const newData5 = { name: 'https://jktech.com/contact-us', source: '', type: '', date: '', status, progress, content: '' };
+    //   this.dataSource = [newData, newData2, newData3, newData4, newData5];
+    // } else {
+    //   const newData = { name, source: '', type: '', date: '', status, progress, content: '' };
+    //   this.dataSource = [newData];
+    // }
+   
     this.showProgress = true;
   
     const delayBetweenItems = 1000;

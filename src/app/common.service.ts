@@ -15,10 +15,6 @@ export class CommonService {
   modelData(model:any){
     this.model=model;
   }
-  uploadedFile(){
-    
-  }
-
   private showSidenav = false;
 
   setShowSidenav(value: boolean): void {
@@ -40,4 +36,38 @@ export class CommonService {
   getToggleSidenavObservable(): Observable<boolean> {
     return this.toggleSidenavSubject.asObservable();
   }
+
+
+  //for task based
+  private isOpenSubject = new BehaviorSubject<boolean>(true);
+  isOpen$ = this.isOpenSubject.asObservable();
+
+  toggleSidenavForTaskBased() {
+    this.isOpenSubject.next(!this.isOpenSubject.value);
+  }
+
+  getShowSidenavForTaskBased(): boolean {
+    return this.isOpenSubject.value;
+  }
+
+
+  // for rawdata clcik
+  private showFoldersSubject = new BehaviorSubject<boolean>(true);
+  private showDataListSubject = new BehaviorSubject<boolean>(false);
+
+  showFolders$ = this.showFoldersSubject.asObservable();
+  showDataList$ = this.showDataListSubject.asObservable();
+  showDataList1$ = this.showDataListSubject.asObservable();
+
+  toggleShowFolders(showFolders: boolean) {
+    this.showFoldersSubject.next(showFolders);
+  }
+
+  toggleShowDataList(showDataList: boolean) {
+    this.showDataListSubject.next(showDataList);
+  }
+  toggleShowDataList1(showDataList: boolean) {
+    this.showDataListSubject.next(showDataList);
+  }
+
 }

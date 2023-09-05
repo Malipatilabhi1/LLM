@@ -11,10 +11,13 @@ mat-icon {
   margin-left: 25px;
 }
 
-.active-option {
 
-  color: #fff; /* Text color for active options */
+/* Add a style for the highlighted Data Ingestion option */
+.active-option {
+  background-color: #007bff; /* Change to the desired highlight color */
+  color: #fff; /* Change to the desired text color for highlighted items */
 }
+
 
 .inactive-option {
   background-color: transparent; /* Background for inactive options */

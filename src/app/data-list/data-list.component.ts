@@ -181,11 +181,24 @@ seedExamples(value:any){
 
 
   
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient,private service:CommonService){}
 
   ngOnInit(){
     this.getFolders();
     this.getRawdataFolders();
+
+    this.service.showFolders$.subscribe((showFolders) => {
+      this.showFolders = showFolders;
+    });
+
+    this.service.showDataList$.subscribe((showDataList) => {
+      this.showDataList = showDataList;
+    });
+
+    this.service.showDataList$.subscribe((showDataList) => {
+      this.showCreate = showDataList;
+    });
+
   }
 
   dummy:any;

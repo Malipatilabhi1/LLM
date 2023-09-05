@@ -16,8 +16,7 @@ export class HeaderComponent {
   constructor(private headerService: CommonService) { }
 
   toggleSidenavInHeader() {
-    // Implement your logic here
-    console.log('Toggle sidenav from header component');
     this.headerService.toggleSidenav();
+    this.headerService.toggleSidenavForTaskBased();
   }
 }

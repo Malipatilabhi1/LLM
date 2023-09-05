@@ -139,14 +139,23 @@ mat-icon {
   margin: 1.5px;
   border: 0.5px solid black;
   height:72vh;
+  text-align: center;
 }
+th,td{
+  text-align: center;
+}
+.scrollable-container {
+  max-height: 71.5vh; 
+  overflow-y: auto;
+}
+
 
 
 .right-modal .modal-dialog {
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh; /* Full screen height */
+  height: 100vh; 
   width: 35vw;
   margin: 0;
   transform: translateX(100%);

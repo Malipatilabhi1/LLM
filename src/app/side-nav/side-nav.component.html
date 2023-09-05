@@ -1,6 +1,6 @@
 <mat-nav-list class="sidebar-list"  *ngIf="sidenavVisible">
 
-  <a mat-list-item (click)="toggleDataIngestionSubpages()" [ngClass]="{ 'active-option': dataIngestionSubpagesVisible }">
+  <!-- <a mat-list-item (click)="toggleDataIngestionSubpages()" [ngClass]="{ 'active-option': dataIngestionSubpagesVisible }">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Data Ingestion
     <mat-icon>{{ dataIngestionSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
@@ -12,61 +12,101 @@
     <a mat-list-item routerLink="/dataIngestion/labelled-data" [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/labelled-data' }">
       Labelled Data
     </a>
-  </div>
+  </div> -->
 
-  <!-- Model Zoo -->
-  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/modelZoo', 'inactive-option': activeRoute !== '/modelZoo' }" routerLink="/modelZoo">
+  <!-- Data Ingestion Dropdown -->
+<a mat-list-item (click)="toggleDataIngestionSubpages()" [ngClass]="{ 'active-option1': dataIngestionSubpagesVisible }">
+  <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
+  Data Ingestion
+  <mat-icon>{{ dataIngestionSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+</a>
+<div *ngIf="dataIngestionSubpagesVisible" class="sub-head">
+  <a mat-list-item
+     routerLink="/dataIngestion/rawdata"
+     [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/rawdata' }"
+     (click)="selectOption('/dataIngestion/rawdata')">
+      Raw Data
+  </a>
+  <a mat-list-item
+     routerLink="/dataIngestion/labelled-data"
+     [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/labelled-data' }"
+     (click)="selectOption('/dataIngestion/labelled-data')">
+      Labelled Data
+  </a>
+</div>
+
+<!-- Example for Model Zoo -->
+<a mat-list-item
+   routerLink="/modelZoo"
+   [ngClass]="{ 'active-option': activeRoute === '/modelZoo' }"
+   (click)="selectOption('/modelZoo')">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Model Zoo
-  </a>
+</a>
 
-  <!-- Fine-tuning Dropdown -->
-  <a mat-list-item (click)="toggleFinetuneSubpages()" [ngClass]="{ 'active-option': finetuneSubpagesVisible }">
+<!-- Example for Fine-tuning Dropdown -->
+<a mat-list-item (click)="toggleFinetuneSubpages()" >
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Fine-tuning
     <mat-icon>{{ finetuneSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
-  </a>
-  <div *ngIf="finetuneSubpagesVisible" class="sub-head">
-    <a mat-list-item routerLink="/finetune/domain-adaptation" [ngClass]="{ 'active-option': activeRoute === '/finetune/domain-adaptation' }">
-      Domain Adaptation
+</a>
+<div *ngIf="finetuneSubpagesVisible" class="sub-head">
+    <a mat-list-item
+       routerLink="/finetune/domain-adaptation"
+       [ngClass]="{ 'active-option': activeRoute === '/finetune/domain-adaptation' }"
+       (click)="selectOption('/finetune/domain-adaptation')">
+        Domain Adaptation
     </a>
-    <a mat-list-item routerLink="/finetune/taskBased" [ngClass]="{ 'active-option': activeRoute === '/finetune/taskBased' }">
-      Task Based
+    <a mat-list-item
+       routerLink="/finetune/taskBased"
+       [ngClass]="{ 'active-option': activeRoute === '/finetune/taskBased' }"
+       (click)="selectOption('/finetune/taskBased')">
+        Task Based
     </a>
-  </div>
-
+</div>
+  
   <!-- Evaluation Dropdown -->
-  <a mat-list-item (click)="toggleEvaluationSubpages()" [ngClass]="{ 'active-option': evaluationSubpagesVisible }">
+  <a mat-list-item (click)="toggleEvaluationSubpages()" >
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Evaluation
     <mat-icon>{{ evaluationSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
   </a>
   <div *ngIf="evaluationSubpagesVisible" class="sub-head">
-    <a mat-list-item routerLink="/evaluation/benchmark" [ngClass]="{ 'active-option': activeRoute === '/evaluation/benchmark' }">
+    <a mat-list-item routerLink="/evaluation/benchmark" 
+    [ngClass]="{ 'active-option': activeRoute === '/evaluation/benchmark' }"
+    (click)="selectOption('/evaluation/benchmark')">
       Benchmark
     </a>
-    <a mat-list-item routerLink="/evaluation/chat-battle" [ngClass]="{ 'active-option': activeRoute === '/evaluation/chat-battle' }">
+    <a mat-list-item routerLink="/evaluation/chat-battle" 
+    [ngClass]="{ 'active-option': activeRoute === '/evaluation/chat-battle' }"
+    (click)="selectOption('/evaluation/chat-battle')">
       Chat Battle
     </a>
-    <a mat-list-item routerLink="/evaluation/chatbot" [ngClass]="{ 'active-option': activeRoute === '/evaluation/chatbot' }">
+    <a mat-list-item routerLink="/evaluation/chatbot" 
+    [ngClass]="{ 'active-option': activeRoute === '/evaluation/chatbot' }"
+    (click)="selectOption('/evaluation/chatbot')">
       Chatbot
     </a>
   </div>
 
   <!-- Moderation -->
-  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/moderation', 'inactive-option': activeRoute !== '/moderation' }" routerLink="/moderation">
+  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/moderation', 'inactive-option': activeRoute !== '/moderation' }"
+   routerLink="/moderation"
+   (click)="selectOption('/moderation')">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Moderation
   </a>
 
   <!-- Pipeline -->
-  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/pipeline', 'inactive-option': activeRoute !== '/pipeline' }" routerLink="/pipeline">
+  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/pipeline', 'inactive-option': activeRoute !== '/pipeline' }" 
+  routerLink="/pipeline"
+  (click)="selectOption('/pipeline')">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Solution Composer
   </a>
 
   <!-- Deployment -->
-  <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/deployment', 'inactive-option': activeRoute !== '/deployment' }" routerLink="/deployment">
+  <a mat-list-item  routerLink="/deployment">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Deployment
   </a>

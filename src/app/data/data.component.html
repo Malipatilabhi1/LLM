@@ -57,56 +57,42 @@
 
 
 
-<section class="example-container mat-elevation-z8" tabindex="0" *ngIf="showDataList">
+<section class="example-container mat-elevation-z8 scrollable-container" tabindex="0" *ngIf="showDataList">
   <table mat-table [dataSource]="dataSource">
     
     <ng-container matColumnDef="File Name">
-      <th mat-header-cell *matHeaderCellDef style="width: 35%;"> File Name </th>
-      <td mat-cell *matCellDef="let element" style="width: 35%;"> {{element.name}} </td>
+      <th mat-header-cell *matHeaderCellDef style="width: 30%;"> File Name </th>
+      <td mat-cell *matCellDef="let element" style="width: 30%;text-align: start;margin-left: 5px;"> {{element.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Source">
-      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Source </th>
-      <td mat-cell *matCellDef="let element" style="width: 10%;">{{element.source}}</td>
+      <th mat-header-cell *matHeaderCellDef > Source </th>
+      <td mat-cell *matCellDef="let element" >{{element.source}}</td>
     </ng-container>
 
     <ng-container matColumnDef="File Type">
-      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> File Type </th>
-      <td mat-cell *matCellDef="let element" style="width: 10%;">{{element.type}}
+      <th mat-header-cell *matHeaderCellDef > File Type </th>
+      <td mat-cell *matCellDef="let element" >{{element.type}}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="Date">
-      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Date </th>
-      <td mat-cell *matCellDef="let element" style="width: 10%;"> 
+      <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Date </th>
+      <td mat-cell *matCellDef="let element" style="width: 20%;"> 
           {{element.date}}   </td>
     </ng-container>
 
-    <!-- <ng-container matColumnDef="Status">
-      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Status </th>
-      <td mat-cell *matCellDef="let element" style="width: 10%;">
-        {{element.status}}
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="Progress" *ngIf="showProgress">
-      <th mat-header-cell *matHeaderCellDef style="width: 2%;"></th>
-      <td mat-cell *matCellDef="let element" style="width: 2%;">
-        {{element.Progress}}
-      </td>
-    </ng-container> -->
     <ng-container matColumnDef="Status">
-      <th mat-header-cell *matHeaderCellDef style="width: 15%;"> Status </th>
-      <td mat-cell *matCellDef="let element" style="width: 15%;">
+      <th mat-header-cell *matHeaderCellDef > Status </th>
+      <td mat-cell *matCellDef="let element" >
         <div *ngIf="element.status === 'In-progress'">        
-        <mat-progress-bar mode="determinate" [value]="element.progress" color="primary"></mat-progress-bar>
+        <mat-progress-bar mode="query" [value]="element.progress" color="primary"></mat-progress-bar>
         </div>
         <div *ngIf="element.status === 'Completed'">
           <span>Completed</span>
         </div>
       </td>
     </ng-container>
-
 
     <ng-container matColumnDef="Actions">
       <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Actions </th>
@@ -249,7 +235,7 @@
         <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"  >
           Close
         </button>
-        <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal"  (click)="saveSource1()">Ingest</button>
+        <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal"  (click)="saveSource()">Ingest</button>
       </div>
     </div>
   </div>
