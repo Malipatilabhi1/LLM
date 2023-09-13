@@ -12,8 +12,8 @@
       </div>
     </div>
     <div class="button-container" *ngIf="showFolders">
-      <button class="end-button" data-bs-toggle="modal"
-      data-bs-target="#staticBackdrop">+ New Folder</button>
+      <button class="newFolder" data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop" style="font-family: Outfit;">+ New Folder</button>
     </div>
 </div>
   <!-- Horizontal Line -->
@@ -25,9 +25,13 @@
   <mat-card class="icon-card" *ngFor="let folder of Folders" (click)="FolderClicked(folder)">
     <div class="image-container">
       <img class="image" src="assets\images\folder.icon.png" />
-      <mat-icon>more_vert</mat-icon>
+      <mat-icon [matMenuTriggerFor]="moreMenu1" (click)="$event.preventDefault();$event.stopPropagation()">more_vert</mat-icon>
+      <mat-menu #moreMenu1="matMenu">
+        <button mat-menu-item >Edit</button>
+        <button mat-menu-item (click)="deleteFolders(folder)">Delete</button>
+      </mat-menu>
     </div>
-    <div class="folder-name">{{folder}}</div>
+    <div class="folder-name" (click)="$event.preventDefault();$event.stopPropagation()">{{folder}}</div>
   </mat-card>
 </div>
 
@@ -84,7 +88,7 @@
 
 <mat-stepper linear #stepper *ngIf="showCreate">
   <mat-step  [editable]="isEditable">
-    <ng-template matStepLabel>Select Raw Data</ng-template>
+    <ng-template matStepLabel style="font-family: Outfit;">Select Raw Data</ng-template>
     
     <div>
       <div>
@@ -95,17 +99,17 @@
       </div>
       
       <div class="table">
-        <div class="table-header">
+        <div class="table-header" style="background-color: #091E4224;">
           <div class="header-cell s-column">
             <input type="checkbox" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()">
           </div>
-          <div class="header-cell wide-column" style="font-weight: 550;">Raw Data</div>
+          <div class="header-cell wide-column" style="font-weight: 550;font-family: Outfit;">Raw Data</div>
         </div>
         <div class="table-row" *ngFor="let data of RawData">
           <div class="table-cell s-column">
             <input type="checkbox" [(ngModel)]="data.selected">
           </div>
-          <div class="table-cell wide-column">{{ data.name }}</div>
+          <div class="table-cell wide-column" style="font-family: Outfit;">{{ data.name }}</div>
         </div>
       </div>
       
@@ -117,7 +121,7 @@
   </mat-step>
   
   <mat-step [editable]="isEditable">
-    <ng-template matStepLabel>Generate Data Set</ng-template>
+    <ng-template matStepLabel style="font-family: Outfit;">Generate Data Set</ng-template>
     <div class="two-column-div">
        <!------- left section -------->
       <div class="left-column" >
@@ -136,13 +140,13 @@
         <div class="input-row" style="margin-top: 5px;margin-left: 5px;" *ngIf="showPrompt">
           <label class="textareaLabel" for="textareaInput">Prompt</label>
           
-          <div id="textareaInput" class="custom-textarea" contenteditable="true">
+          <div id="textareaInput" class="custom-textarea" contenteditable="true" style="font-family: Outfit;">
             <b>Define your task</b><br>Ex: "Translate the following English sentences into French"
           </div>
         </div>
         <div class="input-row" style="margin-top: 5px; margin-left: 5px;">
           <label class="textareaLabel" for="textareaInput">Seed examples</label>
-          <textarea id="textareaInput" [rows]="rows" placeholder="">{{seedsExample}}</textarea>
+          <textarea style="font-family: Outfit;" id="textareaInput" [rows]="rows" placeholder="">{{seedsExample}}</textarea>
         </div>
         
         <div class="input-row1">
@@ -157,12 +161,12 @@
           <span>#Words: <b>1000K</b></span>
         </div> -->
         <div id="display-area" rows="14" placeholder="Enter text">
-          <div *ngIf="loading" class="loading-indicator1">
+          <div *ngIf="loading" class="loading-indicator1" style="font-family: Outfit;">
             <i class="fas fa-spinner fa-spin"></i> Loading... 
           </div>
           <pre>{{generatedQuestions}}</pre></div>
         <div class="button-wrapper">
-          <button class="download-button" (click)="downloadFiles()">Download</button>
+          <button class="download-button" (click)="downloadFiles()" >Download</button>
          
           <div class="save-container">
             <button class="save-button" data-bs-toggle="modal" data-bs-target="#saveModal">Save & Done</button>
@@ -175,7 +179,7 @@
   </mat-step>
 </mat-stepper>
  
-  <!-- Modal -->
+  <!-- Modal ---- Folder Creation -->
 <div
 class="modal fade"
 id="staticBackdrop"
@@ -187,7 +191,7 @@ aria-hidden="true">
 <div class="modal-dialog modal-dialog-scrollable">
   <div class="modal-content" style="min-width: 38vw;">
     <div class="modal-header">
-      <h2 class="modal-title" id="staticBackdropLabel">New Folder</h2>
+      <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">New Folder</h2>
       <button
         type="button"
         class="btn-close"
@@ -201,10 +205,10 @@ aria-hidden="true">
       </div>
     </div>
     <div class="modal-footer">
-      <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+      <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="font-family: Outfit;">
         Close
       </button>
-      <button  type="button" class="btn btn-primary btn-sm"  (click)="createFolder()"  data-bs-dismiss="modal">Create</button>
+      <button  type="button" class="btn btn-primary btn-sm"  (click)="createFolder()"  data-bs-dismiss="modal" style="font-family: Outfit;">Create</button>
     </div>
   </div>
 </div>
@@ -223,7 +227,7 @@ aria-hidden="true">
  <div class="modal-dialog modal-dialog-scrollable">
    <div class="modal-content" style="min-width: 38vw;">
      <div class="modal-header">
-       <h2 class="modal-title" id="staticBackdropLabel">Save</h2>
+       <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">Save</h2>
        <button
          type="button"
          class="btn-close"
@@ -239,15 +243,15 @@ aria-hidden="true">
 
        <div class="input-row">
         <label for="inputLabel">Description</label>
-        <textarea rows="3" class="popup-textarea" [(ngModel)]="labelledDesc"></textarea>
+        <textarea style="font-family: Outfit;" rows="3" class="popup-textarea" [(ngModel)]="labelledDesc"></textarea>
       </div>
 
      </div>
      <div class="modal-footer">
-       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="font-family: Outfit;">
          Close
        </button>
-       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="saveData()">Save</button>
+       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="saveData()" style="font-family: Outfit;">Save</button>
      </div>
    </div>
  </div>
@@ -260,19 +264,19 @@ aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content sourceModal">
       <div class="modal-header">
-        <h5 class="modal-title">Content</h5>
+        <h5 class="modal-title" style="font-family: Outfit;">Content</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="scrollable-content">
+        <div class="scrollable-content" style="font-family: Outfit;">
           <pre>{{questions}}</pre>
         </div>
       </div>
       <div class="modal-footer">
         <!-- <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="saveData()">Save</button> -->
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-family: Outfit;">Cancel</button>
       </div>
     </div>
   </div>

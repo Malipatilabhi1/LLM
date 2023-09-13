@@ -1,33 +1,19 @@
 <mat-nav-list class="sidebar-list"  *ngIf="sidenavVisible">
 
-  <!-- <a mat-list-item (click)="toggleDataIngestionSubpages()" [ngClass]="{ 'active-option': dataIngestionSubpagesVisible }">
-    <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
-    Data Ingestion
-    <mat-icon>{{ dataIngestionSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
-  </a>
-  <div *ngIf="dataIngestionSubpagesVisible" class="sub-head">
-    <a mat-list-item routerLink="/dataIngestion/rawdata" [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/rawdata' }">
-      Raw Data
-    </a>
-    <a mat-list-item routerLink="/dataIngestion/labelled-data" [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/labelled-data' }">
-      Labelled Data
-    </a>
-  </div> -->
-
   <!-- Data Ingestion Dropdown -->
-<a mat-list-item (click)="toggleDataIngestionSubpages()" [ngClass]="{ 'active-option1': dataIngestionSubpagesVisible }">
+<a mat-list-item (click)="toggleDataIngestionSubpages()" [ngClass]="{ 'active-option1': dataIngestionSubpagesVisible }" style="font-family: Outfit;">
   <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
   Data Ingestion
   <mat-icon>{{ dataIngestionSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
 </a>
 <div *ngIf="dataIngestionSubpagesVisible" class="sub-head">
-  <a mat-list-item
+  <a mat-list-item style="font-family: Outfit;color: #ffffff;" id="option"
      routerLink="/dataIngestion/rawdata"
      [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/rawdata' }"
-     (click)="selectOption('/dataIngestion/rawdata')">
+     (click)="selectOption('/dataIngestion/rawdata')" >
       Raw Data
   </a>
-  <a mat-list-item
+  <a mat-list-item style="font-family: Outfit;" id="option"
      routerLink="/dataIngestion/labelled-data"
      [ngClass]="{ 'active-option': activeRoute === '/dataIngestion/labelled-data' }"
      (click)="selectOption('/dataIngestion/labelled-data')">
@@ -36,7 +22,7 @@
 </div>
 
 <!-- Example for Model Zoo -->
-<a mat-list-item
+<a mat-list-item style="font-family: Outfit;"
    routerLink="/modelZoo"
    [ngClass]="{ 'active-option': activeRoute === '/modelZoo' }"
    (click)="selectOption('/modelZoo')">
@@ -45,19 +31,19 @@
 </a>
 
 <!-- Example for Fine-tuning Dropdown -->
-<a mat-list-item (click)="toggleFinetuneSubpages()" >
+<a mat-list-item (click)="toggleFinetuneSubpages()" style="font-family: Outfit;">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Fine-tuning
     <mat-icon>{{ finetuneSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
 </a>
 <div *ngIf="finetuneSubpagesVisible" class="sub-head">
-    <a mat-list-item
+    <a mat-list-item style="font-family: Outfit;" id="option"
        routerLink="/finetune/domain-adaptation"
        [ngClass]="{ 'active-option': activeRoute === '/finetune/domain-adaptation' }"
        (click)="selectOption('/finetune/domain-adaptation')">
         Domain Adaptation
     </a>
-    <a mat-list-item
+    <a mat-list-item style="font-family: Outfit;" id="option"
        routerLink="/finetune/taskBased"
        [ngClass]="{ 'active-option': activeRoute === '/finetune/taskBased' }"
        (click)="selectOption('/finetune/taskBased')">
@@ -66,23 +52,24 @@
 </div>
   
   <!-- Evaluation Dropdown -->
-  <a mat-list-item (click)="toggleEvaluationSubpages()" >
+  <a mat-list-item (click)="toggleEvaluationSubpages()" style="font-family: Outfit;">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Evaluation
     <mat-icon>{{ evaluationSubpagesVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
   </a>
+  
   <div *ngIf="evaluationSubpagesVisible" class="sub-head">
-    <a mat-list-item routerLink="/evaluation/benchmark" 
+    <a mat-list-item routerLink="/evaluation/benchmark" id="option" style="font-family: Outfit;"
     [ngClass]="{ 'active-option': activeRoute === '/evaluation/benchmark' }"
     (click)="selectOption('/evaluation/benchmark')">
       Benchmark
     </a>
-    <a mat-list-item routerLink="/evaluation/chat-battle" 
+    <a mat-list-item routerLink="/evaluation/chat-battle" id="option" style="font-family: Outfit;"
     [ngClass]="{ 'active-option': activeRoute === '/evaluation/chat-battle' }"
     (click)="selectOption('/evaluation/chat-battle')">
       Chat Battle
     </a>
-    <a mat-list-item routerLink="/evaluation/chatbot" 
+    <a mat-list-item routerLink="/evaluation/chatbot" id="option" style="font-family: Outfit;"
     [ngClass]="{ 'active-option': activeRoute === '/evaluation/chatbot' }"
     (click)="selectOption('/evaluation/chatbot')">
       Chatbot
@@ -91,7 +78,7 @@
 
   <!-- Moderation -->
   <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/moderation', 'inactive-option': activeRoute !== '/moderation' }"
-   routerLink="/moderation"
+   routerLink="/moderation" style="font-family: Outfit;"
    (click)="selectOption('/moderation')">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Moderation
@@ -99,20 +86,20 @@
 
   <!-- Pipeline -->
   <a mat-list-item [ngClass]="{ 'active-option': activeRoute === '/pipeline', 'inactive-option': activeRoute !== '/pipeline' }" 
-  routerLink="/pipeline"
+  routerLink="/pipeline" style="font-family: Outfit;"
   (click)="selectOption('/pipeline')">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Solution Composer
   </a>
 
   <!-- Deployment -->
-  <a mat-list-item  routerLink="/deployment">
+  <a mat-list-item  routerLink="/deployment" style="font-family: Outfit;">
     <img src="assets/images/sidebar1.png" alt="Home" width="15" height="11" />
     Deployment
   </a>
 
   <!-- Logout (Fixed at Bottom) -->
-  <a mat-list-item class="logout-item">
+  <a mat-list-item class="logout-item" style="font-family: Outfit;">
     <img src="assets/images/logout.png" alt="Home" width="12" height="11" />
     Logout
   </a>

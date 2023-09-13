@@ -1,15 +1,24 @@
 
-<mat-card class="top">
-    <div style="margin-left: 10px"><h2 class="mt-2">Solution Composer</h2></div>
+<!-- <mat-card class="top">
+    <div style="margin-left: 10px"><h2 class="mt-2" style="font-family: Outfit;">Solution Composer</h2>
+      <span *ngIf="embedded" class="title">- New Embedded Generation</span></div>
+  </mat-card> -->
+
+  <mat-card class="top">
+    <div style="margin-left: 10px;margin-top: 5px;"><Span class="head" (click)="Back()">
+      <mat-icon class="back_button">navigate_before</mat-icon> Solution Composer <span class="sub-head" *ngIf="embedded">/ New Embedded Generation</span></Span>
+</div>
   </mat-card>
 
   <div *ngIf="home">
-    <span style="margin-left: 20px;">Please select below option:</span>
+    <span style="margin-left: 20px;font-family: Outfit;">Please select below option:</span>
     <div class="card-container">
       <div class="card-row">
         <mat-card class="card" [class.selected-card]="selectedCard === 'card1'" (click)="clicked('card1')">
-            <img src="assets\images\FloWiseAI1.png" alt="chatbot" height="40px" width="100px">
-            <span>LLM Apps Flow Designer</span>     
+          <div class="image-container">
+            <img src="assets/images/FloWiseAI1.png" alt="chatbot">
+          </div>
+            <span class="title">LLM Apps Flow Designer</span>     
         </mat-card>
 
         
@@ -17,12 +26,12 @@
       <div class="card-row">
         <mat-card class="card" [class.selected-card]="selectedCard === 'card2'" (click)="clicked('card2')">
           <img src="assets\images\embedded.png" alt="embeddedIcon">
-          <span>New Embedding<br>Generation</span>
+          <span class="title">New Embedding<br>Generation</span>
         </mat-card>
         <mat-card class="card" [class.selected-card]="selectedCard === 'card3'" (click)="clicked('card3')"
-        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           <img src="assets\images\chatbot.png" alt="embeddedIcon">
-          <span>In Context learning<br>Chatbot</span>
+          <span class="title">In Context learning<br>Chatbot</span>
         </mat-card>
         <!-- <mat-card class="card" [class.selected-card]="selectedCard === 'card4'" (click)="clicked('card4')">
           <img src="assets\images\h2o.png" alt="chatbot">
@@ -46,8 +55,8 @@
 <div class="card-container2" *ngIf="embedded">
   <mat-card class="small-card">
     
-      <span class="title">New Embedded Generation</span>
-      <hr class="horizontal-line" />
+      
+      <!-- <hr class="horizontal-line" /> -->
       <div class="content">
 
         <div class="data-type-container">
@@ -69,7 +78,7 @@
         <div class="dropdown-container">
           <label for="dropdown2">Select Vector Store</label>
           <select id="dropdown2">
-            <option >Select</option>
+            <option style="font-family: Outfit;">Select</option>
             <option >Option 1</option>
             <option >Option 2</option>
           </select>
@@ -77,7 +86,7 @@
         <div class="dropdown-container">
           <label for="dropdown3">Embedding Model Selection</label>
           <select id="dropdown3">
-            <option >Select</option>
+            <option style="font-family: Outfit;">Select</option>
             <option >Option 1</option>
             <option >Option 2</option>
           </select>
@@ -85,26 +94,25 @@
 
         <div class="input-container">
           <label for="inputField">Input Field:</label>
-          <input type="text" id="inputField" placeholder="Type embedding name here...">
+          <input style="font-family: Outfit;" type="text" id="inputField" placeholder="Type embedding name here...">
         </div>
         <div class="textarea-container">
           <label for="textArea">Text Area:</label>
-          <textarea id="textArea" placeholder="Add Description here..."></textarea>
+          <textarea style="font-family: Outfit;" id="textArea" placeholder="Add Description here..."></textarea>
         </div>
         <button class="action-button">Create Embedding</button>
     </div>
   </mat-card>
   
   <mat-card class="large-card">
-      <span class="title">Embedding list</span>
+      <span class="title" style="color: black;">Embedding list</span>
       <hr class="horizontal-line" />
       <div>
         <div class="table">
           <div class="table-header">
             <div class="header-cell f-column" >S.No</div>
             <div class="header-cell s-column" >Embedding DB</div>
-            <div class="header-cell wide-column">Description</div>
-            
+            <div class="header-cell wide-column">Description</div>   
           </div>
           <div  class="table-row" *ngFor="let item of EmbeddedData;let i=index">
             <div class="table-cell f-column" >{{i+1}}</div>
@@ -127,7 +135,7 @@
       <div class="modal-dialog modal-sm modal-dialog-scrollable popup">
         <div class="modal-content popup_content" >
           <div class="modal-header">
-            <h2 class="modal-title" id="staticBackdropLabel">In Context learning Chatbot</h2>
+            <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">In Context learning Chatbot</h2>
             <button
               type="button"
               class="btn-close"
@@ -137,7 +145,7 @@
           <div class="modal-body">
             <div class="pop-container">
               <div class="pop-content">
-                <label for="dropdown2">Select Store</label>
+                <label for="dropdown2" style="font-family: Outfit;">Select Store</label>
                 <select id="dropdown2">
                   <option >Select</option>
                   <option >Option 1</option>
@@ -155,10 +163,10 @@
             </div>            
           </div>
           <div class="modal-footer ok_button">
-            <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+            <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="font-family: Outfit;">
               Close
             </button>
-            <button  type="button" class="btn btn-primary btn-sm" routerLink="/list"  data-bs-dismiss="modal">Okay</button>
+            <button  type="button" class="btn btn-primary btn-sm" routerLink="/list"  data-bs-dismiss="modal" style="font-family: Outfit;">Okay</button>
           </div>
         </div>
       </div>

@@ -59,4 +59,10 @@ export class PipelineComponent {
     });
   }
 
+  Back(){
+    this.embedded=false;
+    this.home=true;
+    this.flow=false;
+}
+
 }

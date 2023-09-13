@@ -1,11 +1,11 @@
 <mat-card class="top">
-    <div style="margin-left: 10px"><h2 class="mt-2">Model Zoo</h2></div>
+    <div style="margin-left: 10px;"><h2 class="mt-2" style="font-family: Outfit;">Model Zoo</h2></div>
 </mat-card>
 
 <div class="main-container">
     <div class="search-bar">
       <div class="input-icon-container">
-        <input type="search" class="search-input" placeholder="Search by keywords..." />
+        <input type="search" class="search-input" placeholder="Search by keywords..." style="font-family: Outfit;"/>
         <mat-icon class="search-icon">search</mat-icon>
       </div>
     </div>
@@ -18,9 +18,9 @@
     <hr class="horizontal-line" />
 
     <div *ngFor="let model of Models; let i = index;">
-      <mat-card class="m-3" routerLink="/details" (click)="passData(model,i+1)">
+      <mat-card class="m-3 model_card" routerLink="/details" (click)="passData(model,i+1)">
         <div class="d-flex align-items-center m-2">
-          <span class="model-label">Model {{ i + 1 }}:</span>
+          <span class="card-tag">Model {{ i + 1 }}</span>
           <span class="model-name">{{ model.name }}</span>
           <span class="icon-container"><mat-icon>navigate_next</mat-icon></span>
         </div>

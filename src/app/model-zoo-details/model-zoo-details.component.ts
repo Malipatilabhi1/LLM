@@ -23,8 +23,10 @@ export class ModelZooDetailsComponent {
   }
   // ModelDetails:any=['Model Name','GSMBK','MATH',]
 
-  compareModel(model: any) {
-    this.selectedModel = model;
+  compareModel(model: any,i:number) {
+    this.selectedModel=model;
+    this.selectedModel.index = 'Model '+ (i+1);
+    console.log(this.selectedModel);
     this.compareMode = true;
   }
 }

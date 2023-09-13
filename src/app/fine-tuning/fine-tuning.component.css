@@ -10,10 +10,12 @@
   font-size: 20px;
   font-weight: 500;
   padding-top: 10px;
+  font-family: Outfit;
 }
 .sub-head{
   font-size: 16px;
   font-weight: 500;
+  font-family: Outfit;
 }
 mat-tab-group{
     margin-left: 10px;
@@ -51,36 +53,9 @@ mat-tab-group{
     margin-left: 1px;
   }
   
-
-
-
-
-  /* .input-container {
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0px 0px 10px;
+  option{
+    font-family: Outfit;
   }
-  
-  .input-container .section {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-right: 10px;
-  }
-  
-  .input-container label {
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-  
-  .input-container input,
-  .input-container select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  } */
   .section{
     width: 20vw;
     margin-bottom: 5px;
@@ -283,5 +258,22 @@ mat-tab-group{
   .s-column {
     margin-left: 5px;
     margin-right: 15px;
+    /* border-right:solid 1px #fff; */
+  }
+  
+  .table-header{
+    font-weight: 400;
+    color: white;
+    background-color: #55627d;
+  }
+  .table-row{
+    padding-top: 5px;
+    background-color: #F6F9FD;
+  }
+
+  .custom-checkbox {
+    border-color: #ff0000;
+    background-color: #ff0000 !important;
+    color: #ffffff;
   }
   

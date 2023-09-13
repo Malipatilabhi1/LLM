@@ -7,25 +7,25 @@
 <div class="main-container">
   <div class="search-bar">
     <div class="input-icon-container">
-      <input type="search" class="search-input" placeholder="Search by keywords..." />
+      <input type="search" class="search-input" placeholder="Search by keywords..." style="font-family: Outfit;" />
       <mat-icon class="search-icon">search</mat-icon>
     </div>
   </div>
   <div class="button-container" *ngIf="!showFolders">
-    <button mat-button [matMenuTriggerFor]="menu" class="end-button">+ Add Source</button>
+    <button mat-button [matMenuTriggerFor]="menu" class="end-button" style="font-family: Outfit;">+ Add Source</button>
     <mat-menu #menu="matMenu">
       <!-- <input type="search" class="dropdown-search-input" placeholder="Search options..." /> -->
       <button mat-menu-item *ngFor="let data of SourceData" data-bs-toggle="modal"
       data-bs-target="#getSource" (click)="sourceSelected(data.name)">
         <div class="icon-and-name">
           <img [src]="data.icon" width="17px" height="17px" class="icon" style="margin-top: 5px;">
-          <span class="option-name">{{ data.name }}</span>
+          <span class="option-name" style="font-family: Outfit;">{{ data.name }}</span>
         </div>
       </button>
     </mat-menu>
   </div>
   <div class="button-container" *ngIf="showFolders">
-    <button class="end-button" data-bs-toggle="modal"
+    <button class="newFolder" data-bs-toggle="modal"
     data-bs-target="#staticBackdrop">+ New Folder</button>
   </div>
 </div>
@@ -51,8 +51,6 @@
     </div>
     <div class="folder-name" (click)="$event.preventDefault();$event.stopPropagation()">{{folder}}</div>
   </mat-card>
-
-  
 </div>
 
 
@@ -117,7 +115,7 @@
 </section>
 
 
-<!-- Modal -->
+<!-- Modal---  Display Content -->
 <div class="modal fade right-modal" id="sourceModal1" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content sourceModal">
@@ -141,7 +139,7 @@
 </div>
 
 
-<!-- Modal -->
+<!-- Modal --- Folder Creation -->
 <div
   class="modal fade"
   id="staticBackdrop"
@@ -153,7 +151,7 @@
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content" style="min-width: 38vw;">
       <div class="modal-header">
-        <h2 class="modal-title" id="staticBackdropLabel">New Folder</h2>
+        <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">New Folder</h2>
         <button
           type="button"
           class="btn-close"
@@ -162,15 +160,15 @@
       </div>
       <div class="modal-body">
         <div class="input-row">
-          <label for="inputLabel">Name</label>
-          <input type="text" id="inputLabel" placeholder="Enter the folder name" [(ngModel)]="folderName">
+          <label for="inputLabel" style="font-family: Outfit;">Name</label>
+          <input type="text" id="inputLabel" placeholder="Enter the folder name" [(ngModel)]="folderName" style="font-family: Outfit;">
         </div>
       </div>
       <div class="modal-footer">
-        <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+        <button  type="button" class="btn btn-secondary btn-sm" id="popup-buttons" data-bs-dismiss="modal" style="font-family: Outfit;">
           Close
         </button>
-        <button  type="button" class="btn btn-primary btn-sm"  (click)="createFolder()"  data-bs-dismiss="modal">Create</button>
+        <button  type="button" class="btn btn-primary btn-sm" id="popup-buttons"  (click)="createFolder()"  data-bs-dismiss="modal" style="font-family: Outfit;">Create</button>
       </div>
     </div>
   </div>
@@ -188,7 +186,7 @@
   <div class="modal-dialog ">
     <div class="modal-content" style="min-width: 38vw;">
       <div class="modal-header">
-        <h2 class="modal-title" id="staticBackdropLabel">{{selectedSource}}</h2>
+        <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">{{selectedSource}}</h2>
         <button
           type="button"
           class="btn-close"
@@ -197,13 +195,13 @@
       </div>
       <div class="modal-body">
         <div class="input-container" *ngIf="!showLocal">
-          <label for="urlInput" class="label">Enter URL</label>
-          <input id="urlInput" type="text" [(ngModel)]="InputFile" placeholder="Enter URL here.." class="url-input">
+          <label for="urlInput" class="label" style="font-family: Outfit;">Enter URL</label>
+          <input id="urlInput" type="text" [(ngModel)]="InputFile" placeholder="Enter URL here.." class="url-input" style="font-family: Outfit;">
         </div>
       
         <div *ngIf="!showLocal">
           <div *ngFor="let input of additionalInputs; let i = index" class="input-container">
-            <label class="label">Enter Url {{ i + 2 }}</label>
+            <label class="label" style="font-family: Outfit;">Enter Url {{ i + 2 }}</label>
             <input type="text" class="additional-input" [(ngModel)]="additionalInputs[i]">
           </div>
         </div>

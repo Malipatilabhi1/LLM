@@ -7,22 +7,34 @@ mat-icon {
   padding-top: 7px;
 }
 
-.sub-head {
-  margin-left: 25px;
+
+
+#option{
+  padding-left: 44px;
 }
 
-
 /* Add a style for the highlighted Data Ingestion option */
-.active-option {
-  background-color: #007bff; /* Change to the desired highlight color */
-  color: #fff; /* Change to the desired text color for highlighted items */
+/* .active-option {
+  background-color: #195feaca; 
+  color: #fff !important; 
 }
 
 
 .inactive-option {
-  background-color: transparent; /* Background for inactive options */
-  color: #000; /* Text color for inactive options */
+  background-color: transparent; 
+  color: #000 !important; 
+} */
+
+.mat-nav-list a.active-option {
+  color: #ccc !important;
 }
+
+/* Style for the inactive options */
+.mat-nav-list a.inactive-option {
+  background-color: transparent;
+  color: #000;
+}
+
 
 .logout-item {
   position: absolute;
@@ -38,3 +50,7 @@ mat-icon {
 .sidebar-list{
   margin-top: 20px;
 }
+
+/* a{
+  font-family: Outfit;
+} */

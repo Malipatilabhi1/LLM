@@ -20,22 +20,22 @@
     align-items: center;
    margin-left: 10px;
   }
-
   .input-icon-container {
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 2px;
+    background-color: #e7eef5;
+    border-radius: 5px;
   }
-
   .search-input {
     border: none;
     outline: none;
-    width: 25vw;
+    width: 24vw;
+    background-color: #e7eef5;
   }
-
   .search-icon {
-    border: 1px solid;
+    /* border: 1px solid; */
     padding: 1px;
     margin-left: 1px;
   }
@@ -58,19 +58,36 @@
     margin-top: 0;
   }
 
-  .model-label {
+  /* .model-label {
     font-weight: normal;
     margin-right: 8px;
-  }
+    font-family: Outfit;
+  } */
   
   .model-name {
     font-weight: bold;
     margin-right: auto; /* Push the icon to the right end */
+    font-family: Outfit;
+    color: #0051CB;
+    margin-left: 70px;
   }
-  
+  .model_card:hover{
+    border: 1px solid #3366b3;
+  }
   .icon-container {
     display: flex;
     align-items: center;
+  }
+  
+  .card-tag {
+    position: absolute;
+    left: 0;
+    background-color: #0CB551;
+    color: #fff;
+    padding: 0px 15px 0px 3px;
+    font-size: 10px;
+    font-weight: 400;
+    clip-path: polygon(0% 0%, 100% 0%, 80% 50%, 100% 100%, 0% 100%);
   }
   
   

@@ -10,10 +10,12 @@
     font-size: 20px;
     font-weight: 500;
     padding-top: 10px;
+    font-family: Outfit;
   }
   .sub-head{
     font-size: 16px;
     font-weight: 500;
+    font-family: Outfit;
   }
   .main-container {
     display: flex;
@@ -22,7 +24,15 @@
     padding: 10px;
     max-width: 100%; /* Optional: Limit maximum width */
   }
-
+  span{
+    font-family: Outfit;
+  }
+  input{
+    font-family: Outfit;
+  }
+  label{
+    font-family: Outfit;
+  }
   .search-bar {
     display: flex;
     align-items: center;
@@ -33,21 +43,21 @@
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 2px;
+    background-color: #e7eef5;
+    border-radius: 5px;
   }
-
   .search-input {
     border: none;
     outline: none;
-    width: 25vw;
+    width: 24vw;
+    background-color: #e7eef5;
   }
-
   .search-icon {
-    border: 1px solid;
+    /* border: 1px solid; */
     padding: 1px;
     margin-left: 1px;
   }
-
   .button-container {
     margin-left: 10px; 
   }
@@ -87,6 +97,9 @@
     height: 15vh;
     box-sizing: border-box;
   }
+  .icon-card:hover{
+    border: 1px solid #007bff;
+  }
   
   .image-container {
     display: flex;
@@ -110,6 +123,8 @@
   .folder-name {
     margin-top: 10px;
     margin-left: 35px;
+    font-family: Outfit;
+    font-weight: 500;
     font-size: 12px;
     display: block;
     text-align: left; 
@@ -121,7 +136,12 @@
     margin-bottom: 8px; 
     width: 95%;
   }
-
+td,th{
+  font-family: Outfit;
+}
+option{
+  font-family: Outfit;
+}
 /* stepper */
 
  .mat-stepper-horizontal {
@@ -199,6 +219,7 @@
   cursor: pointer;
   margin-top: auto; 
   align-self: flex-end; 
+  font-family: Outfit;
 }
 /* div {
   
@@ -263,6 +284,7 @@ textarea{
   border-radius: 4px;
   cursor: pointer;
   width: 46%;
+  font-family: Outfit;
 }
 .textareaLabel{
   font-weight: 500;
@@ -290,6 +312,7 @@ textarea{
   border-radius: 4px;
   cursor: pointer;
   width: 120px; /* Adjust the width as needed */
+  font-family: Outfit;
 }
 .download-button{
   background-color:#28a745 !important;
@@ -335,4 +358,18 @@ textarea{
 }
 .back_button{
   padding-top: 5px;
+}
+
+#inputLabel{
+  margin-top: 5px;
+  padding: 6px;
+}
+.newFolder{
+  padding: 2px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Outfit;
 }

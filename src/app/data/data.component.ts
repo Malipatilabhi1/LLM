@@ -28,6 +28,7 @@ export class DataComponent {
   }
 
   localFile:any='';
+  
   ngOnInit(){
     this.getFolders();
     const storedData = localStorage.getItem('dataSource');
@@ -49,21 +50,22 @@ export class DataComponent {
   
   Folders:any=[];
 
-  Data:any=[
-    // {name:'https://drive.google.com/drive/folders',source:'Drive',type:'pdf',date:'08/08/2023 | 11:15',status:'completed',},
-    //         {name:'https://drive.google.com/drive/folders.png',source:'Drive',type:'png',date:'08/08/2023 | 11:15',status:'In-progress',}
+  Data1:any=[
+            {name:'https://drive.google.com/drive/folders',source:'Drive',type:'pdf',date:'08/08/2023 | 11:15',status:'completed',},
+            {name:'https://drive.google.com/drive/folders.png',source:'Drive',type:'png',date:'08/08/2023 | 11:15',status:'In-progress',}
           ]
 dummy:any=[];
 
   getFolders(){
-    this.http.get('http://13.234.148.242:3000/folders').subscribe(
-      response => {     
+    this.http.get('http://13.234.148.242:3000/folders').subscribe({
+      next:response => {     
          this.dummy=response;
         this.Folders=this.dummy.folders; 
       },
-      error => {
+      error:error => {
         console.error( error);
-      });
+      }
+    });
   }
 
   deleteFolders(folderName:any) {
@@ -79,12 +81,12 @@ dummy:any=[];
 
   createFolder() {
     this.http.post(`http://13.234.148.242:3000/create-folder/${this.folderName}`,{}).subscribe({
-      next:response => { 
-       
+      next:response => {  
       },
       error:error => {
         console.error( error);
    } });
+
 
     if (this.folderName.trim() !== '') { 
       this.Folders.push(this.folderName); 
@@ -97,9 +99,14 @@ dummy:any=[];
       this.showFolders=false;
       this.showDataList=true;
       this.selectedFolder=folderName;
+
+      if(folderName=='HR'){
+        this.dataSource=this.Data1;
+      }
   }
+
   Back(){
-    this.showFolders=true;
+      this.showFolders=true;
       this.showDataList=false;
   }
   

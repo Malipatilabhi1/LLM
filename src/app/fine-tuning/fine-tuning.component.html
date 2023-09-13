@@ -71,7 +71,7 @@
           <div>
             <div>
               <select class="dropdown" [(ngModel)]="selectedFolder" (ngModelChange)="updateFilteredData()">
-                <option value="val1">Select Raw Data</option>
+                <option value="val1" style="font-family: Outfit;">Select Raw Data</option>
                 <option *ngFor="let name of Folders">{{name}}</option>
               </select>
             </div>
@@ -80,16 +80,16 @@
               <div class="table">
                 <div class="table-header">
                   <div class="header-cell s-column">
-                    <input type="checkbox" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()">
+                    <input class="custom-checkbox" type="checkbox" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()" >
                   </div>
-                  <div class="header-cell wide-column" style="font-weight: 550;">Raw Data</div>
+                  <div class="header-cell wide-column" style="font-weight: 550;font-family: Outfit;">Raw Data</div>
                 </div>
                 <div class="table-content">
                   <div class="table-row" *ngFor="let data of RawData">
                     <div class="table-cell s-column">
-                      <input type="checkbox" [(ngModel)]="data.selected">
+                      <input class="custom-checkbox" type="checkbox" [(ngModel)]="data.selected">
                     </div>
-                    <div class="table-cell wide-column">{{ data.name }}</div>
+                    <div class="table-cell wide-column" style="font-family: Outfit;">{{ data.name }}</div>
                   </div>
                 </div>
               </div>
@@ -107,21 +107,21 @@
       
         <div class="right-column" >
           <div class="section">
-            <label for="inputField">Base Model </label>
+            <label for="inputField" style="font-family: Outfit;">Base Model </label>
             <!-- <input type="text" id="inputField" placeholder="Add based model here.."> -->
             <select id="inputField">
               <option>Select Model</option>
               <option *ngFor="let model of Models; let i = index;">{{model.name}}</option>
             </select>
           </div>
-            <label class="right-heading">Hyper parameter</label>
+            <label class="right-heading" style="font-family: Outfit;">Hyper parameter</label>
             <div class="input-row2">
                 <!-- First Column -->
                 <div class="input-item1">
                     <div>
                     <div class="example-label-container">
-                        <label id="example-name-label" class="example-name-label">Block Size</label>
-                        <label class="example-value-label">{{slider.value}}</label>
+                        <label id="example-name-label" class="example-name-label" style="font-family: Outfit;">Block Size</label>
+                        <label class="example-value-label" style="font-family: Outfit;">{{slider.value}}</label>
                       </div>
                       <mat-slider
                           class="example-margin"
@@ -135,7 +135,7 @@
                       </mat-slider>
                     </div>
 
-                    <label class="label">Evaluation Strategy</label>
+                    <label class="label" style="font-family: Outfit;">Evaluation Strategy</label>
                     <select id="selectCol" [(ngModel)]="strategy">
                         <option value="option1">Select</option>
                         <option value="value1">epoch</option>
@@ -143,7 +143,7 @@
 
                     <div>
                     <div class="example-label-container">
-                        <label id="example-name-label" class="example-name-label">Epochs</label>
+                        <label id="example-name-label" class="example-name-label" style="font-family: Outfit;">Epochs</label>
                         <label class="example-value-label">{{slider1.value}}</label>
                       </div>
                       <mat-slider
@@ -158,15 +158,15 @@
                       </mat-slider>
                     </div>
 
-                      <label class="label">Output Model Name</label>
-                    <input type="text" id="inputCol" placeholder="Type here...">
+                      <label class="label" style="font-family: Outfit;">Output Model Name</label>
+                    <input type="text" id="inputCol" placeholder="Type here..." style="font-family: Outfit;">
                 </div> 
                 <!-- Second Column -->
                 <div class="input-item1">
                     <div>
                     <div class="example-label-container">
-                        <label id="example-name-label" class="example-name-label">Batch Size</label>
-                        <label class="example-value-label">{{slider2.value}}</label>
+                        <label id="example-name-label" class="example-name-label" style="font-family: Outfit;">Batch Size</label>
+                        <label class="example-value-label" style="font-family: Outfit;">{{slider2.value}}</label>
                       </div>
                       <mat-slider
                           class="example-margin"
@@ -180,16 +180,16 @@
                       </mat-slider>
                     </div>
 
-                    <label class="label">Weight Decay</label>
+                    <label class="label" style="font-family: Outfit;">Weight Decay</label>
                     <input type="number" id="inputCol" [(ngModel)]="weight_decay" placeholder="Enter weight decay here..">
 
                     
-                    <label class="label" style=" margin-top: 10px;">Learning rate</label>
-                    <input type="text" id="inputCol" [(ngModel)]="LearningRate" placeholder="Type here...">
+                    <label class="label" style=" margin-top: 10px;font-family: Outfit;">Learning rate</label>
+                    <input style="font-family: Outfit;" type="text" id="inputCol" [(ngModel)]="LearningRate" placeholder="Type here...">
                 </div>
             </div>
             <div class="button-div">
-                  <button class="save-button1" >Train</button>
+                  <button class="save-button1" style="font-family: Outfit;">Train</button>
             </div>
         </div>
       </div>

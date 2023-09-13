@@ -14,7 +14,7 @@ export class ModelZooComponent {
 
   }
   ngOnInit(){
- this. getModels();
+    this. getModels();
   }
 
   Models:any=[

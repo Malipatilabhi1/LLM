@@ -11,7 +11,7 @@
     </div>
     <div class="button-container">
       <button class="end-button" data-bs-toggle="modal"
-      data-bs-target="#compare">Compare</button>
+      data-bs-target="#compare" style="font-family: Outfit;">Compare</button>
     </div>
 </div>
   <!-- Horizontal Line -->
@@ -20,27 +20,28 @@
 
     <div class="d-flex">
       <mat-card *ngIf="Model" class="m-2 main-card">
-        <span class="m-2">{{Model.index}} : <b>{{ Model.name}}</b></span>
+        <span class="card-tag" style="font-family: Outfit;">{{Model.index}} </span>
+        <span class="model_name" style="font-family: Outfit;"><b>{{ Model.name}}</b></span>
 
         <div>
-            <span><b class="m-3">Description:</b></span>
-            <div class="desc" style="background-color: rgb(243, 243, 242);">
+            <span><b class="m-3" style="font-family: Outfit;">Description:</b></span>
+            <div class="desc" style="background-color: rgb(243, 243, 242);font-family: Outfit;" >
                 {{Model.description}}
             </div>
         </div>
         <hr class="horizontal-line" />
         <div>
-          <span><b class="m-3">Dataset Overview:</b></span>
+          <span><b class="m-3" style="font-family: Outfit;">Dataset Overview:</b></span>
           <div class="desc" style="background-color: rgb(243, 243, 242);">
             <ul style="list-style-type: none;">
-                <li *ngFor="let item of Model?.datasetOverview?.split('\n')">{{ item }}</li>
+                <li *ngFor="let item of Model?.datasetOverview?.split('\n')" style="font-family: Outfit;">{{ item }}</li>
             </ul>
         </div>         
       </div>
         <hr class="horizontal-line" />
         <div>
-          <div><span><b class="m-3"> Benchmark</b></span></div>
-          <div class="m-3">Note:Values of Benchmark represented in %</div>
+          <div><span style="font-family: Outfit;"><b class="m-3"> Benchmark</b></span></div>
+          <div class="m-3" style="font-family: Outfit;">Note:Values of Benchmark represented in %</div>
 
           <table class="table">
             <tr>
@@ -80,63 +81,70 @@
       <hr class="horizontal-line" />
 
         <div>
-            <span><b class="m-3">Model Details:</b></span>
+            <span style="font-family: Outfit;"><b class="m-3">Model Details:</b></span>
             <div class="d-flex flex-row m-3">
-                <div class="mr-3"><b>Objective</b><br>
-                <span>Input- {{Model.input}}</span><br>
-                <span>Output- {{Model.output}}</span>
+                <div class="mr-3" style="font-family: Outfit;"><b>Objective</b><br>
+                <span style="font-family: Outfit;">Input- {{Model.input}}</span><br>
+                <span style="font-family: Outfit;">Output- {{Model.output}}</span>
                 </div>
-                <div class="mr-3"><b>Context Length</b>
+                <div class="mr-3" style="font-family: Outfit;"><b>Context Length</b>
                   <br>
-                <span>{{Model.contextLength}}</span>
+                <span style="font-family: Outfit;">{{Model.contextLength}}</span>
                 
               </div>
-              <div class="mr-3"><b>Source</b><br>
+              <div class="mr-3" style="font-family: Outfit;"><b>Source</b><br>
                
-                <span>{{Model.source}} </span>
+                <span style="font-family: Outfit;">{{Model.source}} </span>
               </div>
-              <div class="mr-3"><b>Architecture</b><br>
+              <div class="mr-3" style="font-family: Outfit;"><b>Architecture</b><br>
                 
-                <span>{{Model.architecture}} </span>
+                <span style="font-family: Outfit;">{{Model.architecture}} </span>
               </div>
-                <div class="mr-3"><b>License</b><br>
-                <span >{{Model.license}}</span>
+                <div class="mr-3" style="font-family: Outfit;"><b>License</b><br>
+                <span style="font-family: Outfit;">{{Model.license}}</span>
               </div>
             </div>
         </div>
         <hr class="horizontal-line" />
         <div>
             <div>
-            <span><b class="m-3">Important Links:</b></span></div>
+            <span style="font-family: Outfit;"><b class="m-3">Important Links:</b></span></div>
             <div class="m-3">
-              <span *ngIf="Model.githubBlogs !== null && Model.githubBlogs !== 'NA'">{{ Model.githubBlogs }}</span><br>
-                <span *ngIf="Model.researchPaper!=null && Model.researchPaper!=='NA'">{{Model.researchPaper}}</span>
+              <!-- <span class="link" *ngIf="Model.githubBlogs !== null && Model.githubBlogs !== 'NA'" style="font-family: Outfit;">{{ Model.githubBlogs }}</span> -->
+              <a class="link" *ngIf="Model.githubBlogs !== null && Model.githubBlogs !== 'NA'" style="font-family: Outfit;" href={{Model.githubBlogs}}>{{ Model.githubBlogs }}</a>
+              <br>
+              <a class="link" *ngIf="Model.researchPaper !== null && Model.researchPaper !== 'NA'" style="font-family: Outfit;" href={{Model.researchPaper}}>{{Model.researchPaper}}</a>
+                <!-- <span class="link" *ngIf="Model.researchPaper!=null && Model.researchPaper!=='NA'" style="font-family: Outfit;">{{Model.researchPaper}}</span> -->
             </div> 
         </div> 
       </mat-card>
+
+
     <!--Second card for compare-->
       <mat-card *ngIf="selectedModel" class="m-2 compare-card">
-        <span class="m-2">{{selectedModel.index}} : <b>{{ selectedModel.name}}</b></span>
+        <!-- <span class="m-2" style="font-family: Outfit;">{{selectedModel.index}}  <b>{{ selectedModel.name}}</b></span> -->
+        <span class="card-tag" style="font-family: Outfit;">{{selectedModel.index}} </span>
+        <span class="model_name" style="font-family: Outfit;"><b>{{ selectedModel.name}}</b></span>
 
         <div>
-            <span><b class="m-3">Description:</b></span>
-            <div class="desc" style="background-color: rgb(243, 243, 242);">
+            <span style="font-family: Outfit;"><b class="m-3">Description:</b></span>
+            <div class="desc" style="background-color: rgb(243, 243, 242);font-family: Outfit;">
                 {{selectedModel.description}}
             </div>
         </div>
         <hr class="horizontal-line" />
         <div>
-          <span><b class="m-3">Dataset Overview:</b></span>
+          <span style="font-family: Outfit;"><b class="m-3">Dataset Overview:</b></span>
           <div class="desc" style="background-color: rgb(243, 243, 242);">
             <ul style="list-style-type: none;">
-                <li *ngFor="let item of selectedModel?.datasetOverview?.split('\n')">{{ item }}</li>
+                <li *ngFor="let item of selectedModel?.datasetOverview?.split('\n')" style="font-family: Outfit;">{{ item }}</li>
             </ul>
         </div>         
       </div>
         <hr class="horizontal-line" />
         <div>
-          <div><span><b class="m-3"> Benchmark</b></span></div>
-          <div class="m-3">Note:Values of Benchmark represented in %</div>
+          <div><span style="font-family: Outfit;"><b class="m-3"> Benchmark</b></span></div>
+          <div class="m-3" style="font-family: Outfit;">Note:Values of Benchmark represented in %</div>
 
           <table class="table">
             <tr>
@@ -176,20 +184,20 @@
       <hr class="horizontal-line" />
 
         <div>
-            <span><b class="m-3">Model Details:</b></span>
+            <span style="font-family: Outfit;"><b class="m-3">Model Details:</b></span>
             <div class="d-flex flex-row m-3">
-                <div class="mr-3"><b>Objective</b><br>
-                <span>Input- {{selectedModel.input}}</span><br>
-                <span>Output- {{selectedModel.output}}</span>
+                <div class="mr-3" style="font-family: Outfit;"><b>Objective</b><br>
+                <span style="font-family: Outfit;">Input- {{selectedModel.input}}</span><br>
+                <span style="font-family: Outfit;">Output- {{selectedModel.output}}</span>
                 </div>
-                <div class="mr-3"><b>Context Length</b>
+                <div class="mr-3" style="font-family: Outfit;"><b>Context Length</b>
                   <br>
-                <span>{{selectedModel.contextLength}}</span>
+                <span style="font-family: Outfit;">{{selectedModel.contextLength}}</span>
                 
               </div>
-              <div class="mr-3"><b>Source</b><br>
+              <div class="mr-3" style="font-family: Outfit;"><b>Source</b><br>
                
-                <span>{{selectedModel.source}} </span>
+                <span style="font-family: Outfit;">{{selectedModel.source}} </span>
               </div>
               <div class="mr-3"><b>Architecture</b><br>
                 
@@ -205,8 +213,8 @@
             <div>
             <span><b class="m-3">Important Links:</b></span></div>
             <div class="m-3">
-              <span *ngIf="selectedModel.githubBlogs !== null && selectedModel.githubBlogs !== 'NA'">{{ selectedModel.githubBlogs }}</span><br>
-                <span *ngIf="selectedModel.researchPaper!=null && selectedModel.researchPaper!=='NA'">{{selectedModel.researchPaper}}</span>
+              <span class="link" *ngIf="selectedModel.githubBlogs !== null && selectedModel.githubBlogs !== 'NA'">{{ selectedModel.githubBlogs }}</span><br>
+                <span class="link" *ngIf="selectedModel.researchPaper!=null && selectedModel.researchPaper!=='NA'">{{selectedModel.researchPaper}}</span>
             </div> 
         </div> 
       </mat-card>
@@ -264,7 +272,7 @@ aria-hidden="true">
 <div class="modal-dialog modal-sm modal-dialog-scrollable popup2">
   <div class="modal-content popup2_content" >
     <div class="modal-header">
-      <h2 class="modal-title" id="staticBackdropLabel">Compare</h2>
+      <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">Compare</h2>
       <button
         type="button"
         class="btn-close"
@@ -273,8 +281,8 @@ aria-hidden="true">
     </div>
     <div class="modal-body">
       <div *ngFor="let model of Models;let i=index">
-        <mat-card class="p-2 m-2" (click)="compareModel(model)">
-          <span>Model {{i+1}}: <b>{{model.name}}</b></span>
+        <mat-card class="p-2 m-2" (click)="compareModel(model,i)">
+          <span style="font-family: Outfit;">Model {{i+1}}: <b>{{model.name}}</b></span>
         </mat-card>
       </div>
     </div>

@@ -9,7 +9,7 @@
   .title{
     font-size: 20px;
     font-weight: 500;
-
+    font-family: Outfit;
   }
   .back_icon{
     padding-top: 5px;
@@ -29,22 +29,22 @@
     align-items: center;
    margin-left: 10px;
   }
-
   .input-icon-container {
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 2px;
+    background-color: #e7eef5;
+    border-radius: 5px;
   }
-
   .search-input {
     border: none;
     outline: none;
-    width: 25vw;
+    width: 24vw;
+    background-color: #e7eef5;
   }
-
   .search-icon {
-    border: 1px solid;
+    /* border: 1px solid; */
     padding: 1px;
     margin-left: 1px;
   }
@@ -105,9 +105,43 @@
     border: 1px solid black;
     margin-right: 10px;
     margin-left: 10px;
-    width: 90%;
+    width: 93%;
   }
   td,th{
     text-align: center;
     border: 1px solid black;
+    font-family: Outfit !important;
+  }
+
+  span{
+    font-family: Outfit;
+  }
+
+  .card-tag {
+    position: absolute;
+    top:2;
+    left: 0;
+    background-color: #0CB551;
+    color: #fff;
+    padding: 0px 15px 0px 3px;
+    font-size: 10px;
+    font-weight: 400;
+    clip-path: polygon(0% 0%, 100% 0%, 80% 50%, 100% 100%, 0% 100%);
+  }
+  .model_name{
+    margin: 25px 0px 10px 15px;
+    color: #0051CB;
+  }
+  .link{
+    color: #0051CB;
+    text-decoration: none;
+  }
+  th{
+    font-weight: 400;
+    color: white;
+    background-color: #3F4E6C;
+  }
+  td{
+    padding-top: 5px;
+    background-color: #F6F9FD;
   }

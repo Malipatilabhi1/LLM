@@ -1,5 +1,5 @@
 <mat-card class="top">
-    <div style="margin-left: 10px"><h2 class="mt-2">Benchmark</h2></div>
+    <div style="margin-left: 10px"><h2 class="mt-2" style="font-family: Outfit;">Benchmark</h2></div>
 </mat-card>
 
 <div>
@@ -23,9 +23,6 @@
   </mat-card>
 </div>
 
-
-
-
     <mat-card class="m-2 benchmark">
         <div style="display: flex; align-items: center;">
             <select  id="modelB" [(ngModel)]="selectedModel">
@@ -41,7 +38,7 @@
           </select> -->
           <button mat-button color="primary" class="submit-button" (click)="Evaluate()">Evaluate</button>
 
-          <div *ngIf="loading1" class="loading-indicator1">
+          <div *ngIf="loading1" class="loading-indicator1" style="font-family: Outfit;">
             <i class="fas fa-spinner fa-spin"></i> Loading... Wait a moment
           </div>
         </div>

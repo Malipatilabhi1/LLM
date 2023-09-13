@@ -1,10 +1,24 @@
 .top{
-    width: auto;
-    height: 50px;
-    flex-shrink: 0;
-    border-bottom: 0.5px solid #9D9CA9;
-    background-color: #fff;
-    margin-bottom: 15px;
+  width: auto;
+  height: 50px;
+  flex-shrink: 0;
+  border-bottom: 0.5px solid #9D9CA9;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+.head{
+font-size: 20px;
+font-weight: 500;
+padding-top: 10px;
+font-family: Outfit;
+}
+.sub-head{
+font-size: 16px;
+font-weight: 500;
+font-family: Outfit;
+}
+.back_button{
+  padding-top: 5px;
 }
   
 .card-container {
@@ -34,6 +48,10 @@
   display: block;
   margin: 0 auto;
   max-width: 60px;
+  background-color: #EBF3FF;
+  border-radius: 50%;
+  border: solid 1px #EBF3FF;
+  padding: 8px;
 }
 
 .card span {
@@ -44,6 +62,9 @@
 
 .selected-card {
   border: 2px solid rgb(165, 161, 161);
+}
+.title{
+  color: #0051CB;
 }
 
   /* embedded */
@@ -150,6 +171,7 @@ label{
   border-radius: 3px;
   cursor: pointer;
   width: 97%;
+  font-family: Outfit;
 }
   
 /* table section*/
@@ -163,13 +185,16 @@ label{
   
   .table-header {
     display: flex;
-    background-color: #f0f0f0;
     padding: 10px;
+    color: white;
+    font-weight: 400;
+    background-color: #455370 !important;
   }
   
   .header-cell {
     flex: 1;
     text-align: center;
+    font-family: Outfit;
   }
   
   .table-row {
@@ -178,11 +203,13 @@ label{
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    background-color: #F6F9FD !important;
   }
   
   .table-cell {
     flex: 1;
     text-align: center;
+    font-family: Outfit;
   }
   
   /* Optional styling for action and option buttons */
@@ -240,3 +267,29 @@ label{
     /* width: 84vw; */
     height: 81vh;
   }
+  span{
+    font-family: Outfit;
+  }
+  label{
+    font-family: Outfit;
+  }
+  option{
+    font-family: Outfit;
+  }
+  
+
+  /* .image-container {
+  width: 100px;
+  height: 100px;
+  background-color: #EBF3FF;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+} */

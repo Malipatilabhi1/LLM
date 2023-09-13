@@ -1,5 +1,5 @@
 <mat-card class="top">
-    <div style="margin-left: 10px"><h2 class="mt-2">ChatBattle</h2></div>
+    <div style="margin-left: 10px"><h2 class="mt-2" style="font-family: Outfit;">ChatBattle</h2></div>
 </mat-card>
 
 <div>
@@ -32,7 +32,7 @@
             </select>
           <mat-card class="custom-card">
             <span class="card-tag">Model 2</span>
-            <div *ngIf="loading" class="loading-indicator">
+            <div *ngIf="loading" class="loading-indicator" style="font-family: Outfit;">
               <i class="fas fa-spinner fa-spin"></i> Loading...
             </div>
             <span class="model_content">{{ModelsData.model_B_response}}</span>
@@ -44,7 +44,7 @@
         </div>
       </div>
       <div>
-        <input matInput class="input" placeholder="Enter text and press enter.." [(ngModel)]="inputText">
+        <input matInput class="input" placeholder="Enter text and press enter.." [(ngModel)]="inputText" style="font-family: Outfit;">
         <button class="send-button" (click)="sendData()">Send</button>
       </div>
     <hr class="horizontal-line" />

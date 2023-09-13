@@ -26,13 +26,23 @@
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
+  font-family: Outfit;
 }
 
 .sub-head {
   font-size: 16px;
   font-weight: 500;
+  font-family: Outfit;
 }
-
+span{
+  font-family: Outfit;
+}
+option{
+  font-family: Outfit;
+}
+label{
+  font-family: Outfit;
+}
 .header-right {
   display: flex;
   align-items: center;
@@ -105,6 +115,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 13px;
+    font-family: Outfit;
   }
   #dropdownCol{
     width: 25vw;
@@ -156,13 +167,16 @@
   
   .table-header {
     display: flex;
-    background-color: #f0f0f0;
     padding: 10px;
+    color: white;
+    font-weight: 400;
+    background-color: #455370 !important;
   }
   
   .header-cell {
     text-align: start;
     font-weight: 550;
+    font-family: Outfit;
   }
   
   .header-cell:nth-child(1), .table-cell:nth-child(1) {
@@ -183,10 +197,12 @@
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    background-color: #F6F9FD !important;
   }
   
   .table-cell {
     text-align: start;
+    font-family: Outfit;
   }
   .delete-cell {
     flex: 0.5; /* Adjust the width for the delete cell */
@@ -215,6 +231,7 @@
   .textareaLabel{
     font-weight: 500;
     margin-bottom: 0;
+    font-family: Outfit;
   }
   .button-wrapper {
     text-align: right;
@@ -229,6 +246,7 @@
     border-radius: 4px;
     cursor: pointer;
     width: 30%;
+    font-family: Outfit;
   }
 
   button#myButton {
@@ -243,12 +261,13 @@
   }
   
   #divArea{
-    background-color: #dbdbdb;
+    background-color: #FCF8EC;
     min-height: 16vh;
-    border: none;
+    border: 1px solid #FCD462;
     border-radius: 4px;
     padding: 5px;
     overflow-y: auto;
+    font-family: Outfit;
   }
   .rule-section{
     margin: 10px 15px 0px 15px;
@@ -332,6 +351,7 @@ textarea {
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical; 
+    background-color: #5d626e18;
 }
 
 .container {

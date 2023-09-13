@@ -6,7 +6,7 @@
       <span class="sub-head" *ngIf="showSelect"> / {{subTitle}}</span>
     </div>
     <div class="header-right" *ngIf="showSelect">
-      <button class="action-button" (click)="applyRule()">Apply Rule</button>
+      <button class="action-button" (click)="applyRule()" style="font-family: Outfit;">Apply Rule</button>
     </div>
   </div>
 </mat-card>
@@ -54,7 +54,7 @@
     
         <div class="input-row" style="margin-top: 5px; margin-left: 5px;">
           <label class="textareaLabel" for="textareaInput">User Prompt</label>
-          <textarea id="textareaInput" rows="4" [(ngModel)]="textareaValue" placeholder="Enter text"></textarea>
+          <textarea style="font-family: Outfit;" id="textareaInput" rows="4" [(ngModel)]="textareaValue" placeholder="Enter text"></textarea>
         </div>
         
         <div class="button-wrapper">
@@ -64,12 +64,12 @@
             </div>
         </div>
         <div>
-            <h3>Output</h3>
+            <h3 style="font-family: Outfit;">Output</h3>
             <div class="input-row" style="margin-top: 5px;margin-left: 5px;">
                 <label class="textareaLabel" for="divArea">Without LLM Moderator</label>
                 <div id="divArea" placeholder="Enter text">
                   {{withoutLLM}}
-                  <div *ngIf="loading" class="loading-indicator1">
+                  <div *ngIf="loading" class="loading-indicator1" style="font-family: Outfit;">
                     <i class="fas fa-spinner fa-spin"></i> Loading... 
                   </div>
                 </div>
@@ -78,7 +78,7 @@
                 <label class="textareaLabel" for="divArea">With LLM Moderator</label>
                 <div id="divArea" rows="3" placeholder="Enter text">
                   {{withLLM}}
-                  <div *ngIf="loading" class="loading-indicator1">
+                  <div *ngIf="loading" class="loading-indicator1" style="font-family: Outfit;">
                     <i class="fas fa-spinner fa-spin"></i> Loading... 
                   </div>
                 </div>
@@ -94,7 +94,7 @@
 <div *ngFor="let categoryName of categoryNames" class="rule-section">
   <mat-expansion-panel>
     <mat-expansion-panel-header>
-      <mat-panel-title>
+      <mat-panel-title style="font-family: Outfit;">
         {{ categoryName }}
       </mat-panel-title>
     </mat-expansion-panel-header>
@@ -146,7 +146,7 @@
  <div class="modal-dialog modal-dialog-scrollable">
    <div class="modal-content" style="min-width: 38vw;">
      <div class="modal-header">
-       <h2 class="modal-title" id="staticBackdropLabel">Add Custom Rules</h2>
+       <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">Add Custom Rules</h2>
        <button
          type="button"
          class="btn-close"
@@ -157,7 +157,7 @@
         <div class="input-row2">
             <!-- First Column -->
             <div class="input-item1">
-                <label class="label">Category*</label>
+                <label class="label" style="font-family: Outfit;">Category*</label>
                 <select id="selectCol">
                     <option value="option1">Select Task</option>
                     <option></option>
@@ -165,7 +165,7 @@
             </div> 
             <!-- Second Column -->
             <div class="input-item1">
-                <label class="label">Rule Name*</label>
+                <label class="label" style="font-family: Outfit;">Rule Name*</label>
                 <input type="number" id="inputCol" placeholder="Enter value">
             </div>
         </div>
@@ -177,7 +177,7 @@
         <!-- Define Your Rules -->
         <div class="prompt">
             <label>Define Your Rules</label>
-            <textarea rows="7" placeholder="Add Description...">
+            <textarea style="font-family: Outfit;" rows="7" placeholder="Add Description...">
                 define user <express><insult>
                     "You are Stupid"
                 #Basic guardrail against insults.
@@ -189,10 +189,10 @@
         </div>
     </div>
      <div class="modal-footer">
-       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="font-family: Outfit;">
          Close
        </button>
-       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" >Add</button>
+       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" style="font-family: Outfit;">Add</button>
      </div>
    </div>
  </div>
@@ -210,7 +210,7 @@
  <div class="modal-dialog modal-dialog-scrollable">
    <div class="modal-content" style="min-width: 38vw;">
      <div class="modal-header">
-       <h2 class="modal-title" id="staticBackdropLabel">Load Rules</h2>
+       <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">Load Rules</h2>
        <button
          type="button"
          class="btn-close"
@@ -233,10 +233,10 @@
           
     </div>
      <div class="modal-footer">
-       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="font-family: Outfit;">
          Close
        </button>
-       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="onUpload()">Load</button>
+       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="onUpload()" style="font-family: Outfit;">Load</button>
      </div>
    </div>
  </div>
@@ -253,7 +253,7 @@
  <div class="modal-dialog modal-dialog-scrollable">
    <div class="modal-content" style="min-width: 38vw;">
      <div class="modal-header">
-       <h2 class="modal-title" id="staticBackdropLabel">Enter Name</h2>
+       <h2 class="modal-title" id="staticBackdropLabel" style="font-family: Outfit;">Enter Name</h2>
        <button
          type="button"
          class="btn-close"
@@ -263,14 +263,14 @@
      <div class="load-modal-body">
         <div class="input-item2">
           <label class="label">Enter Name to save the file</label>
-          <input type="text" class="inputCol" placeholder="Enter name" [(ngModel)]="fileName">
+          <input style="font-family: Outfit;" type="text" class="inputCol" placeholder="Enter name" [(ngModel)]="fileName">
         </div>       
     </div>
      <div class="modal-footer">
-       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+       <button  type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="font-family: Outfit;">
          Close
        </button>
-       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="saveRuleBook()">Save</button>
+       <button  type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="saveRuleBook()" style="font-family: Outfit;">Save</button>
      </div>
    </div>
  </div>

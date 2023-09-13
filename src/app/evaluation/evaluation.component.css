@@ -38,16 +38,24 @@
   .selected-card {
     border: 2px solid rgb(165, 161, 161);
   }
-  
+  span{
+    font-family: Outfit;
+  }
   #title {
     font-size: 15px;
     font-weight: 500;
     padding: 2px;
+    font-family: Outfit;
+    color: #0051CB;
+  }
+  option{
+    font-family: Outfit;
   }
   
   #sub-title {
-    font-size: 10px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: Outfit;
   }
   
   
@@ -74,6 +82,7 @@
     padding: 8px 15px;
     border-radius: 4px;
     cursor: pointer;
+    font-family: Outfit;
     transition: background-color 0.3s ease;
   }
   
@@ -107,8 +116,16 @@
   td, th {
     width: 10vw;
     height: 10px;  
+    font-family: Outfit;
   }
-
+th{
+  color: white;
+  font-weight: 400;
+  background-color: #455370 !important;
+}
+td{
+  background-color: #F6F9FD !important;
+}
   /* chatBattle */
   /* .card-wrapper {
     display: flex;

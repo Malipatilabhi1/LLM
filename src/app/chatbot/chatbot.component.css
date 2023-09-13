@@ -13,6 +13,7 @@
   #chatbot_dropdown{
     width:20vw;
     height: 5vh;
+    margin-left: 40px;
   }
   .horizontal-line1{
     margin: 0;
@@ -31,11 +32,13 @@
     width: 100%;
     margin-left: 20px;
     margin-bottom: 2px;
+    font-family: Outfit;
   }
   .example-box{
     height: 20px;
     border: solid 1px black;
     background-color: #f8f7f8 !important;
+    font-family: Outfit;
   }
   .chatbot_input{
     align-content: center;
@@ -44,4 +47,20 @@
     height: 5vh;
     width: 74vw;
   }
-  
+  span{
+    font-family: Outfit;
+  }
+  option{
+    font-family: Outfit;
+  }
+  .card-tag {
+    position: absolute;
+    top: 4;
+    left: 0;
+    background-color: #0CB551;
+    color: #fff;
+    padding: 0px 15px 0px 3px;
+    font-size: 10px;
+    font-weight: 400;
+    clip-path: polygon(0% 0%, 100% 0%, 80% 50%, 100% 100%, 0% 100%);
+  }

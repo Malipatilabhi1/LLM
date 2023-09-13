@@ -10,10 +10,12 @@
   font-size: 20px;
   font-weight: 500;
   padding-top: 10px;
+  font-family: Outfit;
 }
 .sub-head{
   font-size: 16px;
   font-weight: 500;
+  font-family: Outfit;
 }
 .main-container {
   display: flex;
@@ -30,15 +32,18 @@
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 2px;
+  background-color: #e7eef5;
+  border-radius: 5px;
 }
 .search-input {
   border: none;
   outline: none;
-  width: 25vw;
+  width: 24vw;
+  background-color: #e7eef5;
 }
 .search-icon {
-  border: 1px solid;
+  /* border: 1px solid; */
   padding: 1px;
   margin-left: 1px;
 }
@@ -46,12 +51,25 @@
   margin-left: 10px; 
 }
 .end-button {
-  padding: 5px 10px;
+  padding: 2px 10px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-family: Outfit;
+}
+.newFolder{
+  padding: 2px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Outfit;
+}
+#urlInput{
+  padding: 8px 1px 8px 1px;
 }
 .icon-and-name {
   display: flex;
@@ -80,6 +98,7 @@
 }
 .title{
   margin-left: 15px;
+  font-family: Outfit;
 }
 .card-container {
   display: flex;
@@ -102,6 +121,9 @@ mat-select{
   height: 15vh;
   box-sizing: border-box;
 }
+.icon-card:hover{
+  border: 1px solid #007bff;
+}
 .image-container {
   display: flex;
   justify-content: space-between;
@@ -119,6 +141,8 @@ mat-icon {
 .folder-name {
   margin-top: 10px;
   margin-left: 35px;
+  font-family: Outfit;
+  font-weight: 500;
   font-size: 12px;
   display: block;
   text-align: left; 
@@ -143,6 +167,7 @@ mat-icon {
 }
 th,td{
   text-align: center;
+  font-family: Outfit;
 }
 .scrollable-container {
   max-height: 71.5vh; 
@@ -181,7 +206,9 @@ th,td{
 .back_button{
   padding-top: 5px;
 }
-
+#inputLabel{
+  padding: 8px;
+}
 
 
 
@@ -272,4 +299,9 @@ font-weight: 500;
 }
 .custom-progress-bar {
   height: 30px; /* Adjust the height as needed */
+}
+
+#popup-buttons{
+  padding: 2px 10px;
+  border-radius: 4px;
 }
